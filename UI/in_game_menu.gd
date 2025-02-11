@@ -56,9 +56,13 @@ func _on_back_pressed():
 func _on_advance_pressed():
 	print("check if we have enough EXP to advance")
 	print("And we have to wait for unit build queue to be empty")
-	GlobalVariables.current_stage += 1
-	update_sprites_with_age()
-	pass # Replace with function body.
+	if GlobalVariables.player_exp >= GlobalVariables.get_exp_to_next_age() and queue.is_empty():
+		GlobalVariables.current_stage += 1
+		update_sprites_with_age()
+	else:
+		$root_label.show()
+		$root_label.text = "Not enough XP!"
+	
 
 
 func _on_turret_pressed():
@@ -208,8 +212,8 @@ func _on_tank_mouse_entered():
 func _on_turret_1_pressed():
 	# change to a turret selected state? 
 	# Check if the player has enough money to buy the turret
-	if GlobalVariables.player_money >= 100:
-		GlobalVariables.player_money -= 100
+	if GlobalVariables.player_money >= GlobalVariables.get_turret_price(GlobalVariables.current_stage, 1):
+		GlobalVariables.player_money -= GlobalVariables.get_turret_price(GlobalVariables.current_stage, 1)
 	else:
 		$root_label.show()
 		$root_label.text = "Not enough money!"
@@ -218,8 +222,9 @@ func _on_turret_1_pressed():
 	# allow the player to choose where the want to spawn the turret
 	# spawn the sprite_follow_mouse object
 	var sprite_follow_mouse : Sprite2D = load("res://UI/sprite_follow_player_mouse.tscn").instantiate()
-	sprite_follow_mouse.texture = load("res://age of war sprites/bases/cave/turret_1/cave_turret_1_attack0001.png")
+	sprite_follow_mouse.texture = load("res://age of war sprites/bases/" + GlobalVariables.get_current_age_as_string() + "/turret_1/" + GlobalVariables.get_current_age_as_string() + "_turret_1_attack0001.png")
 	sprite_follow_mouse.self_modulate = Color(1,1,1, 0.5)
+	sprite_follow_mouse.turret_name = GlobalVariables.get_current_age_as_string() + "_turret_1"
 	get_node("/root/main_game").add_child(sprite_follow_mouse)
 	
 	# change context to cancel button
@@ -235,7 +240,11 @@ func _on_cancel_buy_turret_pressed():
 	$buy_turret_cancel.hide()
 	get_node("/root/main_game/player_base").deactivate_buttons()
 	# refund the price of the turret
-	GlobalVariables.player_money += 100
+	var turret_name = get_node("/root/main_game/sprite_follow_player_mouse").turret_name
+	var stage = turret_name.split("_")[0]
+	var turret_number = int(turret_name.split("_")[2])
+	var refund = GlobalVariables.get_turret_price(GlobalVariables.get_stage_from_string(stage), turret_number)
+	GlobalVariables.player_money += refund
 	
 func hide_turret_cancel_button_and_show_turret_menu():
 	$turret_menu.show()
@@ -257,7 +266,6 @@ func _on_back_mouse_entered():
 
 
 func _on_add_turret_spot_pressed():
-	print("check if we have enough money to add a new turret spot")
 	if GlobalVariables.player_money >= get_node("/root/main_game/player_base").get_price_of_new_turret_slot():
 		GlobalVariables.player_money -= get_node("/root/main_game/player_base").get_price_of_new_turret_slot()
 	elif get_node("/root/main_game/player_base").get_price_of_new_turret_slot() == INF:
@@ -274,7 +282,8 @@ func _on_add_turret_spot_pressed():
 
 func _on_turret_1_mouse_entered():
 	$root_label.show()
-	$root_label.text = "$100 - Rock slingshot"
+	$root_label.text = "${price} - {name}".format({"price": GlobalVariables.get_turret_price(GlobalVariables.current_stage, 1),
+													"name": GlobalVariables.get_turret_name(GlobalVariables.current_stage, 1)})
 
 
 func _on_back_mouse_entered_from_turret():
@@ -294,7 +303,8 @@ func _on_turret_mouse_entered():
 
 func _on_turret_2_mouse_entered():
 	$root_label.show()
-	$root_label.text = "$200 - Egg automatic"
+	$root_label.text = "${price} - {name}".format({"price": GlobalVariables.get_turret_price(GlobalVariables.current_stage, 2),
+													"name": GlobalVariables.get_turret_name(GlobalVariables.current_stage, 2)})
 
 
 func _on_add_turret_spot_mouse_entered():
@@ -306,4 +316,79 @@ func _on_add_turret_spot_mouse_entered():
 
 
 func _on_sell_turret_pressed():
+	var sprite_follow_mouse : Sprite2D = load("res://UI/sprite_follow_player_mouse.tscn").instantiate()
+	sprite_follow_mouse.texture = load("res://age of war sprites/ui/sell.png")
+	sprite_follow_mouse.self_modulate = Color(1,1,1, 0.5)
+	get_node("/root/main_game").add_child(sprite_follow_mouse)
 	get_node("/root/main_game/player_base").activate_turret_sell_buttons()
+	$root_hbox_container.hide()
+	$sell_turret_cancel.show()
+
+
+func _on_turret_2_pressed():
+	if GlobalVariables.player_money >= GlobalVariables.get_turret_price(GlobalVariables.current_stage, 2):
+		GlobalVariables.player_money -= GlobalVariables.get_turret_price(GlobalVariables.current_stage, 2)
+	else:
+		$root_label.show()
+		$root_label.text = "Not enough money!"
+		return
+	
+	# allow the player to choose where the want to spawn the turret
+	# spawn the sprite_follow_mouse object
+	var sprite_follow_mouse : Sprite2D = load("res://UI/sprite_follow_player_mouse.tscn").instantiate()
+	sprite_follow_mouse.texture = load("res://age of war sprites/bases/" + GlobalVariables.get_current_age_as_string() + "/turret_2/" + GlobalVariables.get_current_age_as_string() + "_turret_2_attack0001.png")
+	sprite_follow_mouse.self_modulate = Color(1,1,1, 0.5)
+	sprite_follow_mouse.turret_name = GlobalVariables.get_current_age_as_string() + "_turret_2"
+	get_node("/root/main_game").add_child(sprite_follow_mouse)
+	
+	# change context to cancel button
+	$turret_menu.hide()
+	$buy_turret_cancel.show()
+	
+	get_node("/root/main_game/player_base").activate_turret_buy_buttons()
+
+
+func _on_sell_turret_mouse_entered():
+	$root_label.show()
+	$root_label.text = "Sell a turret"
+
+
+func _on_advance_mouse_entered():
+	$root_label.show()
+	$root_label.text = "{exp} Xp - Evolve to next age".format({"exp": GlobalVariables.get_exp_to_next_age()})
+
+
+func _on_cancel_sell_turret_pressed():
+	get_node("/root/main_game/sprite_follow_player_mouse").queue_free()
+	$root_hbox_container.show()
+	$sell_turret_cancel.hide()
+	get_node("/root/main_game/player_base").deactivate_buttons()
+
+
+func _on_turret_3_mouse_entered():
+	$root_label.show()
+	$root_label.text = "${price} - {name}".format({"price": GlobalVariables.get_turret_price(GlobalVariables.current_stage, 3),
+													"name": GlobalVariables.get_turret_name(GlobalVariables.current_stage, 3)})
+
+
+func _on_turret_3_pressed():
+	if GlobalVariables.player_money >= GlobalVariables.get_turret_price(GlobalVariables.current_stage, 3):
+		GlobalVariables.player_money -= GlobalVariables.get_turret_price(GlobalVariables.current_stage, 3)
+	else:
+		$root_label.show()
+		$root_label.text = "Not enough money!"
+		return
+	
+	# allow the player to choose where the want to spawn the turret
+	# spawn the sprite_follow_mouse object
+	var sprite_follow_mouse : Sprite2D = load("res://UI/sprite_follow_player_mouse.tscn").instantiate()
+	sprite_follow_mouse.texture = load("res://age of war sprites/bases/" + GlobalVariables.get_current_age_as_string() + "/turret_3/" + GlobalVariables.get_current_age_as_string() + "_turret_3_attack0001.png")
+	sprite_follow_mouse.self_modulate = Color(1,1,1, 0.5)
+	sprite_follow_mouse.turret_name = GlobalVariables.get_current_age_as_string() + "_turret_3"
+	get_node("/root/main_game").add_child(sprite_follow_mouse)
+	
+	# change context to cancel button
+	$turret_menu.hide()
+	$buy_turret_cancel.show()
+	
+	get_node("/root/main_game/player_base").activate_turret_buy_buttons()

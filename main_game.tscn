@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://3qpu205icvjb"]
+[gd_scene load_steps=13 format=3 uid="uid://3qpu205icvjb"]
 
 [ext_resource type="Script" path="res://main_game.gd" id="1_44exb"]
 [ext_resource type="Texture2D" uid="uid://bk20tm6uudxsk" path="res://age of war sprites/bg/background.png" id="2_6kpfg"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://c1xsucbfkbfiv" path="res://age of war sprites/bases/cave/base/base.png" id="6_y7q3a"]
 [ext_resource type="Texture2D" uid="uid://clxxa7qqv10di" path="res://age of war sprites/bases/cave/tower_base/base_tower_bottom.png" id="8_ruju7"]
 [ext_resource type="PackedScene" uid="uid://gex6r6cd1sa" path="res://units/cave/range/cave_range.tscn" id="10_32wvj"]
+[ext_resource type="PackedScene" uid="uid://dexhbnofnhph0" path="res://units/cave/tank/cave_tank.tscn" id="10_sismw"]
 [ext_resource type="Texture2D" uid="uid://d1sj5rlj0tqvf" path="res://age of war sprites/bases/cave/tower_part/base_tower_part0001.png" id="12_sytml"]
 [ext_resource type="PackedScene" uid="uid://c36x5w6hobq86" path="res://bases/player_base.tscn" id="15_kvrvk"]
 
@@ -122,32 +123,32 @@ position = Vector2(630, 598)
 position = Vector2(291, 0)
 shape = SubResource("RectangleShape2D_1lruk")
 
+[node name="player_base" parent="." instance=ExtResource("15_kvrvk")]
+position = Vector2(118, 565)
+
+[node name="cave_tank" parent="." instance=ExtResource("10_sismw")]
+position = Vector2(670, 535)
+is_player_owned = false
+
+[node name="cave_tank2" parent="." instance=ExtResource("10_sismw")]
+position = Vector2(983, 565)
+is_player_owned = false
+
 [node name="cave_range" parent="." instance=ExtResource("10_32wvj")]
-position = Vector2(1379, 570)
+position = Vector2(836, 527)
 is_player_owned = false
 
 [node name="cave_range2" parent="." instance=ExtResource("10_32wvj")]
-position = Vector2(1327, 570)
+position = Vector2(1152, 538)
 is_player_owned = false
 
 [node name="cave_range3" parent="." instance=ExtResource("10_32wvj")]
-position = Vector2(1266, 570)
+position = Vector2(1237, 549)
 is_player_owned = false
 
 [node name="cave_range4" parent="." instance=ExtResource("10_32wvj")]
-position = Vector2(1205, 573)
+position = Vector2(1309, 549)
 is_player_owned = false
-
-[node name="cave_range6" parent="." instance=ExtResource("10_32wvj")]
-position = Vector2(630, 570)
-is_player_owned = false
-
-[node name="cave_range5" parent="." instance=ExtResource("10_32wvj")]
-position = Vector2(1130, 573)
-is_player_owned = false
-
-[node name="player_base" parent="." instance=ExtResource("15_kvrvk")]
-position = Vector2(118, 565)
 
 [connection signal="mouse_entered" from="Camera2D/right_box" to="Camera2D" method="_on_mouse_camera_move_right_mouse_entered"]
 [connection signal="mouse_exited" from="Camera2D/right_box" to="Camera2D" method="stop_camera_moving"]

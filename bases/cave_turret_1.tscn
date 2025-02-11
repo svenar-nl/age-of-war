@@ -36,7 +36,7 @@
 [ext_resource type="AudioStream" uid="uid://cn4bod5lea5h3" path="res://age of war sprites/audio/sfx/knight_range_attack.mp3" id="34_t2c3i"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_l54wp"]
-radius = 352.24
+radius = 350.0
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_ta31k"]
 animations = [{
@@ -164,8 +164,6 @@ script = ExtResource("1_wndwy")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="range"]
 shape = SubResource("CircleShape2D_l54wp")
 
-[node name="Timer" type="Timer" parent="."]
-
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(0.5, 0.5)
 sprite_frames = SubResource("SpriteFrames_ta31k")
@@ -175,14 +173,8 @@ frame = 1
 frame_progress = 0.298598
 offset = Vector2(32, 0)
 
-[node name="Line2D" type="Line2D" parent="."]
-points = PackedVector2Array(0, 0, 0, 0)
-width = 4.0
-
 [node name="sfx" type="Node2D" parent="."]
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="sfx"]
 stream = ExtResource("34_t2c3i")
 volume_db = 15.0
-
-[connection signal="body_entered" from="range" to="." method="_on_range_body_entered"]

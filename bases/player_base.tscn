@@ -95,3 +95,5 @@ text = "999"
 
 [connection signal="pressed" from="Button_tower_base" to="." method="_on_button_tower_base_pressed"]
 [connection signal="pressed" from="Button_tower_bottom" to="." method="_on_button_tower_bottom_pressed"]
+[connection signal="pressed" from="Button_tower_part" to="." method="_on_button_tower_part_pressed"]
+[connection signal="pressed" from="Button_tower_top" to="." method="_on_button_tower_top_pressed"]

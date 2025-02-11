@@ -8,8 +8,8 @@ var current_stage
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	player_money = 175
-	player_exp = 0
+	player_money = 17500
+	player_exp = 400000
 	current_stage = stage.cave
 
 func get_current_age_as_string():
@@ -135,3 +135,66 @@ func get_turret_name(query_stage, turret_number: int):
 			return "Laser Cannon"
 		elif turret_number == 3:
 			return "Ion Cannon"
+
+
+func get_stage_from_string(string: String):
+	if string == "cave":
+		return stage.cave
+	elif string == "knight":
+		return stage.knight
+	elif string == "medival":
+		return stage.medival
+	elif string == "miltary":
+		return stage.miltary
+	elif string == "future":
+		return stage.future
+
+func get_turret_price(query_stage, turret_number: int):
+	if query_stage == stage.cave:
+		if turret_number == 1:
+			return 100
+		elif turret_number == 2:
+			return 200
+		elif turret_number == 3:
+			return 500
+	elif query_stage == stage.knight:
+		if turret_number == 1:
+			return 500
+		elif turret_number == 2:
+			return 750
+		elif turret_number == 3:
+			return 1000
+	elif query_stage == stage.medival:
+		if turret_number == 1:
+			return 1500
+		elif turret_number == 2:
+			return 3000
+		elif turret_number == 3:
+			return 6000
+	elif query_stage == stage.miltary:
+		if turret_number == 1:
+			return 7500
+		elif turret_number == 2:
+			return 9000
+		elif turret_number == 3:
+			return 14000
+	elif query_stage == stage.future:
+		if turret_number == 1:
+			return 24000
+		elif turret_number == 2:
+			return 40000
+		elif turret_number == 3:
+			return 100000
+	
+	
+func get_exp_to_next_age():
+	if current_stage == stage.cave:
+		return 4000
+	elif current_stage == stage.knight:
+		return 14000
+	elif current_stage == stage.medival:
+		return 45000
+	elif current_stage == stage.miltary:
+		return 200000
+	elif current_stage == stage.future:
+		return INF

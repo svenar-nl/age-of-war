@@ -311,6 +311,25 @@ offset_top = 11.0
 offset_right = 766.0
 offset_bottom = 27.0
 
+[node name="sell_turret_cancel" type="Control" parent="."]
+visible = false
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="CancelButton0002" type="Sprite2D" parent="sell_turret_cancel"]
+position = Vector2(940, 56)
+scale = Vector2(0.466495, 0.466495)
+texture = ExtResource("8_foxd6")
+
+[node name="cancel_sell_turret" type="Button" parent="sell_turret_cancel"]
+custom_minimum_size = Vector2(380, 90)
+layout_mode = 0
+offset_left = 750.0
+offset_top = 11.0
+offset_right = 766.0
+offset_bottom = 27.0
+
 [node name="root_label" type="Label" parent="."]
 layout_mode = 0
 offset_left = 163.0
@@ -327,10 +346,14 @@ theme_override_font_sizes/font_size = 20
 [connection signal="mouse_entered" from="root_hbox_container/turret" to="." method="_on_turret_mouse_entered"]
 [connection signal="mouse_exited" from="root_hbox_container/turret" to="." method="_on_unit_mouse_exited"]
 [connection signal="pressed" from="root_hbox_container/turret" to="." method="_on_turret_pressed"]
+[connection signal="mouse_entered" from="root_hbox_container/sell_turret" to="." method="_on_sell_turret_mouse_entered"]
+[connection signal="mouse_exited" from="root_hbox_container/sell_turret" to="." method="_on_back_mouse_exited_from_turret"]
 [connection signal="pressed" from="root_hbox_container/sell_turret" to="." method="_on_sell_turret_pressed"]
 [connection signal="mouse_entered" from="root_hbox_container/add_turret_spot" to="." method="_on_add_turret_spot_mouse_entered"]
 [connection signal="mouse_exited" from="root_hbox_container/add_turret_spot" to="." method="_on_back_mouse_exited_from_turret"]
 [connection signal="pressed" from="root_hbox_container/add_turret_spot" to="." method="_on_add_turret_spot_pressed"]
+[connection signal="mouse_entered" from="root_hbox_container/advance" to="." method="_on_advance_mouse_entered"]
+[connection signal="mouse_exited" from="root_hbox_container/advance" to="." method="_on_back_mouse_exited_from_turret"]
 [connection signal="pressed" from="root_hbox_container/advance" to="." method="_on_advance_pressed"]
 [connection signal="mouse_entered" from="units_menu/HBoxContainer/melee" to="." method="_on_melee_mouse_entered"]
 [connection signal="mouse_exited" from="units_menu/HBoxContainer/melee" to="." method="_on_unit_button_mouse_exited"]
@@ -348,8 +371,14 @@ theme_override_font_sizes/font_size = 20
 [connection signal="mouse_exited" from="turret_menu/HBoxContainer2/turret_1" to="." method="_on_unit_mouse_exited"]
 [connection signal="pressed" from="turret_menu/HBoxContainer2/turret_1" to="." method="_on_turret_1_pressed"]
 [connection signal="mouse_entered" from="turret_menu/HBoxContainer2/turret_2" to="." method="_on_turret_2_mouse_entered"]
+[connection signal="mouse_exited" from="turret_menu/HBoxContainer2/turret_2" to="." method="_on_unit_mouse_exited"]
+[connection signal="pressed" from="turret_menu/HBoxContainer2/turret_2" to="." method="_on_turret_2_pressed"]
+[connection signal="mouse_entered" from="turret_menu/HBoxContainer2/turret_3" to="." method="_on_turret_3_mouse_entered"]
+[connection signal="mouse_exited" from="turret_menu/HBoxContainer2/turret_3" to="." method="_on_unit_mouse_exited"]
+[connection signal="pressed" from="turret_menu/HBoxContainer2/turret_3" to="." method="_on_turret_3_pressed"]
 [connection signal="mouse_entered" from="turret_menu/back" to="." method="_on_back_mouse_entered_from_turret"]
 [connection signal="mouse_exited" from="turret_menu/back" to="." method="_on_back_mouse_exited_from_turret"]
 [connection signal="pressed" from="turret_menu/back" to="." method="_on_back_pressed"]
 [connection signal="pressed" from="special_button" to="." method="_on_special_button_pressed"]
 [connection signal="pressed" from="buy_turret_cancel/cancel_buy_turret" to="." method="_on_cancel_buy_turret_pressed"]
+[connection signal="pressed" from="sell_turret_cancel/cancel_sell_turret" to="." method="_on_cancel_sell_turret_pressed"]

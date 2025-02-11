@@ -44,20 +44,27 @@ func add_turret_spot():
 
 func _on_button_tower_base_pressed():
 	if turret_array[0] == 0: # means we are buying the turret
+		var turret_name = get_node("/root/main_game/sprite_follow_player_mouse").turret_name
 		get_node("/root/main_game/sprite_follow_player_mouse").queue_free()
 		get_node("/root/main_game/Camera2D/in_game_menu").hide_turret_cancel_button_and_show_turret_menu()
 		deactivate_buttons()
-		var turret_base = load("res://bases/cave_turret_1.tscn").instantiate()
+		# print(turret_name)
+		var turret_base = load("res://bases/" + turret_name + ".tscn").instantiate()
+		turret_base.name += "_" + str(randi())
 		self.add_child(turret_base)
 		turret_base.position = $Button_tower_base.position + Vector2(16,16)
 		turret_array[0] = 1
 		turret_data[0] = turret_base
 	elif turret_array[0] == 1: # means we are selling the turret
 		deactivate_buttons()
-		print(turret_data[0].name)
+		var stage = turret_data[0].name.split("_")[0]
+		var turret_number = int(turret_data[0].name.split("_")[2])
+		var refund = GlobalVariables.get_turret_price(GlobalVariables.get_stage_from_string(stage), turret_number) / 2
+		GlobalVariables.player_money += refund
 		turret_data[0].queue_free()
 		turret_data[0] = null
 		turret_array[0] = 0
+		get_node("/root/main_game/Camera2D/in_game_menu")._on_cancel_sell_turret_pressed()
 
 
 func activate_turret_buy_buttons():
@@ -107,14 +114,27 @@ func hide_buttons():
 
 
 func _on_button_tower_bottom_pressed():
-	get_node("/root/main_game/sprite_follow_player_mouse").queue_free()
-	get_node("/root/main_game/Camera2D/in_game_menu").hide_turret_cancel_button_and_show_turret_menu()
-	deactivate_buttons()
-	print("spawn turret")
-	var turret_base = load("res://bases/cave_turret_1.tscn").instantiate()
-	self.add_child(turret_base)
-	turret_base.position = $Button_tower_bottom.position + Vector2(16,16)
-	turret_array[1] = 1
+	if turret_array[1] == 0: # means we are buying the turret
+		var turret_name = get_node("/root/main_game/sprite_follow_player_mouse").turret_name
+		get_node("/root/main_game/sprite_follow_player_mouse").queue_free()
+		get_node("/root/main_game/Camera2D/in_game_menu").hide_turret_cancel_button_and_show_turret_menu()
+		deactivate_buttons()
+		var turret_base = load("res://bases/" + turret_name + ".tscn").instantiate()
+		turret_base.name += "_" + str(randi())
+		self.add_child(turret_base)
+		turret_base.position = $Button_tower_bottom.position + Vector2(16,16)
+		turret_array[1] = 1
+		turret_data[1] = turret_base
+	elif turret_array[1] == 1: # means we are selling the turret
+		deactivate_buttons()
+		var stage = turret_data[1].name.split("_")[0]
+		var turret_number = int(turret_data[1].name.split("_")[2])
+		var refund = GlobalVariables.get_turret_price(GlobalVariables.get_stage_from_string(stage), turret_number) / 2
+		GlobalVariables.player_money += refund
+		turret_data[1].queue_free()
+		turret_data[1] = null
+		turret_array[1] = 0
+		get_node("/root/main_game/Camera2D/in_game_menu")._on_cancel_sell_turret_pressed()
 
 func take_damage(damage):
 	health -= damage
@@ -138,3 +158,51 @@ func get_price_of_new_turret_slot():
 		return 7500
 	elif number == 4:
 		return INF
+
+
+func _on_button_tower_part_pressed():
+	if turret_array[2] == 0: # means we are buying the turret
+		var turret_name = get_node("/root/main_game/sprite_follow_player_mouse").turret_name
+		get_node("/root/main_game/sprite_follow_player_mouse").queue_free()
+		get_node("/root/main_game/Camera2D/in_game_menu").hide_turret_cancel_button_and_show_turret_menu()
+		deactivate_buttons()
+		var turret_base = load("res://bases/" + turret_name + ".tscn").instantiate()
+		turret_base.name += "_" + str(randi())
+		self.add_child(turret_base)
+		turret_base.position = $Button_tower_part.position + Vector2(16,16)
+		turret_array[2] = 1
+		turret_data[2] = turret_base
+	elif turret_array[2] == 1: # means we are selling the turret
+		deactivate_buttons()
+		var stage = turret_data[1].name.split("_")[0]
+		var turret_number = int(turret_data[1].name.split("_")[2])
+		var refund = GlobalVariables.get_turret_price(GlobalVariables.get_stage_from_string(stage), turret_number) / 2
+		GlobalVariables.player_money += refund
+		turret_data[2].queue_free()
+		turret_data[2] = null
+		turret_array[2] = 0
+		get_node("/root/main_game/Camera2D/in_game_menu")._on_cancel_sell_turret_pressed()
+
+
+func _on_button_tower_top_pressed():
+	if turret_array[3] == 0: # means we are buying the turret
+		var turret_name = get_node("/root/main_game/sprite_follow_player_mouse").turret_name
+		get_node("/root/main_game/sprite_follow_player_mouse").queue_free()
+		get_node("/root/main_game/Camera2D/in_game_menu").hide_turret_cancel_button_and_show_turret_menu()
+		deactivate_buttons()
+		var turret_base = load("res://bases/" + turret_name + ".tscn").instantiate()
+		turret_base.name += "_" + str(randi())
+		self.add_child(turret_base)
+		turret_base.position = $Button_tower_top.position + Vector2(16,16)
+		turret_array[3] = 1
+		turret_data[3] = turret_base
+	elif turret_array[3] == 1: # means we are selling the turret
+		deactivate_buttons()
+		var stage = turret_data[1].name.split("_")[0]
+		var turret_number = int(turret_data[1].name.split("_")[2])
+		var refund = GlobalVariables.get_turret_price(GlobalVariables.get_stage_from_string(stage), turret_number) / 2
+		GlobalVariables.player_money += refund
+		turret_data[3].queue_free()
+		turret_data[3] = null
+		turret_array[3] = 0
+		get_node("/root/main_game/Camera2D/in_game_menu")._on_cancel_sell_turret_pressed()
