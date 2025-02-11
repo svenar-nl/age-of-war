@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=3 uid="uid://bo2213gw58u2t"]
+
+[ext_resource type="Texture2D" uid="uid://bk20tm6uudxsk" path="res://age of war sprites/bg/background.png" id="1_q87h0"]
+
+[node name="credits_menu" type="Node2D"]
+
+[node name="background sprite" type="Sprite2D" parent="."]
+z_index = -100
+position = Vector2(1288, 169)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_q87h0")
+metadata/_edit_lock_ = true

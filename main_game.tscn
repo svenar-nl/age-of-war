@@ -1,0 +1,157 @@
+[gd_scene load_steps=12 format=3 uid="uid://3qpu205icvjb"]
+
+[ext_resource type="Script" path="res://main_game.gd" id="1_44exb"]
+[ext_resource type="Texture2D" uid="uid://bk20tm6uudxsk" path="res://age of war sprites/bg/background.png" id="2_6kpfg"]
+[ext_resource type="Script" path="res://camera.gd" id="3_tlcoe"]
+[ext_resource type="PackedScene" uid="uid://bwbjwinb2wuou" path="res://UI/in_game_menu.tscn" id="4_d7jmu"]
+[ext_resource type="Texture2D" uid="uid://c1xsucbfkbfiv" path="res://age of war sprites/bases/cave/base/base.png" id="6_y7q3a"]
+[ext_resource type="Texture2D" uid="uid://clxxa7qqv10di" path="res://age of war sprites/bases/cave/tower_base/base_tower_bottom.png" id="8_ruju7"]
+[ext_resource type="PackedScene" uid="uid://gex6r6cd1sa" path="res://units/cave/range/cave_range.tscn" id="10_32wvj"]
+[ext_resource type="Texture2D" uid="uid://d1sj5rlj0tqvf" path="res://age of war sprites/bases/cave/tower_part/base_tower_part0001.png" id="12_sytml"]
+[ext_resource type="PackedScene" uid="uid://c36x5w6hobq86" path="res://bases/player_base.tscn" id="15_kvrvk"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xhm1x"]
+size = Vector2(50, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1lruk"]
+size = Vector2(1842, 20)
+
+[node name="main_game" type="Node2D"]
+script = ExtResource("1_44exb")
+
+[node name="background sprite" type="Sprite2D" parent="."]
+z_index = -100
+position = Vector2(1492, 169)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_6kpfg")
+metadata/_edit_lock_ = true
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(576, 280)
+limit_left = 0
+script = ExtResource("3_tlcoe")
+
+[node name="AudioListener2D" type="AudioListener2D" parent="Camera2D"]
+current = true
+
+[node name="in_game_menu" parent="Camera2D" instance=ExtResource("4_d7jmu")]
+z_index = 2
+offset_left = -576.0
+offset_top = -324.0
+offset_right = -576.0
+offset_bottom = -324.0
+
+[node name="right_box" type="ColorRect" parent="Camera2D"]
+z_index = 2
+offset_left = 536.0
+offset_top = -116.0
+offset_right = 576.0
+offset_bottom = 88.0
+color = Color(1, 1, 1, 0.392157)
+
+[node name="left_box" type="ColorRect" parent="Camera2D"]
+z_index = 2
+offset_left = -576.0
+offset_top = -116.0
+offset_right = -536.0
+offset_bottom = 88.0
+color = Color(1, 1, 1, 0.392157)
+
+[node name="player_base_t" type="ColorRect" parent="."]
+z_index = -3
+offset_left = 112.0
+offset_top = 400.0
+offset_right = 265.0
+offset_bottom = 580.0
+
+[node name="player_base2" type="ColorRect" parent="."]
+z_index = -3
+offset_top = 400.0
+offset_right = 112.0
+offset_bottom = 428.0
+
+[node name="player_base3" type="ColorRect" parent="."]
+offset_left = 1664.0
+offset_top = 400.0
+offset_right = 1776.0
+offset_bottom = 428.0
+
+[node name="enemy_base" type="ColorRect" parent="."]
+offset_left = 1511.0
+offset_top = 400.0
+offset_right = 1664.0
+offset_bottom = 580.0
+
+[node name="player_spawn_location" type="Area2D" parent="."]
+position = Vector2(250, 570)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="player_spawn_location"]
+shape = SubResource("RectangleShape2D_xhm1x")
+debug_color = Color(0.955277, 3.08037e-06, 0.544055, 0.42)
+
+[node name="Base2" type="Sprite2D" parent="."]
+position = Vector2(1724, 458)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("6_y7q3a")
+flip_h = true
+
+[node name="BaseTowerBottom2" type="Sprite2D" parent="."]
+position = Vector2(1659.25, 318.75)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("8_ruju7")
+
+[node name="BaseTowerPart0004" type="Sprite2D" parent="."]
+position = Vector2(1672.25, 227.75)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("12_sytml")
+
+[node name="BaseTowerPart0005" type="Sprite2D" parent="."]
+position = Vector2(1672.25, 227.75)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("12_sytml")
+
+[node name="BaseTowerPart0006" type="Sprite2D" parent="."]
+position = Vector2(1672.25, 129.75)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("12_sytml")
+
+[node name="floor" type="StaticBody2D" parent="."]
+position = Vector2(630, 598)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="floor"]
+position = Vector2(291, 0)
+shape = SubResource("RectangleShape2D_1lruk")
+
+[node name="cave_range" parent="." instance=ExtResource("10_32wvj")]
+position = Vector2(1379, 570)
+is_player_owned = false
+
+[node name="cave_range2" parent="." instance=ExtResource("10_32wvj")]
+position = Vector2(1327, 570)
+is_player_owned = false
+
+[node name="cave_range3" parent="." instance=ExtResource("10_32wvj")]
+position = Vector2(1266, 570)
+is_player_owned = false
+
+[node name="cave_range4" parent="." instance=ExtResource("10_32wvj")]
+position = Vector2(1205, 573)
+is_player_owned = false
+
+[node name="cave_range6" parent="." instance=ExtResource("10_32wvj")]
+position = Vector2(630, 570)
+is_player_owned = false
+
+[node name="cave_range5" parent="." instance=ExtResource("10_32wvj")]
+position = Vector2(1130, 573)
+is_player_owned = false
+
+[node name="player_base" parent="." instance=ExtResource("15_kvrvk")]
+position = Vector2(118, 565)
+
+[connection signal="mouse_entered" from="Camera2D/right_box" to="Camera2D" method="_on_mouse_camera_move_right_mouse_entered"]
+[connection signal="mouse_exited" from="Camera2D/right_box" to="Camera2D" method="stop_camera_moving"]
+[connection signal="mouse_entered" from="Camera2D/left_box" to="Camera2D" method="_on_mouse_camera_move_left_mouse_entered"]
+[connection signal="mouse_exited" from="Camera2D/left_box" to="Camera2D" method="stop_camera_moving"]
+[connection signal="body_entered" from="player_spawn_location" to="." method="_on_player_spawn_location_body_entered"]
+[connection signal="body_exited" from="player_spawn_location" to="." method="_on_player_spawn_location_body_exited"]

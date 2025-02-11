@@ -1,0 +1,355 @@
+[gd_scene load_steps=10 format=3 uid="uid://bwbjwinb2wuou"]
+
+[ext_resource type="Texture2D" uid="uid://cjm2h7jgkb3gh" path="res://age of war sprites/ui/root_ui.png" id="1_eesea"]
+[ext_resource type="Script" path="res://UI/in_game_menu.gd" id="1_wl8wd"]
+[ext_resource type="Texture2D" uid="uid://crf20luwfmy10" path="res://age of war sprites/ui/top_ui.png" id="2_jhrmw"]
+[ext_resource type="Texture2D" uid="uid://bmfdhp30ir3hj" path="res://age of war sprites/ui/special_buttons0001.png" id="3_6fvdx"]
+[ext_resource type="Texture2D" uid="uid://cjplkf8v51iwa" path="res://age of war sprites/ui/units_buttons0001.png" id="3_uva1g"]
+[ext_resource type="Theme" uid="uid://cxas3ve5roipy" path="res://UI/button_theme.tres" id="3_yts8d"]
+[ext_resource type="Texture2D" uid="uid://7r44da3tyasg" path="res://age of war sprites/ui/all_turret_UI0001.png" id="5_cp7c1"]
+[ext_resource type="Texture2D" uid="uid://vaof7nc1ov4v" path="res://age of war sprites/ui/cancel_button0001.png" id="8_76dav"]
+[ext_resource type="Texture2D" uid="uid://cmbt5vcwlrbuy" path="res://age of war sprites/ui/cancel_button0002.png" id="8_foxd6"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_wl8wd")
+
+[node name="overlay" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="TopUi" type="Sprite2D" parent="overlay"]
+position = Vector2(640, 92)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_jhrmw")
+
+[node name="SpecialButtons0001" type="Sprite2D" parent="overlay"]
+position = Vector2(1061, 170)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_6fvdx")
+
+[node name="root_hbox_container" type="HBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 755.0
+offset_top = 22.0
+offset_right = 1163.0
+offset_bottom = 90.0
+theme_override_constants/separation = 12
+
+[node name="RootUi" type="Sprite2D" parent="root_hbox_container"]
+position = Vector2(194, 34)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_eesea")
+
+[node name="unit" type="Button" parent="root_hbox_container"]
+custom_minimum_size = Vector2(68, 68)
+layout_mode = 2
+focus_mode = 0
+theme = ExtResource("3_yts8d")
+text = "Units"
+
+[node name="turret" type="Button" parent="root_hbox_container"]
+custom_minimum_size = Vector2(68, 68)
+layout_mode = 2
+focus_mode = 0
+theme = ExtResource("3_yts8d")
+text = "Tur"
+
+[node name="sell_turret" type="Button" parent="root_hbox_container"]
+custom_minimum_size = Vector2(68, 68)
+layout_mode = 2
+focus_mode = 0
+theme = ExtResource("3_yts8d")
+text = "Sell"
+
+[node name="add_turret_spot" type="Button" parent="root_hbox_container"]
+custom_minimum_size = Vector2(68, 68)
+layout_mode = 2
+focus_mode = 0
+theme = ExtResource("3_yts8d")
+text = "Add"
+
+[node name="advance" type="Button" parent="root_hbox_container"]
+custom_minimum_size = Vector2(68, 68)
+layout_mode = 2
+focus_mode = 0
+theme = ExtResource("3_yts8d")
+text = "Adv"
+
+[node name="units_menu" type="Control" parent="."]
+anchors_preset = 0
+offset_left = 19.0
+offset_top = -26.0
+offset_right = 59.0
+offset_bottom = 14.0
+
+[node name="units_UI" type="Sprite2D" parent="units_menu"]
+position = Vector2(919, 82)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_uva1g")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="units_menu"]
+layout_mode = 0
+offset_left = 714.0
+offset_top = 48.0
+offset_right = 782.0
+offset_bottom = 116.0
+theme_override_constants/separation = 12
+
+[node name="melee" type="Button" parent="units_menu/HBoxContainer"]
+custom_minimum_size = Vector2(68, 68)
+layout_mode = 2
+focus_mode = 0
+theme = ExtResource("3_yts8d")
+
+[node name="range" type="Button" parent="units_menu/HBoxContainer"]
+custom_minimum_size = Vector2(68, 68)
+layout_mode = 2
+focus_mode = 0
+theme = ExtResource("3_yts8d")
+
+[node name="tank" type="Button" parent="units_menu/HBoxContainer"]
+custom_minimum_size = Vector2(68, 68)
+layout_mode = 2
+focus_mode = 0
+theme = ExtResource("3_yts8d")
+
+[node name="back" type="Button" parent="units_menu"]
+custom_minimum_size = Vector2(68, 68)
+layout_mode = 2
+offset_left = 1056.0
+offset_top = 48.0
+offset_right = 1124.0
+offset_bottom = 116.0
+focus_mode = 0
+theme = ExtResource("3_yts8d")
+
+[node name="Label" type="Label" parent="units_menu"]
+layout_mode = 0
+offset_left = 144.0
+offset_top = 82.0
+offset_right = 319.0
+offset_bottom = 117.0
+theme_override_colors/font_color = Color(1, 1, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 20
+
+[node name="sublabel_queue" type="Label" parent="units_menu"]
+layout_mode = 0
+offset_left = 144.0
+offset_top = 59.0
+offset_right = 257.0
+offset_bottom = 82.0
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 12
+text = "Training {}..."
+
+[node name="turret_menu" type="Control" parent="."]
+anchors_preset = 0
+offset_left = 19.0
+offset_top = -26.0
+offset_right = 59.0
+offset_bottom = 14.0
+
+[node name="AllTurretUi0001" type="Sprite2D" parent="turret_menu"]
+position = Vector2(919, 82)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("5_cp7c1")
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="turret_menu"]
+layout_mode = 0
+offset_left = 714.0
+offset_top = 48.0
+offset_right = 942.0
+offset_bottom = 116.0
+theme_override_constants/separation = 12
+
+[node name="turret_1" type="Button" parent="turret_menu/HBoxContainer2"]
+custom_minimum_size = Vector2(68, 68)
+layout_mode = 2
+focus_mode = 0
+theme = ExtResource("3_yts8d")
+
+[node name="turret_2" type="Button" parent="turret_menu/HBoxContainer2"]
+custom_minimum_size = Vector2(68, 68)
+layout_mode = 2
+focus_mode = 0
+theme = ExtResource("3_yts8d")
+
+[node name="turret_3" type="Button" parent="turret_menu/HBoxContainer2"]
+custom_minimum_size = Vector2(68, 68)
+layout_mode = 2
+focus_mode = 0
+theme = ExtResource("3_yts8d")
+
+[node name="back" type="Button" parent="turret_menu"]
+custom_minimum_size = Vector2(68, 68)
+layout_mode = 2
+offset_left = 1056.0
+offset_top = 48.0
+offset_right = 1124.0
+offset_bottom = 116.0
+focus_mode = 0
+theme = ExtResource("3_yts8d")
+
+[node name="Control" type="Control" parent="."]
+visible = false
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="CancelButton0001" type="Sprite2D" parent="Control"]
+position = Vector2(922, 78)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("8_76dav")
+
+[node name="money" type="Label" parent="."]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 22.0
+offset_right = 67.0
+offset_bottom = 45.0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+text = "12345w"
+
+[node name="exp" type="Label" parent="."]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 45.0
+offset_right = 65.6
+offset_bottom = 68.0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+text = "exp"
+
+[node name="queue" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="queue"]
+layout_mode = 0
+offset_left = 610.0
+offset_top = 14.0
+offset_right = 706.0
+offset_bottom = 30.0
+
+[node name="ColorRect" type="ColorRect" parent="queue/HBoxContainer"]
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 2
+color = Color(1, 1, 1, 0.588235)
+
+[node name="ColorRect2" type="ColorRect" parent="queue/HBoxContainer"]
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 2
+color = Color(1, 1, 1, 0.588235)
+
+[node name="ColorRect3" type="ColorRect" parent="queue/HBoxContainer"]
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 2
+color = Color(1, 1, 1, 0.588235)
+
+[node name="ColorRect4" type="ColorRect" parent="queue/HBoxContainer"]
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 2
+color = Color(1, 1, 1, 0.588235)
+
+[node name="ColorRect5" type="ColorRect" parent="queue/HBoxContainer"]
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 2
+color = Color(1, 1, 1, 0.588235)
+
+[node name="ColorRect6" type="ColorRect" parent="queue"]
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 2
+offset_left = 163.0
+offset_top = 14.0
+offset_right = 595.0
+offset_bottom = 30.0
+color = Color(1, 1, 1, 0.588235)
+
+[node name="ColorRect7" type="ColorRect" parent="queue"]
+layout_mode = 2
+offset_left = 163.0
+offset_top = 14.0
+offset_right = 163.0
+offset_bottom = 30.0
+color = Color(1, 0, 0.00392157, 1)
+
+[node name="special_button" type="Button" parent="."]
+custom_minimum_size = Vector2(113, 50.105)
+layout_mode = 0
+offset_left = 1004.5
+offset_top = 145.0
+offset_right = 1117.5
+offset_bottom = 189.1
+focus_mode = 0
+theme = ExtResource("3_yts8d")
+
+[node name="buy_turret_cancel" type="Control" parent="."]
+visible = false
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="CancelButton0002" type="Sprite2D" parent="buy_turret_cancel"]
+position = Vector2(940, 56)
+scale = Vector2(0.466495, 0.466495)
+texture = ExtResource("8_foxd6")
+
+[node name="cancel_buy_turret" type="Button" parent="buy_turret_cancel"]
+custom_minimum_size = Vector2(380, 90)
+layout_mode = 0
+offset_left = 750.0
+offset_top = 11.0
+offset_right = 766.0
+offset_bottom = 27.0
+
+[node name="root_label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 163.0
+offset_top = 56.0
+offset_right = 338.0
+offset_bottom = 91.0
+theme_override_colors/font_color = Color(1, 1, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 20
+
+[connection signal="mouse_entered" from="root_hbox_container/unit" to="." method="_on_unit_mouse_entered"]
+[connection signal="mouse_exited" from="root_hbox_container/unit" to="." method="_on_unit_mouse_exited"]
+[connection signal="pressed" from="root_hbox_container/unit" to="." method="_on_unit_pressed"]
+[connection signal="mouse_entered" from="root_hbox_container/turret" to="." method="_on_turret_mouse_entered"]
+[connection signal="mouse_exited" from="root_hbox_container/turret" to="." method="_on_unit_mouse_exited"]
+[connection signal="pressed" from="root_hbox_container/turret" to="." method="_on_turret_pressed"]
+[connection signal="pressed" from="root_hbox_container/sell_turret" to="." method="_on_sell_turret_pressed"]
+[connection signal="mouse_entered" from="root_hbox_container/add_turret_spot" to="." method="_on_add_turret_spot_mouse_entered"]
+[connection signal="mouse_exited" from="root_hbox_container/add_turret_spot" to="." method="_on_back_mouse_exited_from_turret"]
+[connection signal="pressed" from="root_hbox_container/add_turret_spot" to="." method="_on_add_turret_spot_pressed"]
+[connection signal="pressed" from="root_hbox_container/advance" to="." method="_on_advance_pressed"]
+[connection signal="mouse_entered" from="units_menu/HBoxContainer/melee" to="." method="_on_melee_mouse_entered"]
+[connection signal="mouse_exited" from="units_menu/HBoxContainer/melee" to="." method="_on_unit_button_mouse_exited"]
+[connection signal="pressed" from="units_menu/HBoxContainer/melee" to="." method="_on_melee_pressed"]
+[connection signal="mouse_entered" from="units_menu/HBoxContainer/range" to="." method="_on_range_mouse_entered"]
+[connection signal="mouse_exited" from="units_menu/HBoxContainer/range" to="." method="_on_unit_button_mouse_exited"]
+[connection signal="pressed" from="units_menu/HBoxContainer/range" to="." method="_on_range_pressed"]
+[connection signal="mouse_entered" from="units_menu/HBoxContainer/tank" to="." method="_on_tank_mouse_entered"]
+[connection signal="mouse_exited" from="units_menu/HBoxContainer/tank" to="." method="_on_unit_button_mouse_exited"]
+[connection signal="pressed" from="units_menu/HBoxContainer/tank" to="." method="_on_tank_pressed"]
+[connection signal="mouse_entered" from="units_menu/back" to="." method="_on_back_mouse_entered"]
+[connection signal="mouse_exited" from="units_menu/back" to="." method="_on_unit_button_mouse_exited"]
+[connection signal="pressed" from="units_menu/back" to="." method="_on_back_pressed"]
+[connection signal="mouse_entered" from="turret_menu/HBoxContainer2/turret_1" to="." method="_on_turret_1_mouse_entered"]
+[connection signal="mouse_exited" from="turret_menu/HBoxContainer2/turret_1" to="." method="_on_unit_mouse_exited"]
+[connection signal="pressed" from="turret_menu/HBoxContainer2/turret_1" to="." method="_on_turret_1_pressed"]
+[connection signal="mouse_entered" from="turret_menu/HBoxContainer2/turret_2" to="." method="_on_turret_2_mouse_entered"]
+[connection signal="mouse_entered" from="turret_menu/back" to="." method="_on_back_mouse_entered_from_turret"]
+[connection signal="mouse_exited" from="turret_menu/back" to="." method="_on_back_mouse_exited_from_turret"]
+[connection signal="pressed" from="turret_menu/back" to="." method="_on_back_pressed"]
+[connection signal="pressed" from="special_button" to="." method="_on_special_button_pressed"]
+[connection signal="pressed" from="buy_turret_cancel/cancel_buy_turret" to="." method="_on_cancel_buy_turret_pressed"]

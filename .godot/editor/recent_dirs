@@ -1,0 +1,23 @@
+res://age of war sprites/bases/cave/turret_1
+res://bases
+res://UI
+res://effects
+res://age of war sprites/effects/fire
+res://age of war sprites/effects/explosion
+res://
+res://units/future/tank
+res://age of war sprites/units/future/tank/walk
+res://age of war sprites/units/future/tank/die
+res://age of war sprites/units/future/tank/attack
+res://units/miltary/tank
+res://age of war sprites/units/miltary/tank/die
+res://age of war sprites/units/miltary/tank/idle
+res://age of war sprites/units/miltary/tank/attack
+res://age of war sprites/units/miltary/tank/walk
+res://units/medival/tank
+res://age of war sprites/units/medival/tank/attack
+res://age of war sprites/units/medival/tank/die
+res://age of war sprites/units/medival/tank/idle
+res://age of war sprites/units/medival/tank/walk
+res://units/future/range
+/home/alexp/gamedev/godot/age-of-war/globals
