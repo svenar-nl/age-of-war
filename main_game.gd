@@ -86,3 +86,59 @@ func _on_player_spawn_location_body_entered(body):
 func _on_player_spawn_location_body_exited(body):
 	if body.is_player_owned == true:
 		unable_to_spawn = false
+	
+func spawn_random_projectiles_from_sky():
+	var i = 0
+	while i < 25:
+		var projectile = load("res://projectile.tscn").instantiate()
+		projectile.global_position = Vector2(randf_range(300, 1500), randf_range(-200, -1000))
+		projectile.direction = Vector2(randf_range(-0.5, 0.5), randf_range(2, 4)).normalized()
+		projectile.damage = 60
+		projectile.speed = 300
+		projectile.is_player_owned = true
+		projectile.spawn_offspring = false
+		projectile.time_to_die = 8.0
+		projectile.get_node("Sprite2D").texture = load("res://age of war sprites/bases/medival/turret_3/medival_turret_3_projectile_offspring.png")
+		get_node("/root/main_game").add_child(projectile)
+		i += 1
+
+func cave_special_attack():
+	var i = 0
+	while i < 25:
+		var projectile = load("res://cave_special_projectile.tscn").instantiate()
+		projectile.global_position = Vector2(randf_range(300, 1500), randf_range(-200, -1000))
+		projectile.direction = Vector2(randf_range(-0.5, 0.5), randf_range(2, 4)).normalized()
+		projectile.damage = 60
+		projectile.speed = 300
+		projectile.is_player_owned = true
+		projectile.spawn_offspring = false
+		projectile.time_to_die = 8.0
+		projectile.get_node("Sprite2D").rotation = projectile.direction.angle()
+		projectile.get_node("CPUParticles2D").direction = projectile.direction.normalized().rotated(PI/2)
+		get_node("/root/main_game").add_child(projectile)
+		i += 1
+
+func knight_special_attack():
+	var i = 0
+	while i < 25:
+		var projectile = load("res://projectile.tscn").instantiate()
+		projectile.global_position = Vector2(randf_range(300, 1500), randf_range(-200, -1000))
+		projectile.direction = Vector2(randf_range(-0.5, 0.5), randf_range(2, 4)).normalized()
+		projectile.damage = 150
+		projectile.speed = 400
+		projectile.is_player_owned = true
+		projectile.spawn_offspring = false
+		projectile.time_to_die = 8.0
+		projectile.get_node("Sprite2D").texture = load("res://age of war sprites/bases/miltary/turret_1/miltary_turret_1_projectile.png")
+		projectile.get_node("Sprite2D").rotation = projectile.direction.angle()
+		get_node("/root/main_game").add_child(projectile)
+		i += 1
+
+func medival_special_attack():
+	pass
+
+func miltary_special_attack():
+	pass
+
+func future_special_attack():
+	pass

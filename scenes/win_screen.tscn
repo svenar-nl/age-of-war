@@ -1,0 +1,40 @@
+[gd_scene load_steps=2 format=3 uid="uid://dadmjfp45lcs1"]
+
+[ext_resource type="Texture2D" uid="uid://bk20tm6uudxsk" path="res://age of war sprites/bg/background.png" id="1_3cwmi"]
+
+[node name="win_screen" type="Node2D"]
+
+[node name="background sprite" type="Sprite2D" parent="."]
+z_index = -100
+position = Vector2(1492, 169)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_3cwmi")
+metadata/_edit_lock_ = true
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+offset_right = 1152.0
+offset_bottom = 648.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+text = "Victory!"
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+text = "Congratulations, you won the war and destroyed your enemy.
+You Win!
+Thank you for playing!"
+horizontal_alignment = 1
+
+[node name="Button" type="Button" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+text = "Play again?"
+
+[node name="Label3" type="Label" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+text = "Visit my website at alexpiotrowski.xyz"
+horizontal_alignment = 1

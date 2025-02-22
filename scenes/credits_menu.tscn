@@ -10,3 +10,60 @@ position = Vector2(1288, 169)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("1_q87h0")
 metadata/_edit_lock_ = true
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="CenterContainer" type="CenterContainer" parent="Control"]
+custom_minimum_size = Vector2(1152, 648)
+layout_mode = 1
+offset_right = 1152.0
+offset_bottom = 648.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/CenterContainer"]
+layout_mode = 2
+
+[node name="Label2" type="Label" parent="Control/CenterContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_font_sizes/font_size = 40
+text = "Credits"
+horizontal_alignment = 1
+
+[node name="Label" type="Label" parent="Control/CenterContainer/VBoxContainer"]
+custom_minimum_size = Vector2(800, 0)
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+text = "Oh boy there is a lot of people to give credit too. 
+
+Lets start off with the obvious, louissi. Even though there was legal trouble between him and maxgames, to me he will always be the owner of age of war. I wanted this game to be as close to the original, but i realised that I would have to make some changes.
+
+I would also like to thank my friends and family for always supporting me through rough times and giving me unconditional love.
+
+I used a lot of tutorials on YouTube to put this together. As way of thanking those creators this game is free and open source. Check it out on Github!
+
+Finally I would like to thank you, the player. Thank you for your time and I hope this was a nice nostalgia trip for you. "
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="Button" type="Button" parent="Control/CenterContainer/VBoxContainer"]
+layout_mode = 2
+text = "return to main menu"
+
+[node name="ColorRect" type="ColorRect" parent="Control"]
+z_index = -1
+layout_mode = 0
+offset_left = 176.0
+offset_top = 151.0
+offset_right = 976.0
+offset_bottom = 516.0
+color = Color(1, 1, 1, 0.588235)

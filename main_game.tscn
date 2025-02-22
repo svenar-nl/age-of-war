@@ -8,7 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://clxxa7qqv10di" path="res://age of war sprites/bases/cave/tower_base/base_tower_bottom.png" id="8_ruju7"]
 [ext_resource type="PackedScene" uid="uid://gex6r6cd1sa" path="res://units/cave/range/cave_range.tscn" id="10_32wvj"]
 [ext_resource type="PackedScene" uid="uid://dexhbnofnhph0" path="res://units/cave/tank/cave_tank.tscn" id="10_sismw"]
-[ext_resource type="Texture2D" uid="uid://d1sj5rlj0tqvf" path="res://age of war sprites/bases/cave/tower_part/base_tower_part0001.png" id="12_sytml"]
+[ext_resource type="Texture2D" uid="uid://d1sj5rlj0tqvf" path="res://age of war sprites/bases/cave/tower_part/base_tower_part.png" id="12_sytml"]
 [ext_resource type="PackedScene" uid="uid://c36x5w6hobq86" path="res://bases/player_base.tscn" id="15_kvrvk"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xhm1x"]

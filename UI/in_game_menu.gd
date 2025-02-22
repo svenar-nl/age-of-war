@@ -29,11 +29,11 @@ func _process(delta):
 	if queue.size() != 0 and loading_unit == true and get_node("/root/main_game").unable_to_spawn == false and load_finish == true:
 		_tween_queue_finished(queue[0][0])
 	if loading_unit == true and load_finish == true:
-		$units_menu/sublabel_queue.text = "Waiting for space"
+		$sublabel_queue.text = "Waiting for space"
 	elif loading_unit == true:
-		$units_menu/sublabel_queue.show()
+		$sublabel_queue.show()
 	else:
-		$units_menu/sublabel_queue.hide()
+		$sublabel_queue.hide()
 
 
 func _on_unit_pressed():
@@ -54,11 +54,13 @@ func _on_back_pressed():
 
 
 func _on_advance_pressed():
-	print("check if we have enough EXP to advance")
-	print("And we have to wait for unit build queue to be empty")
 	if GlobalVariables.player_exp >= GlobalVariables.get_exp_to_next_age() and queue.is_empty():
 		GlobalVariables.current_stage += 1
 		update_sprites_with_age()
+		get_node("/root/main_game/player_base").advance_base_sprite()
+	elif queue.is_empty() != true:
+		$root_label.show()
+		$root_label.text = "Build queue must be empty before advancing!"
 	else:
 		$root_label.show()
 		$root_label.text = "Not enough XP!"
@@ -74,15 +76,19 @@ func update_sprites_with_age():
 	if GlobalVariables.current_stage == GlobalVariables.stage.knight:
 		$units_menu/units_UI.texture = load("res://age of war sprites/ui/units_buttons0002.png")
 		$turret_menu/AllTurretUi0001.texture = load("res://age of war sprites/ui/all_turret_UI0002.png")
+		$overlay/SpecialButtons0001.texture = load("res://age of war sprites/ui/special_buttons0002.png")
 	elif GlobalVariables.current_stage == GlobalVariables.stage.medival:
 		$units_menu/units_UI.texture = load("res://age of war sprites/ui/units_buttons0003.png")
 		$turret_menu/AllTurretUi0001.texture = load("res://age of war sprites/ui/all_turret_UI0003.png")
+		$overlay/SpecialButtons0001.texture = load("res://age of war sprites/ui/special_buttons0003.png")
 	elif GlobalVariables.current_stage == GlobalVariables.stage.miltary:
 		$units_menu/units_UI.texture = load("res://age of war sprites/ui/units_buttons0004.png")
 		$turret_menu/AllTurretUi0001.texture = load("res://age of war sprites/ui/all_turret_UI0004.png")
+		$overlay/SpecialButtons0001.texture = load("res://age of war sprites/ui/special_buttons0004.png")
 	elif GlobalVariables.current_stage == GlobalVariables.stage.future:
 		$units_menu/units_UI.texture = load("res://age of war sprites/ui/units_buttons0005.png")
 		$turret_menu/AllTurretUi0001.texture = load("res://age of war sprites/ui/all_turret_UI0005.png")
+		$overlay/SpecialButtons0001.texture = load("res://age of war sprites/ui/special_buttons0005.png")
 		$root_hbox_container/advance.disabled = true
 
 func add_to_queue(type: String, load_time: float):
@@ -99,7 +105,7 @@ func load_first_unit_in_queue():
 	tween.tween_property($queue/ColorRect7, "size", Vector2(432, 16), time_to_load)
 	tween.connect("finished", _tween_queue_finished.bind(type))
 	tween.play()
-	$units_menu/sublabel_queue.text = "Training " + GlobalVariables.get_unit_name(type, GlobalVariables.current_stage) + "..."
+	$sublabel_queue.text = "Training " + GlobalVariables.get_unit_name(type, GlobalVariables.current_stage) + "..."
 	
 
 func queue_load(time, unit: String):
@@ -142,7 +148,18 @@ func _on_tank_pressed():
 
 
 func _on_special_button_pressed():
-	print("do special attack")
+	if GlobalVariables.current_stage == GlobalVariables.stage.cave:
+		get_node("/root/main_game").cave_special_attack()
+		get_node("/root/main_game/Camera2D").apply_shake()
+	elif GlobalVariables.current_stage == GlobalVariables.stage.knight:
+		get_node("/root/main_game").knight_special_attack()
+	elif GlobalVariables.current_stage == GlobalVariables.stage.medival:
+		get_node("/root/main_game").medival_special_attack()
+	elif GlobalVariables.current_stage == GlobalVariables.stage.miltary:
+		get_node("/root/main_game").miltary_special_attack()
+	elif GlobalVariables.current_stage == GlobalVariables.stage.future:
+		get_node("/root/main_game").future_special_attack()
+
 
 
 func update_queue_hud():
@@ -355,7 +372,10 @@ func _on_sell_turret_mouse_entered():
 
 func _on_advance_mouse_entered():
 	$root_label.show()
-	$root_label.text = "{exp} Xp - Evolve to next age".format({"exp": GlobalVariables.get_exp_to_next_age()})
+	if GlobalVariables.get_exp_to_next_age() == INF:
+		$root_label.text = "Already at max age!"
+	else:
+		$root_label.text = "{exp} Xp - Evolve to next age".format({"exp": GlobalVariables.get_exp_to_next_age()})
 
 
 func _on_cancel_sell_turret_pressed():

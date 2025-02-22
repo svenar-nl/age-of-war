@@ -1,0 +1,61 @@
+[gd_scene load_steps=3 format=3 uid="uid://ca86sp4x6dnrj"]
+
+[ext_resource type="Texture2D" uid="uid://bk20tm6uudxsk" path="res://age of war sprites/bg/background.png" id="1_gol68"]
+[ext_resource type="Script" path="res://scenes/instructions_screen.gd" id="1_o4ra7"]
+
+[node name="instructions_screen" type="Node2D"]
+script = ExtResource("1_o4ra7")
+
+[node name="background sprite" type="Sprite2D" parent="."]
+z_index = -100
+position = Vector2(1492, 169)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_gol68")
+metadata/_edit_lock_ = true
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="CenterContainer" type="CenterContainer" parent="Control"]
+offset_right = 1152.0
+offset_bottom = 648.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/CenterContainer"]
+layout_mode = 2
+
+[node name="Label2" type="Label" parent="Control/CenterContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_font_sizes/font_size = 40
+text = "Instructions"
+horizontal_alignment = 1
+
+[node name="Label" type="Label" parent="Control/CenterContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+text = "The goal of the game is to survive and destroy the enemy base.
+
+The game is divided in 5 ages. To move to the next age, you need 
+Xp points. To gain these points, you have to kill enemy units.
+
+You also gain Xp points when one of your units is killed. You can 
+also build defences. Finding the balance between defence and 
+offence is the key.
+
+You will also be able to use a special attack. This attack will need 
+time to be available again after you use it. Each age have its own 
+special attack.
+
+You cannot repair your base, but it will gain health points 
+everytime you evolve to the next age. Protect your base at all cost!"
+
+[node name="Button" type="Button" parent="Control/CenterContainer/VBoxContainer"]
+layout_mode = 2
+text = "Click here to return to the menu"
+
+[connection signal="pressed" from="Control/CenterContainer/VBoxContainer/Button" to="." method="_on_button_pressed"]

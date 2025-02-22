@@ -6,13 +6,19 @@ class_name turret
 var projectile_damge
 var projectile_speed
 var projectile_texture
+var spawn_projectile_offspring : bool
+var offspring_texture
 
 var target_queue: Array
 var current_target
 
 var spawn_projectile_frame
+var spawn_projectile_frame2
 var play_audio_frame
+var play_audio_frame2
 var offset: Vector2 = Vector2(0,0)
+var no_rotation: bool
+var play_audio_repeated: bool
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -20,6 +26,8 @@ func _ready():
 		child.bus = &'sfx'
 	
 	$range.connect("body_entered", _on_range_body_entered)
+	no_rotation = false
+	z_index = 1
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -37,11 +45,12 @@ func _process(delta):
 			$AnimatedSprite2D.play("attack")
 			
 		# self.global_position.angle_to_point(current_target.get_node("CollisionShape2D").global_position - self.global_position)
-		$AnimatedSprite2D.rotation = target_position.angle()
+		if no_rotation == false:
+			$AnimatedSprite2D.rotation = target_position.angle()
 		
-		if $AnimatedSprite2D.frame == spawn_projectile_frame:
+		if $AnimatedSprite2D.frame == spawn_projectile_frame or $AnimatedSprite2D.frame == spawn_projectile_frame2:
 			spawn_projectile(target_position.normalized(), projectile_texture)
-		elif $AnimatedSprite2D.frame == play_audio_frame and $sfx/AudioStreamPlayer2D.is_playing() == false:
+		elif ($AnimatedSprite2D.frame == play_audio_frame or $AnimatedSprite2D.frame == play_audio_frame2) and ($sfx/AudioStreamPlayer2D.is_playing() == false or play_audio_repeated == true):
 			$sfx/AudioStreamPlayer2D.play()
 	else:
 		$AnimatedSprite2D.play("idle")
@@ -61,5 +70,11 @@ func spawn_projectile(direction, texture):
 	projectile.damage = projectile_damge
 	projectile.speed = projectile_speed
 	projectile.is_player_owned = self.is_player_owned
+	projectile.spawn_offspring = spawn_projectile_offspring
 	projectile.get_node("Sprite2D").texture = texture
+	projectile.get_node("Sprite2D").rotation = $AnimatedSprite2D.rotation
+	if offspring_texture == null:
+		projectile.offspring_texture = projectile_texture
+	else:
+		projectile.offspring_texture = offspring_texture
 	get_node("/root/main_game").add_child(projectile)

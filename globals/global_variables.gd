@@ -8,7 +8,7 @@ var current_stage
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	player_money = 17500
+	player_money = 1750000
 	player_exp = 400000
 	current_stage = stage.cave
 

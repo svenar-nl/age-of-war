@@ -2,12 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b6042ld0mkv7v"
-valid=false
+uid="uid://dvjg8om46a1di"
+path="res://.godot/imported/medival_turret_3_attack0070.png-904b325eb8bdd697245d1232d139d7ee.ctex"
+metadata={
+"vram_texture": false
+}
 
 [deps]
 
 source_file="res://age of war sprites/bases/medival/turret_3/medival_turret_3_attack0070.png"
+dest_files=["res://.godot/imported/medival_turret_3_attack0070.png-904b325eb8bdd697245d1232d139d7ee.ctex"]
 
 [params]
 

@@ -22,6 +22,12 @@ func _ready():
 	# fourth is for top
 	turret_array = [0,-1,-1,-1]
 	turret_data = [null, null, null, null]
+	$tower_bottom.hide()
+	$tower_part.hide()
+	$tower_top.hide()
+	
+	
+	
 	deactivate_buttons()
 
 
@@ -140,6 +146,10 @@ func take_damage(damage):
 	health -= damage
 	if health <= 0:
 		print("base destroyed")
+		if is_player_owned == true:
+			print("emit signal base destroyed for player base and change to game over screen")
+		elif is_player_owned == false:
+			print("emit signal base destroyed for enemy base and change to win screen")
 
 func get_number_of_turret_slots():
 	var number = 0
@@ -206,3 +216,29 @@ func _on_button_tower_top_pressed():
 		turret_data[3] = null
 		turret_array[3] = 0
 		get_node("/root/main_game/Camera2D/in_game_menu")._on_cancel_sell_turret_pressed()
+
+func advance_base_sprite():
+	if GlobalVariables.current_stage == GlobalVariables.stage.knight:
+		$Sprite2D.texture = load("res://age of war sprites/bases/knight/base/base.png")
+		$tower_bottom.texture = load("res://age of war sprites/bases/knight/tower_base/base_tower_bottom.png")
+		$tower_part.texture = load("res://age of war sprites/bases/knight/tower_part/base_tower_part.png")
+		$tower_top.texture = load("res://age of war sprites/bases/knight/tower_top/base_tower_top.png")
+		health = int(health * 750 / 500)
+	elif GlobalVariables.current_stage == GlobalVariables.stage.medival:
+		$Sprite2D.texture = load("res://age of war sprites/bases/medival/base/base.png")
+		$tower_bottom.texture = load("res://age of war sprites/bases/medival/tower_base/base_tower_bottom.png")
+		$tower_part.texture = load("res://age of war sprites/bases/medival/tower_part/base_tower_part.png")
+		$tower_top.texture = load("res://age of war sprites/bases/medival/tower_top/base_tower_top.png")
+		health = int(health * 1000 / 750)
+	elif GlobalVariables.current_stage == GlobalVariables.stage.miltary:
+		$Sprite2D.texture = load("res://age of war sprites/bases/miltary/base/base.png")
+		$tower_bottom.texture = load("res://age of war sprites/bases/miltary/tower_base/base_tower_bottom.png")
+		$tower_part.texture = load("res://age of war sprites/bases/miltary/tower_part/base_tower_part.png")
+		$tower_top.texture = load("res://age of war sprites/bases/miltary/tower_top/base_tower_top.png")
+		health = int(health * 1500 / 1000)
+	elif GlobalVariables.current_stage == GlobalVariables.stage.future:
+		$Sprite2D.texture = load("res://age of war sprites/bases/future/base/base.png")
+		$tower_bottom.texture = load("res://age of war sprites/bases/future/tower_base/base_tower_bottom.png")
+		$tower_part.texture = load("res://age of war sprites/bases/future/tower_part/base_tower_part.png")
+		$tower_top.texture = load("res://age of war sprites/bases/future/tower_top/base_tower_top.png")
+		health = int(health * 3000 / 1500)

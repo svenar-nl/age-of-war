@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://bwbjwinb2wuou"]
+[gd_scene load_steps=14 format=3 uid="uid://bwbjwinb2wuou"]
 
 [ext_resource type="Texture2D" uid="uid://cjm2h7jgkb3gh" path="res://age of war sprites/ui/root_ui.png" id="1_eesea"]
 [ext_resource type="Script" path="res://UI/in_game_menu.gd" id="1_wl8wd"]
@@ -9,6 +9,18 @@
 [ext_resource type="Texture2D" uid="uid://7r44da3tyasg" path="res://age of war sprites/ui/all_turret_UI0001.png" id="5_cp7c1"]
 [ext_resource type="Texture2D" uid="uid://vaof7nc1ov4v" path="res://age of war sprites/ui/cancel_button0001.png" id="8_76dav"]
 [ext_resource type="Texture2D" uid="uid://cmbt5vcwlrbuy" path="res://age of war sprites/ui/cancel_button0002.png" id="8_foxd6"]
+[ext_resource type="Script" path="res://UI/special_button.gd" id="9_fyqc4"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3ru04"]
+bg_color = Color(0, 0, 0, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_e10t1"]
+bg_color = Color(1, 1, 1, 0.392157)
+corner_detail = 1
+
+[sub_resource type="Theme" id="Theme_5o1a6"]
+ProgressBar/styles/background = SubResource("StyleBoxFlat_3ru04")
+ProgressBar/styles/fill = SubResource("StyleBoxFlat_e10t1")
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -139,17 +151,6 @@ offset_bottom = 117.0
 theme_override_colors/font_color = Color(1, 1, 0, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 20
-
-[node name="sublabel_queue" type="Label" parent="units_menu"]
-layout_mode = 0
-offset_left = 144.0
-offset_top = 59.0
-offset_right = 257.0
-offset_bottom = 82.0
-theme_override_colors/font_color = Color(1, 0, 0, 1)
-theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 12
-text = "Training {}..."
 
 [node name="turret_menu" type="Control" parent="."]
 anchors_preset = 0
@@ -285,12 +286,31 @@ color = Color(1, 0, 0.00392157, 1)
 [node name="special_button" type="Button" parent="."]
 custom_minimum_size = Vector2(113, 50.105)
 layout_mode = 0
-offset_left = 1004.5
+offset_left = 1004.0
 offset_top = 145.0
-offset_right = 1117.5
-offset_bottom = 189.1
+offset_right = 1118.0
+offset_bottom = 195.105
 focus_mode = 0
 theme = ExtResource("3_yts8d")
+script = ExtResource("9_fyqc4")
+
+[node name="ColorRect" type="ColorRect" parent="special_button"]
+layout_mode = 0
+offset_left = 32.0
+offset_top = 4.0
+offset_right = 80.0
+offset_bottom = 45.0
+color = Color(0.2, 0.2, 0.2, 0.588235)
+
+[node name="ProgressBar" type="ProgressBar" parent="special_button"]
+layout_mode = 0
+offset_right = 113.0
+offset_bottom = 50.0
+mouse_filter = 2
+theme = SubResource("Theme_5o1a6")
+step = 1.0
+
+[node name="Timer" type="Timer" parent="special_button"]
 
 [node name="buy_turret_cancel" type="Control" parent="."]
 visible = false
@@ -329,6 +349,17 @@ offset_left = 750.0
 offset_top = 11.0
 offset_right = 766.0
 offset_bottom = 27.0
+
+[node name="sublabel_queue" type="Label" parent="."]
+layout_mode = 0
+offset_left = 163.0
+offset_top = 33.0
+offset_right = 276.0
+offset_bottom = 56.0
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 12
+text = "Training {}..."
 
 [node name="root_label" type="Label" parent="."]
 layout_mode = 0

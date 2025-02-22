@@ -3,8 +3,8 @@
 [ext_resource type="Script" path="res://bases/player_base.gd" id="1_25s31"]
 [ext_resource type="Texture2D" uid="uid://c1xsucbfkbfiv" path="res://age of war sprites/bases/cave/base/base.png" id="2_t4o2h"]
 [ext_resource type="Texture2D" uid="uid://clxxa7qqv10di" path="res://age of war sprites/bases/cave/tower_base/base_tower_bottom.png" id="3_q1xho"]
-[ext_resource type="Texture2D" uid="uid://d1sj5rlj0tqvf" path="res://age of war sprites/bases/cave/tower_part/base_tower_part0001.png" id="4_07h3k"]
-[ext_resource type="Texture2D" uid="uid://caxi44uddr1wf" path="res://age of war sprites/bases/cave/tower_top/base_tower_top0001.png" id="5_v817d"]
+[ext_resource type="Texture2D" uid="uid://d1sj5rlj0tqvf" path="res://age of war sprites/bases/cave/tower_part/base_tower_part.png" id="4_07h3k"]
+[ext_resource type="Texture2D" uid="uid://caxi44uddr1wf" path="res://age of war sprites/bases/cave/tower_top/base_tower_top.png" id="5_civhq"]
 [ext_resource type="Theme" uid="uid://c4l0arxjc7n78" path="res://bases/base_button_theme.tres" id="6_8jc8w"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2s853"]
@@ -25,30 +25,27 @@ position = Vector2(0, -91.5)
 shape = SubResource("RectangleShape2D_2s853")
 
 [node name="tower_bottom" type="Sprite2D" parent="."]
-visible = false
-position = Vector2(51, -280)
+position = Vector2(52, -261)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("3_q1xho")
 
 [node name="tower_part" type="Sprite2D" parent="."]
-visible = false
-position = Vector2(62, -373)
+position = Vector2(64, -350)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("4_07h3k")
 
 [node name="tower_top" type="Sprite2D" parent="."]
-visible = false
-position = Vector2(62, -485)
+position = Vector2(62, -458)
 scale = Vector2(0.5, 0.5)
-texture = ExtResource("5_v817d")
+texture = ExtResource("5_civhq")
 
 [node name="Button_tower_base" type="Button" parent="."]
 z_index = 15
 custom_minimum_size = Vector2(32, 32)
-offset_left = 42.0
-offset_top = -199.0
-offset_right = 74.0
-offset_bottom = -167.0
+offset_left = 44.0
+offset_top = -190.0
+offset_right = 76.0
+offset_bottom = -158.0
 focus_mode = 0
 theme = ExtResource("6_8jc8w")
 disabled = true
@@ -56,10 +53,10 @@ disabled = true
 [node name="Button_tower_bottom" type="Button" parent="."]
 z_index = 15
 custom_minimum_size = Vector2(32, 32)
-offset_left = 42.0
-offset_top = -279.0
-offset_right = 74.0
-offset_bottom = -247.0
+offset_left = 44.0
+offset_top = -260.0
+offset_right = 76.0
+offset_bottom = -228.0
 focus_mode = 0
 theme = ExtResource("6_8jc8w")
 disabled = true
@@ -67,10 +64,10 @@ disabled = true
 [node name="Button_tower_part" type="Button" parent="."]
 z_index = 15
 custom_minimum_size = Vector2(32, 32)
-offset_left = 42.0
-offset_top = -375.0
-offset_right = 74.0
-offset_bottom = -343.0
+offset_left = 44.0
+offset_top = -350.0
+offset_right = 76.0
+offset_bottom = -318.0
 focus_mode = 0
 theme = ExtResource("6_8jc8w")
 disabled = true
@@ -78,10 +75,10 @@ disabled = true
 [node name="Button_tower_top" type="Button" parent="."]
 z_index = 15
 custom_minimum_size = Vector2(32, 32)
-offset_left = 42.0
-offset_top = -470.0
-offset_right = 74.0
-offset_bottom = -438.0
+offset_left = 44.0
+offset_top = -443.0
+offset_right = 76.0
+offset_bottom = -411.0
 focus_mode = 0
 theme = ExtResource("6_8jc8w")
 disabled = true

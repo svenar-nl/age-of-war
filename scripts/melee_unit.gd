@@ -98,7 +98,7 @@ func _process(delta):
 		
 		if is_player_owned == false:
 			GlobalVariables.player_money += money_die_reward
-			GlobalVariables.player_exp += 2 * money_die_reward
+		GlobalVariables.player_exp += 2 * money_die_reward
 
 	position.y = 570
 	$Label.text = str(health)
