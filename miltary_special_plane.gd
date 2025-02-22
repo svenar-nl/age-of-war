@@ -20,7 +20,7 @@ func _process(delta):
 
 
 func spawn_bomb():
-	pass
+	print("spawn bomb")
 
 
 func _on_bomb_timer_timeout():
