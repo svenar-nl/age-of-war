@@ -1,5 +1,7 @@
-res://age of war sprites/effects/cave_special_projectile
+res://age of war sprites/effects/miltary_special_plane
 res://
+res://age of war sprites/effects/knight_special_arrow
+res://age of war sprites/effects/cave_special_projectile
 res://scenes
 res://bases
 res://age of war sprites/bases/future/turret_3
@@ -18,6 +20,4 @@ res://age of war sprites/bases/cave/turret_3
 res://age of war sprites/bases/cave/turret_2
 res://age of war sprites/bases/cave/turret_1
 res://UI
-res://effects
-res://age of war sprites/effects/fire
 /home/alexp/gamedev/godot/age-of-war/globals

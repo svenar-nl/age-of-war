@@ -120,16 +120,15 @@ func cave_special_attack():
 
 func knight_special_attack():
 	var i = 0
-	while i < 25:
-		var projectile = load("res://projectile.tscn").instantiate()
-		projectile.global_position = Vector2(randf_range(300, 1500), randf_range(-200, -1000))
+	while i < 35:
+		var projectile = load("res://arrow_special_projectile.tscn").instantiate()
+		projectile.global_position = Vector2(randf_range(300, 1500), randf_range(-200, -2000))
 		projectile.direction = Vector2(randf_range(-0.5, 0.5), randf_range(2, 4)).normalized()
 		projectile.damage = 150
 		projectile.speed = 400
 		projectile.is_player_owned = true
 		projectile.spawn_offspring = false
-		projectile.time_to_die = 8.0
-		projectile.get_node("Sprite2D").texture = load("res://age of war sprites/bases/miltary/turret_1/miltary_turret_1_projectile.png")
+		projectile.time_to_die = 12.0
 		projectile.get_node("Sprite2D").rotation = projectile.direction.angle()
 		get_node("/root/main_game").add_child(projectile)
 		i += 1

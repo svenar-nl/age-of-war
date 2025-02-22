@@ -39,3 +39,6 @@ res://projectile_offspring.tscn
 res://projectile_offspring.gd
 res://default_bus_layout.tres
 res://cave_special_projectile.gd
+res://arrow_special_projectile.tscn
+res://miltary_special_plane.tscn
+res://miltary_special_plane.gd

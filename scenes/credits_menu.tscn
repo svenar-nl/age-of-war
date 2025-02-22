@@ -51,7 +51,9 @@ I would also like to thank my friends and family for always supporting me throug
 
 I used a lot of tutorials on YouTube to put this together. As way of thanking those creators this game is free and open source. Check it out on Github!
 
-Finally I would like to thank you, the player. Thank you for your time and I hope this was a nice nostalgia trip for you. "
+Finally I would like to thank you, the player. Thank you for your time and I hope this was a nice nostalgia trip for you. 
+
+My Website: alexpiotrowski.xyz (if my website is down, I also have a YouTube)."
 horizontal_alignment = 1
 autowrap_mode = 2
 
@@ -63,7 +65,7 @@ text = "return to main menu"
 z_index = -1
 layout_mode = 0
 offset_left = 176.0
-offset_top = 151.0
+offset_top = 129.0
 offset_right = 976.0
-offset_bottom = 516.0
+offset_bottom = 542.0
 color = Color(1, 1, 1, 0.588235)
