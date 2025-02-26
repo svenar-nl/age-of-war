@@ -14,7 +14,6 @@ func _ready():
 	sprite_melee_attack_position = Vector2(30, -65)
 	sprite_walk_position = Vector2(5, -52)
 	sprite_walk_attack_position = Vector2(15, -50)
-	
 	multiple_melee_attack_animations = true
 	
 	super()

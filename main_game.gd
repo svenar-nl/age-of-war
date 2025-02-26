@@ -5,6 +5,7 @@ var unit_array : Array
 var player_unit_spawn_position : Vector2 = Vector2(240,570)
 var player_spawn_location_occupied : bool = false
 var unable_to_spawn
+var medival_special_active : bool
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -12,13 +13,20 @@ func _ready():
 	$Camera2D/in_game_menu.connect("spawn_melee", _on_melee_button_pressed)
 	$Camera2D/in_game_menu.connect("spawn_range", _on_range_button_pressed)
 	$Camera2D/in_game_menu.connect("spawn_tank", _on_tank_button_pressed)
+	$Camera2D/in_game_menu.connect("spawn_super_soldier", _on_super_soldier_button_pressed)
 	unable_to_spawn = false
+	medival_special_active = false
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	$Camera2D/in_game_menu/money.text = "money: " + str(GlobalVariables.player_money)
 	$Camera2D/in_game_menu/exp.text = "exp: " + str(GlobalVariables.player_exp)
+	if medival_special_active == true:
+		if $medival_special_timer.is_stopped() == true:
+			$medival_special_timer.start(5.0)
+		for unit in get_node("player_units").get_children():
+			unit.health += 1
 
 
 func get_first_player_unit():
@@ -39,12 +47,9 @@ func _on_melee_button_pressed():
 	var new_melee_unit = load("res://units/" + GlobalVariables.get_current_age_as_string() + "/melee/" + GlobalVariables.get_current_age_as_string() + "_melee.tscn").instantiate()
 	new_melee_unit.position = player_unit_spawn_position
 	new_melee_unit.is_player_owned = true
-	add_child(new_melee_unit)
+	get_node("/root/main_game/player_units").add_child(new_melee_unit)
 	
-	var cave_melee2 = load("res://units/" + GlobalVariables.get_current_age_as_string() + "/melee/" + GlobalVariables.get_current_age_as_string() + "_melee.tscn").instantiate()
-	cave_melee2.position = Vector2(1400,570)
-	cave_melee2.is_player_owned = false
-	add_child(cave_melee2)
+
 	
 
 
@@ -54,12 +59,9 @@ func _on_range_button_pressed():
 	var cave_range = load("res://units/" + GlobalVariables.get_current_age_as_string() + "/range/" + GlobalVariables.get_current_age_as_string() + "_range.tscn").instantiate()
 	cave_range.position = player_unit_spawn_position
 	cave_range.is_player_owned = true
-	add_child(cave_range)
+	get_node("/root/main_game/player_units").add_child(cave_range)
 	
-	var cave_range2 = load("res://units/" + GlobalVariables.get_current_age_as_string() + "/range/" + GlobalVariables.get_current_age_as_string() + "_range.tscn").instantiate()
-	cave_range2.position = Vector2(1400,570)
-	cave_range2.is_player_owned = false
-	add_child(cave_range2)
+	
 	
 
 
@@ -69,13 +71,16 @@ func _on_tank_button_pressed():
 	var cave_tank = load("res://units/" + GlobalVariables.get_current_age_as_string() + "/tank/" + GlobalVariables.get_current_age_as_string() + "_tank.tscn").instantiate()
 	cave_tank.position = player_unit_spawn_position
 	cave_tank.is_player_owned = true
-	add_child(cave_tank)
+	get_node("/root/main_game/player_units").add_child(cave_tank)
 	
-	var cave_tank2 = load("res://units/" + GlobalVariables.get_current_age_as_string() + "/tank/" + GlobalVariables.get_current_age_as_string() + "_tank.tscn").instantiate()
-	cave_tank2.position = Vector2(1400,570)
-	cave_tank2.is_player_owned = false
-	add_child(cave_tank2)
-	
+func _on_super_soldier_button_pressed():
+	print("here")
+	if unable_to_spawn == true:
+		return
+	var super_soldier = load("res://units/future/super_soldier/future_super_soldier.tscn").instantiate()
+	super_soldier.position = player_unit_spawn_position
+	super_soldier.is_player_owned = true
+	get_node("/root/main_game/player_units").add_child(super_soldier)
 
 
 func _on_player_spawn_location_body_entered(body):
@@ -134,10 +139,17 @@ func knight_special_attack():
 		i += 1
 
 func medival_special_attack():
-	pass
+	medival_special_active = true
 
 func miltary_special_attack():
-	pass
+	var plane = load("res://miltary_special_plane.tscn").instantiate()
+	plane.global_position = Vector2(-100, 150)
+	get_node("/root/main_game").add_child(plane)
 
 func future_special_attack():
 	pass
+
+
+func _on_medival_special_timer_timeout():
+	medival_special_active = false
+	$medival_special_timer.stop()

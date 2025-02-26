@@ -203,4 +203,3 @@ offset = Vector2(45, -5)
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="sfx"]
 stream = ExtResource("46_vljx7")
-volume_db = 15.0

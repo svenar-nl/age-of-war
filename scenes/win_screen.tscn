@@ -1,8 +1,10 @@
-[gd_scene load_steps=2 format=3 uid="uid://dadmjfp45lcs1"]
+[gd_scene load_steps=3 format=3 uid="uid://dadmjfp45lcs1"]
 
 [ext_resource type="Texture2D" uid="uid://bk20tm6uudxsk" path="res://age of war sprites/bg/background.png" id="1_3cwmi"]
+[ext_resource type="Script" path="res://scenes/win_screen.gd" id="1_3vrrs"]
 
 [node name="win_screen" type="Node2D"]
+script = ExtResource("1_3vrrs")
 
 [node name="background sprite" type="Sprite2D" parent="."]
 z_index = -100
@@ -38,3 +40,5 @@ text = "Play again?"
 layout_mode = 2
 text = "Visit my website at alexpiotrowski.xyz"
 horizontal_alignment = 1
+
+[connection signal="pressed" from="CenterContainer/VBoxContainer/Button" to="." method="_on_button_pressed"]

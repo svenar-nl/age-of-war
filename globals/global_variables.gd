@@ -6,10 +6,13 @@ var player_exp
 enum stage {cave, knight, medival, miltary, future}
 var current_stage
 
+enum difficulty {normal, hard, impossible}
+var current_difficulty
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	player_money = 1750000
-	player_exp = 400000
+	player_exp = 40000000
 	current_stage = stage.cave
 
 func get_current_age_as_string():
@@ -60,6 +63,8 @@ func get_unit_name(unit_type: String, input_stage):
 			return "Blaster"
 		elif unit_type == "tank":
 			return "War Machine"
+		elif unit_type == "super_soldier":
+			return "super soldier"
 
 func get_unit_cost(unit_type: String, input_stage):
 	if input_stage == stage.cave:

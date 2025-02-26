@@ -3,24 +3,39 @@ extends Node2D
 var direction
 var speed
 
+var timer : Timer
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	direction = Vector2.RIGHT
-	pass # Replace with function body.
-
+	speed = 200
+	timer = get_node("Timer")
+	timer.paused = true
+	$AudioStreamPlayer2D.play()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	if position.x > 200:
+	position.x +=  speed * delta
+	
+	
+	if position.x > 2000:
 		self.queue_free()
-	elif position.x > 100:
-		$bomb_timer.stop()
+	elif position.x > 1700:
+		timer.stop()
+	elif position.x > 200 and timer.is_paused() == true:
+		timer.start(0.4)
+		timer.paused = false
+		
+		
 	pass
 
 
 
 func spawn_bomb():
-	print("spawn bomb")
+	var bomb = load("res://projectile_miltary_special_bomb.tscn").instantiate()
+	bomb.global_position = self.global_position
+	bomb.is_player_owned = true
+	get_node("/root/main_game").add_child(bomb)
 
 
 func _on_bomb_timer_timeout():

@@ -145,11 +145,12 @@ func _on_button_tower_bottom_pressed():
 func take_damage(damage):
 	health -= damage
 	if health <= 0:
-		print("base destroyed")
 		if is_player_owned == true:
-			print("emit signal base destroyed for player base and change to game over screen")
+			MusicManager.audioStreamPlayer.stop()
+			get_tree().change_scene_to_file("res://scenes/game_over.tscn")
 		elif is_player_owned == false:
-			print("emit signal base destroyed for enemy base and change to win screen")
+			MusicManager.audioStreamPlayer.stop()
+			get_tree().change_scene_to_file("res://scenes/win_screen.tscn")
 
 func get_number_of_turret_slots():
 	var number = 0

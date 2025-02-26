@@ -55,5 +55,5 @@ func wait_for_particles_to_finish():
 	$Timer.stop()
 	$Timer.start(3.0)
 	$CPUParticles2D.emitting = false
-	$CollisionShape2D.disabled = true
+	$CollisionShape2D.set_deferred("disabled", true)
 	$Sprite2D.hide()

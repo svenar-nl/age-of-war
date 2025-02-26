@@ -1,15 +1,10 @@
-[gd_scene load_steps=2 format=3 uid="uid://bo2213gw58u2t"]
+[gd_scene load_steps=3 format=3 uid="uid://bo2213gw58u2t"]
 
+[ext_resource type="Script" path="res://scenes/credits_menu.gd" id="1_7t8qv"]
 [ext_resource type="Texture2D" uid="uid://bk20tm6uudxsk" path="res://age of war sprites/bg/background.png" id="1_q87h0"]
 
 [node name="credits_menu" type="Node2D"]
-
-[node name="background sprite" type="Sprite2D" parent="."]
-z_index = -100
-position = Vector2(1288, 169)
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("1_q87h0")
-metadata/_edit_lock_ = true
+script = ExtResource("1_7t8qv")
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 3
@@ -69,3 +64,12 @@ offset_top = 129.0
 offset_right = 976.0
 offset_bottom = 542.0
 color = Color(1, 1, 1, 0.588235)
+
+[node name="background sprite" type="Sprite2D" parent="."]
+z_index = -100
+position = Vector2(1492, 169)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_q87h0")
+metadata/_edit_lock_ = true
+
+[connection signal="pressed" from="Control/CenterContainer/VBoxContainer/Button" to="." method="_on_button_pressed"]

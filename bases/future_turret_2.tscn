@@ -7,12 +7,12 @@
 [ext_resource type="AudioStream" uid="uid://dvw1ih5p3l0b" path="res://age of war sprites/audio/sfx/future_turret_attack.mp3" id="5_5uwxt"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_nrngg"]
-radius = 600.0
+radius = 800.0
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_piley"]
 animations = [{
 "frames": [{
-"duration": 15.0,
+"duration": 10.0,
 "texture": ExtResource("1_6obvp")
 }, {
 "duration": 1.0,
@@ -21,7 +21,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("2_erh7s")
 }, {
-"duration": 15.0,
+"duration": 10.0,
 "texture": ExtResource("3_nx8t0")
 }],
 "loop": true,

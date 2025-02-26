@@ -6,13 +6,6 @@
 [node name="main_menu" type="Node2D"]
 script = ExtResource("1_bd7un")
 
-[node name="background sprite" type="Sprite2D" parent="."]
-z_index = -100
-position = Vector2(1288, 169)
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("1_pkmph")
-metadata/_edit_lock_ = true
-
 [node name="CenterContainer" type="CenterContainer" parent="."]
 offset_right = 1152.0
 offset_bottom = 648.0
@@ -43,3 +36,17 @@ text = "Credits"
 [node name="exit" type="Button" parent="CenterContainer/VBoxContainer"]
 layout_mode = 2
 text = "Exit"
+
+[node name="background sprite" type="Sprite2D" parent="."]
+z_index = -100
+position = Vector2(1492, 169)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_pkmph")
+metadata/_edit_lock_ = true
+
+[connection signal="pressed" from="CenterContainer/VBoxContainer/play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/instructions" to="." method="_on_instructions_pressed"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/options" to="." method="_on_options_pressed"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/extra" to="." method="_on_extra_pressed"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/credits" to="." method="_on_credits_pressed"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/exit" to="." method="_on_exit_pressed"]

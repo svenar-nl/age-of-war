@@ -11,6 +11,7 @@ var load_finish = false
 signal spawn_melee
 signal spawn_range
 signal spawn_tank
+signal spawn_super_soldier
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -58,12 +59,18 @@ func _on_advance_pressed():
 		GlobalVariables.current_stage += 1
 		update_sprites_with_age()
 		get_node("/root/main_game/player_base").advance_base_sprite()
+		if GlobalVariables.current_stage == GlobalVariables.stage.future:
+			$units_menu/HBoxContainer/special.disabled = false
+		if $special_button/ProgressBar.value != 100:
+			$special_button/ProgressBar.value = 100
 	elif queue.is_empty() != true:
 		$root_label.show()
 		$root_label.text = "Build queue must be empty before advancing!"
 	else:
 		$root_label.show()
 		$root_label.text = "Not enough XP!"
+		
+	
 	
 
 
@@ -119,7 +126,9 @@ func queue_load(time, unit: String):
 
 func _tween_queue_finished(unit: String):
 	if get_node("/root/main_game").unable_to_spawn == false:
+		print("spawn_" + unit)
 		emit_signal("spawn_" + unit)
+		# emit_signal("spawn_super_soldier")
 		$queue/ColorRect7.size.x = 0
 		loading_unit = false
 		queue.pop_front()
@@ -130,21 +139,30 @@ func _tween_queue_finished(unit: String):
 
 # TODO make money values and time to spawn dynamic based of current age
 func _on_melee_pressed():
-	if GlobalVariables.player_money >= 15:
-		GlobalVariables.player_money -= 15
+	if GlobalVariables.player_money >= GlobalVariables.get_unit_cost("melee", GlobalVariables.current_stage):
+		GlobalVariables.player_money -= GlobalVariables.get_unit_cost("melee", GlobalVariables.current_stage)
 		add_to_queue("melee", 0.5)
+	else:
+		$units_menu/Label.show()
+		$units_menu/Label.text = "Not enough money!"
 
 
 func _on_range_pressed():
-	if GlobalVariables.player_money >= 25:
-		GlobalVariables.player_money -= 25
+	if GlobalVariables.player_money >= GlobalVariables.get_unit_cost("range", GlobalVariables.current_stage):
+		GlobalVariables.player_money -= GlobalVariables.get_unit_cost("range", GlobalVariables.current_stage)
 		add_to_queue("range", 1)
+	else:
+		$units_menu/Label.show()
+		$units_menu/Label.text = "Not enough money!"
 
 
 func _on_tank_pressed():
-	if GlobalVariables.player_money >= 100:
-		GlobalVariables.player_money -= 100
+	if GlobalVariables.player_money >= GlobalVariables.get_unit_cost("tank", GlobalVariables.current_stage):
+		GlobalVariables.player_money -= GlobalVariables.get_unit_cost("tank", GlobalVariables.current_stage)
 		add_to_queue("tank", 2.0)
+	else:
+		$units_menu/Label.show()
+		$units_menu/Label.text = "Not enough money!"
 
 
 func _on_special_button_pressed():
@@ -153,12 +171,15 @@ func _on_special_button_pressed():
 		get_node("/root/main_game/Camera2D").apply_shake()
 	elif GlobalVariables.current_stage == GlobalVariables.stage.knight:
 		get_node("/root/main_game").knight_special_attack()
+		get_node("/root/main_game/Camera2D").apply_shake()
 	elif GlobalVariables.current_stage == GlobalVariables.stage.medival:
 		get_node("/root/main_game").medival_special_attack()
 	elif GlobalVariables.current_stage == GlobalVariables.stage.miltary:
 		get_node("/root/main_game").miltary_special_attack()
+		get_node("/root/main_game/Camera2D").apply_shake()
 	elif GlobalVariables.current_stage == GlobalVariables.stage.future:
 		get_node("/root/main_game").future_special_attack()
+		get_node("/root/main_game/Camera2D").apply_shake()
 
 
 
@@ -412,3 +433,23 @@ func _on_turret_3_pressed():
 	$buy_turret_cancel.show()
 	
 	get_node("/root/main_game/player_base").activate_turret_buy_buttons()
+
+
+func _on_special_pressed():
+	if GlobalVariables.player_money >= 150000:
+		GlobalVariables.player_money -= 150000
+		add_to_queue("super_soldier", 10.0)
+	else:
+		$root_label.show()
+		$root_label.text = "Not enough money!"
+
+
+func _on_special_mouse_entered():
+	$units_menu/Label.show()
+	$units_menu/Label.text = "${price} - {unit}".format({"price" : 150000,
+														"unit" : "super soldier"})
+
+
+func _on_special_mouse_exited():
+	$units_menu/Label.hide()
+	$units_menu/Label.text = ""

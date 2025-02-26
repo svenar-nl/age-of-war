@@ -1,4 +1,4 @@
-[gd_scene load_steps=189 format=3 uid="uid://dexhbnofnhph0"]
+[gd_scene load_steps=190 format=3 uid="uid://dexhbnofnhph0"]
 
 [ext_resource type="Script" path="res://units/cave/tank/cave_tank.gd" id="1_egoxl"]
 [ext_resource type="Texture2D" uid="uid://bicw4vxjolkse" path="res://age of war sprites/units/cave/tank/attack/cave_tank_attack0001.png" id="2_jol8u"]
@@ -186,6 +186,7 @@
 [ext_resource type="Texture2D" uid="uid://pcbk8jpy3g48" path="res://age of war sprites/units/cave/tank/walk/cave_tank_walk0040.png" id="184_dd02g"]
 [ext_resource type="AudioStream" uid="uid://bojyh5xe5fhh8" path="res://age of war sprites/audio/sfx/stab_02.mp3" id="185_713ou"]
 [ext_resource type="AudioStream" uid="uid://oqageoxma8v6" path="res://age of war sprites/audio/sfx/cave_tank_die.mp3" id="185_iie0a"]
+[ext_resource type="Texture2D" uid="uid://cr1r5c47lxi16" path="res://age of war sprites/effects/shadow.png" id="187_q6qqf"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_ll4i1"]
 animations = [{
@@ -766,6 +767,9 @@ size = Vector2(136, 88)
 gravity_scale = 0.0
 lock_rotation = true
 script = ExtResource("1_egoxl")
+
+[node name="Shadow" type="Sprite2D" parent="."]
+texture = ExtResource("187_q6qqf")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(17, -65)

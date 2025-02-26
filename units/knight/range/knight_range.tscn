@@ -1344,6 +1344,7 @@ offset_bottom = -105.0
 
 [node name="range_sfx" type="AudioStreamPlayer2D" parent="sfx"]
 stream = ExtResource("318_6odkh")
+volume_db = 10.0
 
 [node name="melee_sfx" type="AudioStreamPlayer2D" parent="sfx"]
 stream = ExtResource("319_4l61l")

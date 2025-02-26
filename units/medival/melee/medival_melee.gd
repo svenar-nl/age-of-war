@@ -3,8 +3,8 @@ extends melee_unit
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	health = 600
-	damage = 100
+	health = 200
+	damage = 40
 	move_speed = 50
 	money_die_reward = 260
 	

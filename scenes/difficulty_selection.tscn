@@ -1,19 +1,14 @@
-[gd_scene load_steps=2 format=3 uid="uid://d0fdab22qwonm"]
+[gd_scene load_steps=3 format=3 uid="uid://d0fdab22qwonm"]
 
 [ext_resource type="Texture2D" uid="uid://bk20tm6uudxsk" path="res://age of war sprites/bg/background.png" id="1_d6dqb"]
+[ext_resource type="Script" path="res://scenes/difficulty_selection.gd" id="1_n0sbg"]
 
 [node name="difficulty_selection" type="Node2D"]
-
-[node name="background sprite" type="Sprite2D" parent="."]
-z_index = -100
-position = Vector2(1288, 169)
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("1_d6dqb")
-metadata/_edit_lock_ = true
+script = ExtResource("1_n0sbg")
 
 [node name="CenterContainer" type="CenterContainer" parent="."]
-offset_right = 8.0
-offset_bottom = 44.0
+offset_right = 1152.0
+offset_bottom = 648.0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
 layout_mode = 2
@@ -35,18 +30,30 @@ text = "Choose a difficulty to start the game:
 "
 horizontal_alignment = 1
 
-[node name="Button" type="Button" parent="CenterContainer/VBoxContainer"]
+[node name="normal" type="Button" parent="CenterContainer/VBoxContainer"]
 layout_mode = 2
 text = "Normal"
 
-[node name="Button2" type="Button" parent="CenterContainer/VBoxContainer"]
+[node name="hard" type="Button" parent="CenterContainer/VBoxContainer"]
 layout_mode = 2
 text = "Hard"
 
-[node name="Button3" type="Button" parent="CenterContainer/VBoxContainer"]
+[node name="impossible" type="Button" parent="CenterContainer/VBoxContainer"]
 layout_mode = 2
 text = "Impossible"
 
-[node name="Button4" type="Button" parent="CenterContainer/VBoxContainer"]
+[node name="return" type="Button" parent="CenterContainer/VBoxContainer"]
 layout_mode = 2
 text = "Click here to return to the menu"
+
+[node name="background sprite" type="Sprite2D" parent="."]
+z_index = -100
+position = Vector2(1492, 169)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_d6dqb")
+metadata/_edit_lock_ = true
+
+[connection signal="pressed" from="CenterContainer/VBoxContainer/normal" to="." method="_on_normal_pressed"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/hard" to="." method="_on_hard_pressed"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/impossible" to="." method="_on_impossible_pressed"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/return" to="." method="_on_return_pressed"]

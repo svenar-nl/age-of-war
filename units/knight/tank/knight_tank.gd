@@ -16,6 +16,8 @@ func _ready():
 	hit_sfx = get_node("sfx/hit_sfx")
 	money_die_reward = 650
 	
+	custom_death_sfx = "res://age of war sprites/audio/sfx/knight_tank_die.mp3"
+	
 	super()
 	
 
@@ -31,8 +33,8 @@ func attack_state():
 		stop_all_sfx()
 		return
 	
-	if $AnimatedSprite2D.frame == 18:
+	if $AnimatedSprite2D.frame == 20:
 		hit_sfx.play()
 		# whack_sfx.pitch_scale = randf_range(0.9, 1.1)
-	if $AnimatedSprite2D.frame == 20:
+	if $AnimatedSprite2D.frame == 24:
 		do_damage($RayCast2D.get_collider())

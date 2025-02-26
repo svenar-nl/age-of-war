@@ -1145,6 +1145,7 @@ stream = ExtResource("274_hghew")
 
 [node name="die_sfx" type="AudioStreamPlayer2D" parent="sfx"]
 stream = ExtResource("274_bs8y1")
+volume_db = 15.0
 
 [node name="death_timer" type="Timer" parent="."]
 

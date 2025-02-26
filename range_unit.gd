@@ -140,7 +140,7 @@ func walk_state(delta):
 	if $RayCast2D_range.is_colliding() == true and $RayCast2D_range.get_collider().is_player_owned == is_player_owned:
 		$RayCast2D_range.add_exception_rid($RayCast2D_range.get_collider())
 	elif $RayCast2D_range.is_colliding() == true and $RayCast2D_range.get_collider().is_player_owned != is_player_owned:
-		if $RayCast2D_melee.is_colliding() == true and $RayCast2D_melee.get_collider().is_player_owned == is_player_owned and ($RayCast2D_melee.get_collider().is_walking_or_walk_attacking()):
+		if $RayCast2D_melee.is_colliding() == true and $RayCast2D_melee.get_collider().is_player_owned == self.is_player_owned and ($RayCast2D_melee.get_collider().is_walking_or_walk_attacking()):
 			change_state(state.walk_attack)
 		elif $RayCast2D_melee.is_colliding() == false:
 			change_state(state.walk_attack)
@@ -199,7 +199,7 @@ func is_idle_or_idle_attacking():
 		return false
 
 func is_walking_or_walk_attacking():
-	if current_state == state.walk:
+	if current_state == state.walk or current_state == state.walk_attack:
 		return true
 	else:
 		return false

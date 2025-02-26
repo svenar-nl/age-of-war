@@ -993,7 +993,7 @@ target_position = Vector2(24, 0)
 
 [node name="RayCast2D_range" type="RayCast2D" parent="."]
 position = Vector2(0, -44)
-target_position = Vector2(210, 0)
+target_position = Vector2(180, 0)
 
 [node name="death_timer" type="Timer" parent="."]
 

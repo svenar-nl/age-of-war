@@ -5,7 +5,7 @@ var hit_sfx: AudioStreamPlayer2D
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	health = 3000
-	damage = 800
+	damage = 500
 	move_speed = 50
 	
 	sprite_walk_position = Vector2(0, -65)
