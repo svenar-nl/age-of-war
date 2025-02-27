@@ -440,8 +440,8 @@ func _on_special_pressed():
 		GlobalVariables.player_money -= 150000
 		add_to_queue("super_soldier", 10.0)
 	else:
-		$root_label.show()
-		$root_label.text = "Not enough money!"
+		$units_menu/Label.show()
+		$units_menu/Label.text = "Not enough money!"
 
 
 func _on_special_mouse_entered():

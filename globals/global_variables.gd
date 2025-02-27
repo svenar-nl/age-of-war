@@ -11,8 +11,8 @@ var current_difficulty
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	player_money = 1750000
-	player_exp = 40000000
+	player_money = 17500000
+	player_exp = 4000000
 	current_stage = stage.cave
 
 func get_current_age_as_string():

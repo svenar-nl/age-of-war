@@ -7,9 +7,11 @@ var multiple_attack_animations: bool = false # default to false
 var custom_death_sfx = null
 var damage_frame
 
+var max_health
 var health
 var damage
 var move_speed
+var starting_health_bar_size
 
 enum state {attack, die, idle, walk}
 var current_state
@@ -41,7 +43,12 @@ func _ready():
 	melee_ray_cast = get_node("RayCast2D")
 	animated_sprite = get_node("AnimatedSprite2D")
 	collision_shape = get_node("CollisionShape2D")
+	max_health = health
+	starting_health_bar_size = $Control/health_bar.size.x
 	
+	input_pickable = true
+	self.connect("mouse_entered", _on_mouse_entered)
+	self.connect("mouse_exited", _on_mouse_exited)
 	
 	
 	if is_player_owned == false:
@@ -98,7 +105,9 @@ func _process(delta):
 		
 		if is_player_owned == false:
 			GlobalVariables.player_money += money_die_reward
-		GlobalVariables.player_exp += 2 * money_die_reward
+			GlobalVariables.player_exp += 2 * money_die_reward
+		else:
+			GlobalVariables.player_exp += int (money_die_reward/2)
 
 	position.y = 570
 	$Label.text = str(health)
@@ -108,6 +117,7 @@ func attack_state():
 
 func take_damage(outside_damage):
 	health -= outside_damage
+	$Control/health_bar.size.x = 48 * health / max_health
 	
 func do_damage(unit_to_be_damaged):
 	unit_to_be_damaged.take_damage(damage)
@@ -199,3 +209,13 @@ func _on_animated_sprite_2d_animation_looped():
 func stop_all_sfx():
 	for child in get_node("sfx").get_children():
 		child.stop()
+
+
+func _on_mouse_entered():
+	$Control.show()
+	$Control/health_bar.size.x = starting_health_bar_size * health / max_health
+	print("TODO, display visual of health")
+
+func _on_mouse_exited():
+	$Control.hide()
+	print("TODO, hide visual of health")

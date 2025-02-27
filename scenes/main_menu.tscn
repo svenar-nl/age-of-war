@@ -1,7 +1,535 @@
-[gd_scene load_steps=3 format=3 uid="uid://co2awp7evy8sm"]
+[gd_scene load_steps=134 format=3 uid="uid://co2awp7evy8sm"]
 
 [ext_resource type="Script" path="res://scenes/main_menu.gd" id="1_bd7un"]
 [ext_resource type="Texture2D" uid="uid://bk20tm6uudxsk" path="res://age of war sprites/bg/background.png" id="1_pkmph"]
+[ext_resource type="Texture2D" uid="uid://cu8pshlufb64c" path="res://age of war sprites/effects/logo/main menu0001.png" id="2_ygwc1"]
+[ext_resource type="Texture2D" uid="uid://nv323dehn560" path="res://age of war sprites/effects/logo/main menu0002.png" id="3_ubj3u"]
+[ext_resource type="Texture2D" uid="uid://bhl4b0i4xkur3" path="res://age of war sprites/effects/logo/main menu0003.png" id="4_bhs6t"]
+[ext_resource type="Texture2D" uid="uid://bhfqjox3v3tmf" path="res://age of war sprites/effects/logo/main menu0004.png" id="5_l2qho"]
+[ext_resource type="Texture2D" uid="uid://d1uk7w7cr6f46" path="res://age of war sprites/effects/logo/main menu0005.png" id="6_atgbr"]
+[ext_resource type="Texture2D" uid="uid://dayfumcbciki5" path="res://age of war sprites/effects/logo/main menu0006.png" id="7_ne1st"]
+[ext_resource type="Texture2D" uid="uid://dsxhxm883qjkd" path="res://age of war sprites/effects/logo/main menu0007.png" id="8_jcsqa"]
+[ext_resource type="Texture2D" uid="uid://bn5vpxb72g52k" path="res://age of war sprites/effects/logo/main menu0008.png" id="9_d6851"]
+[ext_resource type="Texture2D" uid="uid://cgt1dxfim8nf0" path="res://age of war sprites/effects/logo/main menu0009.png" id="10_7a4rg"]
+[ext_resource type="Texture2D" uid="uid://bvkwe2tntjbii" path="res://age of war sprites/effects/logo/main menu0010.png" id="11_ajvty"]
+[ext_resource type="Texture2D" uid="uid://cdtoxpq266aww" path="res://age of war sprites/effects/logo/main menu0011.png" id="12_qmnmp"]
+[ext_resource type="Texture2D" uid="uid://ci7velk0jyker" path="res://age of war sprites/effects/logo/main menu0012.png" id="13_wjbti"]
+[ext_resource type="Texture2D" uid="uid://bd0iv6jxx4atr" path="res://age of war sprites/effects/logo/main menu0013.png" id="14_cgeoo"]
+[ext_resource type="Texture2D" uid="uid://2iuib2s8jb7h" path="res://age of war sprites/effects/logo/main menu0014.png" id="15_jol8g"]
+[ext_resource type="Texture2D" uid="uid://clcoj2mdkfr2g" path="res://age of war sprites/effects/logo/main menu0015.png" id="16_07k4g"]
+[ext_resource type="Texture2D" uid="uid://ishbowpoql28" path="res://age of war sprites/effects/logo/main menu0016.png" id="17_ur4r4"]
+[ext_resource type="Texture2D" uid="uid://c147rgtu0yhe5" path="res://age of war sprites/effects/logo/main menu0017.png" id="18_btwqp"]
+[ext_resource type="Texture2D" uid="uid://bxhvm1nvuu1y" path="res://age of war sprites/effects/logo/main menu0018.png" id="19_e73gm"]
+[ext_resource type="Texture2D" uid="uid://dnctdw43i2n3t" path="res://age of war sprites/effects/logo/main menu0019.png" id="20_ji0cn"]
+[ext_resource type="Texture2D" uid="uid://1dbvcv4ykj7d" path="res://age of war sprites/effects/logo/main menu0020.png" id="21_yae28"]
+[ext_resource type="Texture2D" uid="uid://ns4cfbr4nsco" path="res://age of war sprites/effects/logo/main menu0021.png" id="22_a62v6"]
+[ext_resource type="Texture2D" uid="uid://7gmeou5j1ikt" path="res://age of war sprites/effects/logo/main menu0022.png" id="23_bpn4e"]
+[ext_resource type="Texture2D" uid="uid://bnegh6pc2bo6i" path="res://age of war sprites/effects/logo/main menu0023.png" id="24_lis6p"]
+[ext_resource type="Texture2D" uid="uid://npm0lfnhd5us" path="res://age of war sprites/effects/logo/main menu0024.png" id="25_3bjth"]
+[ext_resource type="Texture2D" uid="uid://brx117rxhuco6" path="res://age of war sprites/effects/logo/main menu0025.png" id="26_po6rw"]
+[ext_resource type="Texture2D" uid="uid://ctonswjvfq1hp" path="res://age of war sprites/effects/logo/main menu0026.png" id="27_8wf8r"]
+[ext_resource type="Texture2D" uid="uid://dl5vn2eqmv2bi" path="res://age of war sprites/effects/logo/main menu0027.png" id="28_n8225"]
+[ext_resource type="Texture2D" uid="uid://x21svv4rxu4y" path="res://age of war sprites/effects/logo/main menu0028.png" id="29_by2rb"]
+[ext_resource type="Texture2D" uid="uid://wme6a2afjwjx" path="res://age of war sprites/effects/logo/main menu0029.png" id="30_aoxt8"]
+[ext_resource type="Texture2D" uid="uid://brs31n1ftdfae" path="res://age of war sprites/effects/logo/main menu0030.png" id="31_3atbi"]
+[ext_resource type="Texture2D" uid="uid://ck203uyvrjroq" path="res://age of war sprites/effects/logo/main menu0031.png" id="32_4xr4w"]
+[ext_resource type="Texture2D" uid="uid://b57lprmw18ayt" path="res://age of war sprites/effects/logo/main menu0032.png" id="33_xxrt4"]
+[ext_resource type="Texture2D" uid="uid://ceml8tl7xnxr6" path="res://age of war sprites/effects/logo/main menu0033.png" id="34_a7ldr"]
+[ext_resource type="Texture2D" uid="uid://7jwav87wdxlw" path="res://age of war sprites/effects/logo/main menu0034.png" id="35_oa8ap"]
+[ext_resource type="Texture2D" uid="uid://57vsmgqregp5" path="res://age of war sprites/effects/logo/main menu0035.png" id="36_7kffr"]
+[ext_resource type="Texture2D" uid="uid://81twdem23pkk" path="res://age of war sprites/effects/logo/main menu0036.png" id="37_svl28"]
+[ext_resource type="Texture2D" uid="uid://dqueqpyejs1d8" path="res://age of war sprites/effects/logo/main menu0037.png" id="38_0gic0"]
+[ext_resource type="Texture2D" uid="uid://c5oev7p7weu2l" path="res://age of war sprites/effects/logo/main menu0038.png" id="39_r03cu"]
+[ext_resource type="Texture2D" uid="uid://c21lokccrq8pp" path="res://age of war sprites/effects/logo/main menu0039.png" id="40_e0hf3"]
+[ext_resource type="Texture2D" uid="uid://eoq6yl4f51r4" path="res://age of war sprites/effects/logo/main menu0040.png" id="41_gyihj"]
+[ext_resource type="Texture2D" uid="uid://c0kbv6bpslnq1" path="res://age of war sprites/effects/logo/main menu0041.png" id="42_3txfu"]
+[ext_resource type="Texture2D" uid="uid://bk5pf15m278hi" path="res://age of war sprites/effects/logo/main menu0042.png" id="43_wb34r"]
+[ext_resource type="Texture2D" uid="uid://ccfrgnxgendrk" path="res://age of war sprites/effects/logo/main menu0043.png" id="44_dp0bg"]
+[ext_resource type="Texture2D" uid="uid://hq6qiv728xxb" path="res://age of war sprites/effects/logo/main menu0044.png" id="45_6xcto"]
+[ext_resource type="Texture2D" uid="uid://ijeo2ijeietd" path="res://age of war sprites/effects/logo/main menu0045.png" id="46_jxoq0"]
+[ext_resource type="Texture2D" uid="uid://pj60iet7hxgi" path="res://age of war sprites/effects/logo/main menu0046.png" id="47_pqc6w"]
+[ext_resource type="Texture2D" uid="uid://dp6bvoyaudk57" path="res://age of war sprites/effects/logo/main menu0047.png" id="48_vqlia"]
+[ext_resource type="Texture2D" uid="uid://bqsaa8fq36kxr" path="res://age of war sprites/effects/logo/main menu0048.png" id="49_fh4lg"]
+[ext_resource type="Texture2D" uid="uid://cm7khxqq4trfw" path="res://age of war sprites/effects/logo/main menu0049.png" id="50_vqldm"]
+[ext_resource type="Texture2D" uid="uid://dtv10tnr82rdg" path="res://age of war sprites/effects/logo/main menu0050.png" id="51_54w7b"]
+[ext_resource type="Texture2D" uid="uid://m0a5vp387270" path="res://age of war sprites/effects/logo/main menu0051.png" id="52_ppsyw"]
+[ext_resource type="Texture2D" uid="uid://bvneuxtcdsj7n" path="res://age of war sprites/effects/logo/main menu0052.png" id="53_6en4a"]
+[ext_resource type="Texture2D" uid="uid://blctluxc3crpg" path="res://age of war sprites/effects/logo/main menu0053.png" id="54_057aq"]
+[ext_resource type="Texture2D" uid="uid://cxalwwo1opl0y" path="res://age of war sprites/effects/logo/main menu0054.png" id="55_uwsnn"]
+[ext_resource type="Texture2D" uid="uid://phiv7prupbff" path="res://age of war sprites/effects/logo/main menu0055.png" id="56_e5nxr"]
+[ext_resource type="Texture2D" uid="uid://bcok5073dgm5f" path="res://age of war sprites/effects/logo/main menu0056.png" id="57_37yfy"]
+[ext_resource type="Texture2D" uid="uid://bm25o7iudlip6" path="res://age of war sprites/effects/logo/main menu0057.png" id="58_4rl1b"]
+[ext_resource type="Texture2D" uid="uid://cxjr7hx5f726q" path="res://age of war sprites/effects/logo/main menu0058.png" id="59_7lold"]
+[ext_resource type="Texture2D" uid="uid://chuavxw03tsqv" path="res://age of war sprites/effects/logo/main menu0059.png" id="60_tbh05"]
+[ext_resource type="Texture2D" uid="uid://cg1v7tumho2v" path="res://age of war sprites/effects/logo/main menu0060.png" id="61_8evuo"]
+[ext_resource type="Texture2D" uid="uid://ctbs3k4kinlb7" path="res://age of war sprites/effects/logo/main menu0061.png" id="62_y7pit"]
+[ext_resource type="Texture2D" uid="uid://bx5j2pkbrw80q" path="res://age of war sprites/effects/logo/main menu0062.png" id="63_3jwf4"]
+[ext_resource type="Texture2D" uid="uid://chtukugxtr5iw" path="res://age of war sprites/effects/logo/main menu0063.png" id="64_sdpqa"]
+[ext_resource type="Texture2D" uid="uid://bmf0lc55xfrra" path="res://age of war sprites/effects/logo/main menu0064.png" id="65_7qfef"]
+[ext_resource type="Texture2D" uid="uid://6ghe8sj0r32d" path="res://age of war sprites/effects/logo/main menu0065.png" id="66_af11i"]
+[ext_resource type="Texture2D" uid="uid://by8c6arrlfrn8" path="res://age of war sprites/effects/logo/main menu0066.png" id="67_n0swn"]
+[ext_resource type="Texture2D" uid="uid://dsbmpkanukfyj" path="res://age of war sprites/effects/logo/main menu0067.png" id="68_j7tme"]
+[ext_resource type="Texture2D" uid="uid://ca8sbsocmd1mq" path="res://age of war sprites/effects/logo/main menu0068.png" id="69_kjgxc"]
+[ext_resource type="Texture2D" uid="uid://b3vffgon531or" path="res://age of war sprites/effects/logo/main menu0069.png" id="70_6toes"]
+[ext_resource type="Texture2D" uid="uid://qqhrqneief0r" path="res://age of war sprites/effects/logo/main menu0070.png" id="71_w3cfd"]
+[ext_resource type="Texture2D" uid="uid://b5otaprbgk7wf" path="res://age of war sprites/effects/logo/main menu0071.png" id="72_7ujit"]
+[ext_resource type="Texture2D" uid="uid://cgvgmcblkf2b" path="res://age of war sprites/effects/logo/main menu0072.png" id="73_k7xea"]
+[ext_resource type="Texture2D" uid="uid://b1n7uhhd4ximc" path="res://age of war sprites/effects/logo/main menu0073.png" id="74_3kbd0"]
+[ext_resource type="Texture2D" uid="uid://bp11rkyuxkn7t" path="res://age of war sprites/effects/logo/main menu0074.png" id="75_s06um"]
+[ext_resource type="Texture2D" uid="uid://cwjmv4o4qy607" path="res://age of war sprites/effects/logo/main menu0075.png" id="76_arj8m"]
+[ext_resource type="Texture2D" uid="uid://b46l8j2kquylu" path="res://age of war sprites/effects/logo/main menu0076.png" id="77_rqmff"]
+[ext_resource type="Texture2D" uid="uid://cd55boqajkb21" path="res://age of war sprites/effects/logo/main menu0077.png" id="78_sjb1p"]
+[ext_resource type="Texture2D" uid="uid://bby1g7boc367" path="res://age of war sprites/effects/logo/main menu0078.png" id="79_f74lb"]
+[ext_resource type="Texture2D" uid="uid://f4d0imocqqp" path="res://age of war sprites/effects/logo/main menu0079.png" id="80_arbcp"]
+[ext_resource type="Texture2D" uid="uid://5fex8t8mercg" path="res://age of war sprites/effects/logo/main menu0080.png" id="81_fy37f"]
+[ext_resource type="Texture2D" uid="uid://oksllmcg0u87" path="res://age of war sprites/effects/logo/main menu0081.png" id="82_wcqin"]
+[ext_resource type="Texture2D" uid="uid://cqt0thcccublk" path="res://age of war sprites/effects/logo/main menu0082.png" id="83_4wnay"]
+[ext_resource type="Texture2D" uid="uid://we2rypl3qt5b" path="res://age of war sprites/effects/logo/main menu0083.png" id="84_6ehrm"]
+[ext_resource type="Texture2D" uid="uid://bq1riwh60opwx" path="res://age of war sprites/effects/logo/main menu0084.png" id="85_dl23t"]
+[ext_resource type="Texture2D" uid="uid://bo6o3taex150e" path="res://age of war sprites/effects/logo/main menu0085.png" id="86_r5glu"]
+[ext_resource type="Texture2D" uid="uid://cfot8hf6dcrg4" path="res://age of war sprites/effects/logo/main menu0086.png" id="87_ieu7c"]
+[ext_resource type="Texture2D" uid="uid://db6q3aey6v6ju" path="res://age of war sprites/effects/logo/main menu0087.png" id="88_4q3of"]
+[ext_resource type="Texture2D" uid="uid://csnemu7pkw2om" path="res://age of war sprites/effects/logo/main menu0088.png" id="89_1xmv8"]
+[ext_resource type="Texture2D" uid="uid://cmmysvv66r6j6" path="res://age of war sprites/effects/logo/main menu0089.png" id="90_22xd0"]
+[ext_resource type="Texture2D" uid="uid://bgw6cqa4o6d6n" path="res://age of war sprites/effects/logo/main menu0090.png" id="91_k6qw1"]
+[ext_resource type="Texture2D" uid="uid://bsn0sxf15m81l" path="res://age of war sprites/effects/logo/main menu0091.png" id="92_wrytq"]
+[ext_resource type="Texture2D" uid="uid://tjyrwl0wvkwg" path="res://age of war sprites/effects/logo/main menu0092.png" id="93_rslkk"]
+[ext_resource type="Texture2D" uid="uid://chlq84xlbhyoy" path="res://age of war sprites/effects/logo/main menu0093.png" id="94_n5yk4"]
+[ext_resource type="Texture2D" uid="uid://1rb78wa1ebq8" path="res://age of war sprites/effects/logo/main menu0094.png" id="95_im70p"]
+[ext_resource type="Texture2D" uid="uid://ctknyys3c8jjs" path="res://age of war sprites/effects/logo/main menu0095.png" id="96_1kymp"]
+[ext_resource type="Texture2D" uid="uid://brek2sym1a66h" path="res://age of war sprites/effects/logo/main menu0096.png" id="97_6j4oi"]
+[ext_resource type="Texture2D" uid="uid://bb0kfa4wrg7u4" path="res://age of war sprites/effects/logo/main menu0097.png" id="98_trrku"]
+[ext_resource type="Texture2D" uid="uid://ol53fck6ajq3" path="res://age of war sprites/effects/logo/main menu0098.png" id="99_jmd3f"]
+[ext_resource type="Texture2D" uid="uid://0o0xbvnu3gxk" path="res://age of war sprites/effects/logo/main menu0099.png" id="100_45xgk"]
+[ext_resource type="Texture2D" uid="uid://dywkbomd820qv" path="res://age of war sprites/effects/logo/main menu0100.png" id="101_i17nk"]
+[ext_resource type="Texture2D" uid="uid://3tcn0g8emoqd" path="res://age of war sprites/effects/logo/main menu0101.png" id="102_lpayi"]
+[ext_resource type="Texture2D" uid="uid://cx7wmg4egutdk" path="res://age of war sprites/effects/logo/main menu0102.png" id="103_5xiwh"]
+[ext_resource type="Texture2D" uid="uid://110qeds15hrw" path="res://age of war sprites/effects/logo/main menu0103.png" id="104_ib84g"]
+[ext_resource type="Texture2D" uid="uid://cx0wfiiegsbsl" path="res://age of war sprites/effects/logo/main menu0104.png" id="105_s212e"]
+[ext_resource type="Texture2D" uid="uid://bt87466yjtw3w" path="res://age of war sprites/effects/logo/main menu0105.png" id="106_f6dl0"]
+[ext_resource type="Texture2D" uid="uid://c32rhwj3nlsp4" path="res://age of war sprites/effects/logo/main menu0106.png" id="107_app54"]
+[ext_resource type="Texture2D" uid="uid://c422j8m7j2way" path="res://age of war sprites/effects/logo/main menu0107.png" id="108_i75qg"]
+[ext_resource type="Texture2D" uid="uid://dj30coif0evbe" path="res://age of war sprites/effects/logo/main menu0108.png" id="109_c5oy1"]
+[ext_resource type="Texture2D" uid="uid://mrjook8imo5m" path="res://age of war sprites/effects/logo/main menu0109.png" id="110_bw4ok"]
+[ext_resource type="Texture2D" uid="uid://cmbuiin4cbmch" path="res://age of war sprites/effects/logo/main menu0110.png" id="111_l4cpt"]
+[ext_resource type="Texture2D" uid="uid://bmc1dnsmuit2d" path="res://age of war sprites/effects/logo/main menu0111.png" id="112_hlnm3"]
+[ext_resource type="Texture2D" uid="uid://didk2bis4uga5" path="res://age of war sprites/effects/logo/main menu0112.png" id="113_l5ynf"]
+[ext_resource type="Texture2D" uid="uid://dl2hfwyvl5wve" path="res://age of war sprites/effects/logo/main menu0113.png" id="114_p1dd2"]
+[ext_resource type="Texture2D" uid="uid://b8livm52rr0n3" path="res://age of war sprites/effects/logo/main menu0114.png" id="115_06mu6"]
+[ext_resource type="Texture2D" uid="uid://btp65fg32mpj0" path="res://age of war sprites/effects/logo/main menu0115.png" id="116_c5yw3"]
+[ext_resource type="Texture2D" uid="uid://dmwgiu376vebs" path="res://age of war sprites/effects/logo/main menu0116.png" id="117_0qbap"]
+[ext_resource type="Texture2D" uid="uid://d2sn77rqfnxyi" path="res://age of war sprites/effects/logo/main menu0117.png" id="118_kkoci"]
+[ext_resource type="Texture2D" uid="uid://nuk0prfhlcng" path="res://age of war sprites/effects/logo/main menu0118.png" id="119_508bu"]
+[ext_resource type="Texture2D" uid="uid://drrhjd2svtikd" path="res://age of war sprites/effects/logo/main menu0119.png" id="120_xbj44"]
+[ext_resource type="Texture2D" uid="uid://ynekwl4d4yf8" path="res://age of war sprites/effects/logo/main menu0120.png" id="121_i8pwq"]
+[ext_resource type="Texture2D" uid="uid://bnkgccp0l1gii" path="res://age of war sprites/effects/logo/main menu0121.png" id="122_mhj2u"]
+[ext_resource type="Texture2D" uid="uid://b5sa00ep56wih" path="res://age of war sprites/effects/logo/main menu0122.png" id="123_fxopf"]
+[ext_resource type="Texture2D" uid="uid://dit2pfwfrtgjb" path="res://age of war sprites/effects/logo/main menu0123.png" id="124_x33tj"]
+[ext_resource type="Texture2D" uid="uid://dtn7ba6xtxiw1" path="res://age of war sprites/effects/logo/main menu0124.png" id="125_n5iys"]
+[ext_resource type="Texture2D" uid="uid://bhnebcv8r6alh" path="res://age of war sprites/effects/logo/main menu0125.png" id="126_8me14"]
+[ext_resource type="Texture2D" uid="uid://ci184e1cb3ysh" path="res://age of war sprites/effects/logo/main menu0126.png" id="127_w4q3j"]
+[ext_resource type="Texture2D" uid="uid://63upyutiqjb3" path="res://age of war sprites/effects/logo/main menu0127.png" id="128_g3vdr"]
+[ext_resource type="Texture2D" uid="uid://ta5pa4xjwd2i" path="res://age of war sprites/effects/logo/main menu0128.png" id="129_2h7ef"]
+[ext_resource type="Texture2D" uid="uid://dt4l0sl8q4mia" path="res://age of war sprites/effects/logo/main menu0129.png" id="130_14gqc"]
+[ext_resource type="Texture2D" uid="uid://bcj43p40hrhwd" path="res://age of war sprites/effects/logo/main menu0130.png" id="131_j2gqn"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_i01kn"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_ygwc1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_ubj3u")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_bhs6t")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_l2qho")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_atgbr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_ne1st")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_jcsqa")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_d6851")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_7a4rg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_ajvty")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_qmnmp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_wjbti")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_cgeoo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_jol8g")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_07k4g")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_ur4r4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_btwqp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_e73gm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20_ji0cn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("21_yae28")
+}, {
+"duration": 1.0,
+"texture": ExtResource("22_a62v6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("23_bpn4e")
+}, {
+"duration": 1.0,
+"texture": ExtResource("24_lis6p")
+}, {
+"duration": 1.0,
+"texture": ExtResource("25_3bjth")
+}, {
+"duration": 1.0,
+"texture": ExtResource("26_po6rw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("27_8wf8r")
+}, {
+"duration": 1.0,
+"texture": ExtResource("28_n8225")
+}, {
+"duration": 1.0,
+"texture": ExtResource("29_by2rb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("30_aoxt8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("31_3atbi")
+}, {
+"duration": 1.0,
+"texture": ExtResource("32_4xr4w")
+}, {
+"duration": 1.0,
+"texture": ExtResource("33_xxrt4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("34_a7ldr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("35_oa8ap")
+}, {
+"duration": 1.0,
+"texture": ExtResource("36_7kffr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("37_svl28")
+}, {
+"duration": 1.0,
+"texture": ExtResource("38_0gic0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("39_r03cu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("40_e0hf3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("41_gyihj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("42_3txfu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("43_wb34r")
+}, {
+"duration": 1.0,
+"texture": ExtResource("44_dp0bg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("45_6xcto")
+}, {
+"duration": 1.0,
+"texture": ExtResource("46_jxoq0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("47_pqc6w")
+}, {
+"duration": 1.0,
+"texture": ExtResource("48_vqlia")
+}, {
+"duration": 1.0,
+"texture": ExtResource("49_fh4lg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("50_vqldm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("51_54w7b")
+}, {
+"duration": 1.0,
+"texture": ExtResource("52_ppsyw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("53_6en4a")
+}, {
+"duration": 1.0,
+"texture": ExtResource("54_057aq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("55_uwsnn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("56_e5nxr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("57_37yfy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("58_4rl1b")
+}, {
+"duration": 1.0,
+"texture": ExtResource("59_7lold")
+}, {
+"duration": 1.0,
+"texture": ExtResource("60_tbh05")
+}, {
+"duration": 1.0,
+"texture": ExtResource("61_8evuo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("62_y7pit")
+}, {
+"duration": 1.0,
+"texture": ExtResource("63_3jwf4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("64_sdpqa")
+}, {
+"duration": 1.0,
+"texture": ExtResource("65_7qfef")
+}, {
+"duration": 1.0,
+"texture": ExtResource("66_af11i")
+}, {
+"duration": 1.0,
+"texture": ExtResource("67_n0swn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("68_j7tme")
+}, {
+"duration": 1.0,
+"texture": ExtResource("69_kjgxc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("70_6toes")
+}, {
+"duration": 1.0,
+"texture": ExtResource("71_w3cfd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("72_7ujit")
+}, {
+"duration": 1.0,
+"texture": ExtResource("73_k7xea")
+}, {
+"duration": 1.0,
+"texture": ExtResource("74_3kbd0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("75_s06um")
+}, {
+"duration": 1.0,
+"texture": ExtResource("76_arj8m")
+}, {
+"duration": 1.0,
+"texture": ExtResource("77_rqmff")
+}, {
+"duration": 1.0,
+"texture": ExtResource("78_sjb1p")
+}, {
+"duration": 1.0,
+"texture": ExtResource("79_f74lb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("80_arbcp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("81_fy37f")
+}, {
+"duration": 1.0,
+"texture": ExtResource("82_wcqin")
+}, {
+"duration": 1.0,
+"texture": ExtResource("83_4wnay")
+}, {
+"duration": 1.0,
+"texture": ExtResource("84_6ehrm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("85_dl23t")
+}, {
+"duration": 1.0,
+"texture": ExtResource("86_r5glu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("87_ieu7c")
+}, {
+"duration": 1.0,
+"texture": ExtResource("88_4q3of")
+}, {
+"duration": 1.0,
+"texture": ExtResource("89_1xmv8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("90_22xd0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("91_k6qw1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("92_wrytq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("93_rslkk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("94_n5yk4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("95_im70p")
+}, {
+"duration": 1.0,
+"texture": ExtResource("96_1kymp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("97_6j4oi")
+}, {
+"duration": 1.0,
+"texture": ExtResource("98_trrku")
+}, {
+"duration": 1.0,
+"texture": ExtResource("99_jmd3f")
+}, {
+"duration": 1.0,
+"texture": ExtResource("100_45xgk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("101_i17nk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("102_lpayi")
+}, {
+"duration": 1.0,
+"texture": ExtResource("103_5xiwh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("104_ib84g")
+}, {
+"duration": 1.0,
+"texture": ExtResource("105_s212e")
+}, {
+"duration": 1.0,
+"texture": ExtResource("106_f6dl0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("107_app54")
+}, {
+"duration": 1.0,
+"texture": ExtResource("108_i75qg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("109_c5oy1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("110_bw4ok")
+}, {
+"duration": 1.0,
+"texture": ExtResource("111_l4cpt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("112_hlnm3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("113_l5ynf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("114_p1dd2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("115_06mu6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("116_c5yw3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("117_0qbap")
+}, {
+"duration": 1.0,
+"texture": ExtResource("118_kkoci")
+}, {
+"duration": 1.0,
+"texture": ExtResource("119_508bu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("120_xbj44")
+}, {
+"duration": 1.0,
+"texture": ExtResource("121_i8pwq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("122_mhj2u")
+}, {
+"duration": 1.0,
+"texture": ExtResource("123_fxopf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("124_x33tj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("125_n5iys")
+}, {
+"duration": 1.0,
+"texture": ExtResource("126_8me14")
+}, {
+"duration": 1.0,
+"texture": ExtResource("127_w4q3j")
+}, {
+"duration": 1.0,
+"texture": ExtResource("128_g3vdr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("129_2h7ef")
+}, {
+"duration": 1.0,
+"texture": ExtResource("130_14gqc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("131_j2gqn")
+}],
+"loop": true,
+"name": &"default",
+"speed": 30.0
+}]
 
 [node name="main_menu" type="Node2D"]
 script = ExtResource("1_bd7un")
@@ -13,29 +541,57 @@ offset_bottom = 648.0
 [node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
 layout_mode = 2
 
-[node name="play" type="Button" parent="CenterContainer/VBoxContainer"]
+[node name="Control" type="Control" parent="CenterContainer/VBoxContainer"]
 layout_mode = 2
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CenterContainer/VBoxContainer/Control"]
+position = Vector2(129, -41)
+sprite_frames = SubResource("SpriteFrames_i01kn")
+autoplay = "default"
+frame = 74
+frame_progress = 0.325458
+
+[node name="play" type="Button" parent="CenterContainer/VBoxContainer"]
+custom_minimum_size = Vector2(128, 0)
+layout_mode = 2
+size_flags_horizontal = 4
 text = "Play"
 
 [node name="instructions" type="Button" parent="CenterContainer/VBoxContainer"]
+custom_minimum_size = Vector2(128, 0)
 layout_mode = 2
+size_flags_horizontal = 4
 text = "Instructions"
 
 [node name="options" type="Button" parent="CenterContainer/VBoxContainer"]
+custom_minimum_size = Vector2(128, 0)
 layout_mode = 2
+size_flags_horizontal = 4
 text = "Options"
 
 [node name="extra" type="Button" parent="CenterContainer/VBoxContainer"]
+custom_minimum_size = Vector2(128, 0)
 layout_mode = 2
+size_flags_horizontal = 4
 text = "Extra"
 
 [node name="credits" type="Button" parent="CenterContainer/VBoxContainer"]
+custom_minimum_size = Vector2(128, 0)
 layout_mode = 2
+size_flags_horizontal = 4
 text = "Credits"
 
 [node name="exit" type="Button" parent="CenterContainer/VBoxContainer"]
+custom_minimum_size = Vector2(128, 0)
 layout_mode = 2
+size_flags_horizontal = 4
 text = "Exit"
+
+[node name="Label" type="Label" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+text = "Made by Alex Piotrowski in Godot"
 
 [node name="background sprite" type="Sprite2D" parent="."]
 z_index = -100

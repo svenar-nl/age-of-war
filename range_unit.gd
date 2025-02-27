@@ -39,7 +39,9 @@ func _ready():
 	animated_sprite = get_node("AnimatedSprite2D")
 	collision_shape = get_node("CollisionShape2D")
 	
-	
+	input_pickable = true
+	self.connect("mouse_entered", _on_mouse_entered)
+	self.connect("mouse_exited", _on_mouse_exited)
 	
 	if is_player_owned == false:
 		animated_sprite.flip_h = true
@@ -102,7 +104,9 @@ func _process(delta):
 		
 		if is_player_owned == false:
 			GlobalVariables.player_money += money_die_reward
-		GlobalVariables.player_exp += 2 * money_die_reward
+			GlobalVariables.player_exp += 2 * money_die_reward
+		else:
+			GlobalVariables.player_exp += int (money_die_reward/2)
 	
 	position.y = 570
 	$Label.text = str(health)
@@ -285,3 +289,9 @@ func change_to_walk_attack_state():
 	if animated_sprite.flip_h == true:
 		animated_sprite.position.x = -animated_sprite.position.x
 	animated_sprite.play("walk_attack")
+
+func _on_mouse_entered():
+	print("TODO, display visual of health")
+
+func _on_mouse_exited():
+	print("TODO, hide visual of health")

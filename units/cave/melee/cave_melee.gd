@@ -21,6 +21,8 @@ func _ready():
 	super()
 	if is_player_owned == false:
 		$Shadow.position.x = -$Shadow.position.x
+	
+	$Control.hide()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

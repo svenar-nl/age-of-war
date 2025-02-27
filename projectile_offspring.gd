@@ -7,6 +7,9 @@ var speed: float = 10
 var is_player_owned: bool = true
 var acceleration : Vector2 = Vector2(0, 20)
 
+var spawn_explosion_effect
+
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	$Timer.start(time_to_die)
@@ -28,6 +31,13 @@ func _on_body_entered(body):
 	if body is melee_unit or body is range_unit:
 		if body.is_player_owned != self.is_player_owned:
 			body.take_damage(damage)
+			if spawn_explosion_effect == true:
+				var explosion = load("res://effects/explosion_effect.tscn").instantiate()
+				explosion.global_position = self.global_position
+				explosion.global_position.y -= 32
+				explosion.scale = Vector2(0.125, 0.125)
+				explosion.get_node("AudioStreamPlayer2D").volume_db = -10
+				get_node("/root/main_game").add_child(explosion)
 			self.queue_free()
 	elif body.name == "floor":
 		self.queue_free()

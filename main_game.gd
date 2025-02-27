@@ -147,7 +147,9 @@ func miltary_special_attack():
 	get_node("/root/main_game").add_child(plane)
 
 func future_special_attack():
-	pass
+	var laser = load("res://future_special_laser_attack.tscn").instantiate()
+	get_node("/root/main_game").add_child(laser)
+	
 
 
 func _on_medival_special_timer_timeout():

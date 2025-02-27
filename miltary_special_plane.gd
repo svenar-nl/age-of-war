@@ -20,20 +20,19 @@ func _process(delta):
 	
 	if position.x > 2000:
 		self.queue_free()
-	elif position.x > 1700:
+	elif position.x > 1500:
 		timer.stop()
 	elif position.x > 200 and timer.is_paused() == true:
 		timer.start(0.4)
 		timer.paused = false
-		
-		
-	pass
+
 
 
 
 func spawn_bomb():
 	var bomb = load("res://projectile_miltary_special_bomb.tscn").instantiate()
 	bomb.global_position = self.global_position
+	bomb.global_position.y += 16
 	bomb.is_player_owned = true
 	get_node("/root/main_game").add_child(bomb)
 

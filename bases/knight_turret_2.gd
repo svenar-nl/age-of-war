@@ -11,6 +11,9 @@ func _ready():
 	spawn_projectile_offspring = true
 	super()
 	offset = Vector2(0, -96)
+	spawn_explosion_effect = true
+	no_rotation = true
+	projectile_rotation = true
 	
 
 

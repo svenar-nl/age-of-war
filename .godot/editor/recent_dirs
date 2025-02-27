@@ -1,4 +1,7 @@
+/home/alexp/gamedev/godot/age-of-war-export
 res://
+res://age of war sprites/effects/future_special
+res://age of war sprites/effects/logo
 res://units/future/super_soldier
 res://age of war sprites/effects/miltary_special_plane
 res://age of war sprites/effects/knight_special_arrow
@@ -17,7 +20,3 @@ res://age of war sprites/bases/medival/turret_1
 res://age of war sprites/bases/knight/turret_3
 res://age of war sprites/bases/knight/turret_2
 res://age of war sprites/bases/knight/turret_1
-res://age of war sprites/bases/cave/turret_3
-res://age of war sprites/bases/cave/turret_2
-res://age of war sprites/bases/cave/turret_1
-/home/alexp/gamedev/godot/age-of-war/globals

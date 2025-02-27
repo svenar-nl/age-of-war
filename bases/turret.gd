@@ -8,6 +8,7 @@ var projectile_speed
 var projectile_texture
 var spawn_projectile_offspring : bool
 var offspring_texture
+var projectile_rotation : bool
 
 var target_queue: Array
 var current_target
@@ -19,6 +20,9 @@ var play_audio_frame2
 var offset: Vector2 = Vector2(0,0)
 var no_rotation: bool
 var play_audio_repeated: bool
+
+var spawn_explosion_effect : bool
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -53,6 +57,7 @@ func _process(delta):
 		elif ($AnimatedSprite2D.frame == play_audio_frame or $AnimatedSprite2D.frame == play_audio_frame2) and ($sfx/AudioStreamPlayer2D.is_playing() == false or play_audio_repeated == true):
 			$sfx/AudioStreamPlayer2D.play()
 	else:
+		# TODO wait for attack animation to finish before moving to idle state
 		$AnimatedSprite2D.play("idle")
 
 
@@ -73,8 +78,12 @@ func spawn_projectile(direction, texture):
 	projectile.spawn_offspring = spawn_projectile_offspring
 	projectile.get_node("Sprite2D").texture = texture
 	projectile.get_node("Sprite2D").rotation = $AnimatedSprite2D.rotation
+	if projectile_rotation == true:
+		projectile.rotation_speed = randf_range(-100.0, 100.0)
+		print(projectile.rotation_speed)
 	if offspring_texture == null:
 		projectile.offspring_texture = projectile_texture
 	else:
 		projectile.offspring_texture = offspring_texture
+	projectile.spawn_explosion_effect = spawn_explosion_effect
 	get_node("/root/main_game").add_child(projectile)

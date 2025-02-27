@@ -7,6 +7,9 @@ var speed: float
 var is_player_owned: bool
 var spawn_offspring = false
 var offspring_texture
+var rotation_speed : float
+
+var spawn_explosion_effect
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -17,6 +20,7 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	position += direction * speed * delta
+	$Sprite2D.rotation_degrees += rotation_speed * delta
 
 
 
@@ -24,7 +28,6 @@ func _on_body_entered(body):
 	if body is melee_unit or body is range_unit:
 		if body.is_player_owned != self.is_player_owned:
 			if spawn_offspring == true:
-				print("spawn offspring")
 				var i = 0
 				while i < 3:
 					var offspring = load("res://projectile_offspring.tscn").instantiate()
@@ -34,12 +37,21 @@ func _on_body_entered(body):
 					offspring.speed = 10
 					offspring.is_player_owned = self.is_player_owned
 					offspring.get_node("Sprite2D").texture = offspring_texture
+					if spawn_explosion_effect == true:
+						offspring.spawn_explosion_effect = true
 					get_node("/root/main_game").add_child(offspring)
 					i += 1
 			body.take_damage(damage)
+			if spawn_explosion_effect == true:
+				var explosion = load("res://effects/explosion_effect.tscn").instantiate()
+				explosion.global_position = self.global_position
+				explosion.global_position.y -= 32
+				get_node("/root/main_game").add_child(explosion)
 			self.queue_free()
 	elif body.name == "floor":
 		self.queue_free()
+		
+	
 
 
 func _on_timer_timeout():

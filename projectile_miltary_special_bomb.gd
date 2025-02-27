@@ -6,10 +6,12 @@ var speed: float = 10
 @export var time_to_die : float = 5.0
 var is_player_owned: bool = true
 var acceleration : Vector2 = Vector2(0, 20)
+var random_rotation_speed
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	$Timer.start(time_to_die)
+	random_rotation_speed = randf_range(-100.0, 100.0)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -18,6 +20,7 @@ func _process(delta):
 	direction += acceleration * delta
 	if direction.y > 0:
 		collision_mask = 1
+	self.rotation_degrees += random_rotation_speed * delta
 
 
 func _on_timer_timeout():
