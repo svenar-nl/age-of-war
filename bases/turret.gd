@@ -80,7 +80,6 @@ func spawn_projectile(direction, texture):
 	projectile.get_node("Sprite2D").rotation = $AnimatedSprite2D.rotation
 	if projectile_rotation == true:
 		projectile.rotation_speed = randf_range(-100.0, 100.0)
-		print(projectile.rotation_speed)
 	if offspring_texture == null:
 		projectile.offspring_texture = projectile_texture
 	else:

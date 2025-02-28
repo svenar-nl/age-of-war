@@ -1,4 +1,6 @@
 /home/alexp/gamedev/godot/age-of-war-export
+res://age of war sprites/units/knight/tank/idle
+res://age of war sprites/effects
 res://
 res://age of war sprites/effects/future_special
 res://age of war sprites/effects/logo
@@ -18,5 +20,3 @@ res://age of war sprites/bases/medival/turret_3
 res://age of war sprites/bases/medival/turret_2
 res://age of war sprites/bases/medival/turret_1
 res://age of war sprites/bases/knight/turret_3
-res://age of war sprites/bases/knight/turret_2
-res://age of war sprites/bases/knight/turret_1

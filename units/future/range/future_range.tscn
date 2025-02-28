@@ -1,6 +1,7 @@
-[gd_scene load_steps=315 format=3 uid="uid://pdt03a858uxs"]
+[gd_scene load_steps=316 format=3 uid="uid://pdt03a858uxs"]
 
 [ext_resource type="Script" path="res://units/future/range/future_range.gd" id="1_xo80n"]
+[ext_resource type="Texture2D" uid="uid://cr1r5c47lxi16" path="res://age of war sprites/effects/shadow.png" id="2_2rumn"]
 [ext_resource type="Texture2D" uid="uid://beu4r7kw31tnb" path="res://age of war sprites/units/future/range/die/future_range_die0001.png" id="2_20m53"]
 [ext_resource type="Texture2D" uid="uid://c2xkalmd26fpw" path="res://age of war sprites/units/future/range/die/future_range_die0002.png" id="3_iysau"]
 [ext_resource type="Texture2D" uid="uid://hfblq538wdx7" path="res://age of war sprites/units/future/range/die/future_range_die0003.png" id="4_l6p7j"]
@@ -1284,6 +1285,10 @@ size = Vector2(68, 128)
 [node name="future_range" type="RigidBody2D"]
 script = ExtResource("1_xo80n")
 
+[node name="Shadow" type="Sprite2D" parent="."]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_2rumn")
+
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(-22, -53)
 scale = Vector2(0.5, 0.5)
@@ -1301,7 +1306,7 @@ target_position = Vector2(41, 0)
 
 [node name="RayCast2D_range" type="RayCast2D" parent="."]
 position = Vector2(0, -64)
-target_position = Vector2(300, 0)
+target_position = Vector2(360, 0)
 
 [node name="death_timer" type="Timer" parent="."]
 
@@ -1320,3 +1325,29 @@ stream = ExtResource("311_n03ny")
 
 [node name="melee_sfx" type="AudioStreamPlayer2D" parent="sfx"]
 stream = ExtResource("312_gd5vh")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -23.0
+offset_top = -137.0
+offset_right = 25.0
+offset_bottom = -132.0
+
+[node name="health_bg" type="ColorRect" parent="Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.588235, 0.588235, 0.588235, 0.588235)
+
+[node name="health_bar" type="ColorRect" parent="Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(1, 0, 0, 1)

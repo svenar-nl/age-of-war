@@ -1,4 +1,4 @@
-[gd_scene load_steps=306 format=3 uid="uid://cofidai1qfg3y"]
+[gd_scene load_steps=307 format=3 uid="uid://cofidai1qfg3y"]
 
 [ext_resource type="Script" path="res://units/medival/tank/medival_tank.gd" id="1_3ouk6"]
 [ext_resource type="Texture2D" uid="uid://sjc8kn7wc2m0" path="res://age of war sprites/units/medival/tank/attack/medival_tank_attack0001.png" id="1_jfdhi"]
@@ -303,6 +303,7 @@
 [ext_resource type="Texture2D" uid="uid://degirnx03xbow" path="res://age of war sprites/units/medival/tank/walk/medival_tank_walk0047.png" id="300_d543n"]
 [ext_resource type="Texture2D" uid="uid://dpgmkntsdi7ma" path="res://age of war sprites/units/medival/tank/walk/medival_tank_walk0048.png" id="301_lllbh"]
 [ext_resource type="AudioStream" uid="uid://cyt5fky158fde" path="res://age of war sprites/audio/sfx/medival_tank_attack.mp3" id="303_5keot"]
+[ext_resource type="Texture2D" uid="uid://cr1r5c47lxi16" path="res://age of war sprites/effects/shadow.png" id="304_gky05"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_th41t"]
 animations = [{
@@ -1236,6 +1237,11 @@ size = Vector2(70, 129)
 [node name="medival_tank" type="RigidBody2D"]
 script = ExtResource("1_3ouk6")
 
+[node name="Shadow" type="Sprite2D" parent="."]
+position = Vector2(-1.13687e-13, 2.38419e-07)
+scale = Vector2(0.807229, 0.653614)
+texture = ExtResource("304_gky05")
+
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(35, -64)
 scale = Vector2(0.5, 0.5)
@@ -1264,3 +1270,29 @@ offset_left = -34.0
 offset_top = -152.0
 offset_right = 6.0
 offset_bottom = -129.0
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -22.0
+offset_top = -137.0
+offset_right = 26.0
+offset_bottom = -132.0
+
+[node name="health_bg" type="ColorRect" parent="Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.588235, 0.588235, 0.588235, 0.588235)
+
+[node name="health_bar" type="ColorRect" parent="Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(1, 0, 0, 1)

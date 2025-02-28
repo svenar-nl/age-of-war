@@ -15,6 +15,7 @@ func _ready():
 	
 	hit_sfx = get_node("sfx/hit_sfx")
 	money_die_reward = 26000
+	custom_death_sfx = "res://age of war sprites/audio/sfx/explosion_02.mp3"
 	
 	super()
 

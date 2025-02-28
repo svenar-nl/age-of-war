@@ -31,19 +31,27 @@ text = "Choose a difficulty to start the game:
 horizontal_alignment = 1
 
 [node name="normal" type="Button" parent="CenterContainer/VBoxContainer"]
+custom_minimum_size = Vector2(286.155, 0)
 layout_mode = 2
+size_flags_horizontal = 4
 text = "Normal"
 
 [node name="hard" type="Button" parent="CenterContainer/VBoxContainer"]
+custom_minimum_size = Vector2(286.155, 0)
 layout_mode = 2
+size_flags_horizontal = 4
 text = "Hard"
 
 [node name="impossible" type="Button" parent="CenterContainer/VBoxContainer"]
+custom_minimum_size = Vector2(286.155, 0)
 layout_mode = 2
+size_flags_horizontal = 4
 text = "Impossible"
 
 [node name="return" type="Button" parent="CenterContainer/VBoxContainer"]
+custom_minimum_size = Vector2(286.155, 0)
 layout_mode = 2
+size_flags_horizontal = 4
 text = "Click here to return to the menu"
 
 [node name="background sprite" type="Sprite2D" parent="."]

@@ -61,8 +61,6 @@ func _on_advance_pressed():
 		get_node("/root/main_game/player_base").advance_base_sprite()
 		if GlobalVariables.current_stage == GlobalVariables.stage.future:
 			$units_menu/HBoxContainer/special.disabled = false
-		if $special_button/ProgressBar.value != 100:
-			$special_button/ProgressBar.value = 100
 	elif queue.is_empty() != true:
 		$root_label.show()
 		$root_label.text = "Build queue must be empty before advancing!"
@@ -126,9 +124,7 @@ func queue_load(time, unit: String):
 
 func _tween_queue_finished(unit: String):
 	if get_node("/root/main_game").unable_to_spawn == false:
-		print("spawn_" + unit)
 		emit_signal("spawn_" + unit)
-		# emit_signal("spawn_super_soldier")
 		$queue/ColorRect7.size.x = 0
 		loading_unit = false
 		queue.pop_front()
@@ -139,7 +135,7 @@ func _tween_queue_finished(unit: String):
 
 # TODO make money values and time to spawn dynamic based of current age
 func _on_melee_pressed():
-	if GlobalVariables.player_money >= GlobalVariables.get_unit_cost("melee", GlobalVariables.current_stage):
+	if GlobalVariables.player_money >= GlobalVariables.get_unit_cost("melee", GlobalVariables.current_stage) and queue.size() < 5:
 		GlobalVariables.player_money -= GlobalVariables.get_unit_cost("melee", GlobalVariables.current_stage)
 		add_to_queue("melee", 0.5)
 	else:
@@ -148,7 +144,7 @@ func _on_melee_pressed():
 
 
 func _on_range_pressed():
-	if GlobalVariables.player_money >= GlobalVariables.get_unit_cost("range", GlobalVariables.current_stage):
+	if GlobalVariables.player_money >= GlobalVariables.get_unit_cost("range", GlobalVariables.current_stage) and queue.size() < 5:
 		GlobalVariables.player_money -= GlobalVariables.get_unit_cost("range", GlobalVariables.current_stage)
 		add_to_queue("range", 1)
 	else:
@@ -157,7 +153,7 @@ func _on_range_pressed():
 
 
 func _on_tank_pressed():
-	if GlobalVariables.player_money >= GlobalVariables.get_unit_cost("tank", GlobalVariables.current_stage):
+	if GlobalVariables.player_money >= GlobalVariables.get_unit_cost("tank", GlobalVariables.current_stage) and queue.size() < 5:
 		GlobalVariables.player_money -= GlobalVariables.get_unit_cost("tank", GlobalVariables.current_stage)
 		add_to_queue("tank", 2.0)
 	else:
@@ -436,7 +432,7 @@ func _on_turret_3_pressed():
 
 
 func _on_special_pressed():
-	if GlobalVariables.player_money >= 150000:
+	if GlobalVariables.player_money >= 150000 and queue.size() < 5:
 		GlobalVariables.player_money -= 150000
 		add_to_queue("super_soldier", 10.0)
 	else:

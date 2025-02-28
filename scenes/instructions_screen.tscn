@@ -59,4 +59,12 @@ everytime you evolve to the next age. Protect your base at all cost!"
 layout_mode = 2
 text = "Click here to return to the menu"
 
+[node name="ColorRect" type="ColorRect" parent="Control"]
+z_index = -1
+offset_left = 320.0
+offset_top = 138.0
+offset_right = 832.0
+offset_bottom = 533.0
+color = Color(1, 1, 1, 0.588235)
+
 [connection signal="pressed" from="Control/CenterContainer/VBoxContainer/Button" to="." method="_on_button_pressed"]

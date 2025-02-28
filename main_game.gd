@@ -24,9 +24,19 @@ func _process(delta):
 	$Camera2D/in_game_menu/exp.text = "exp: " + str(GlobalVariables.player_exp)
 	if medival_special_active == true:
 		if $medival_special_timer.is_stopped() == true:
-			$medival_special_timer.start(5.0)
+			$medival_special_timer.start(10.0)
 		for unit in get_node("player_units").get_children():
-			unit.health += 1
+			# Might want to remove the if statement if I want overhealing to be in the game.
+			# Overhealling is actually really good, all specials should be a "game saver".
+			if unit.health < unit.max_health:
+				unit.health += 1
+				if unit.get_node("heal_sprite") == null:
+					var sprite = Sprite2D.new()
+					sprite.texture = load("res://age of war sprites/effects/heal/medival_special_heal.png")
+					sprite.offset = Vector2(0, -74)
+					sprite.scale = Vector2(0.8, 0.8)
+					sprite.name = "heal_sprite"
+					unit.add_child(sprite)
 
 
 func get_first_player_unit():
@@ -155,3 +165,6 @@ func future_special_attack():
 func _on_medival_special_timer_timeout():
 	medival_special_active = false
 	$medival_special_timer.stop()
+	for unit in get_node("player_units").get_children():
+		if unit.get_node("heal_sprite") != null:
+			unit.get_node("heal_sprite").queue_free()

@@ -2,8 +2,8 @@ extends Camera2D
 
 var velocity
 var speed = 200
-var left_most_position = 576
-var right_most_position = 1200
+var left_most_position = 500
+var right_most_position = 1300
 
 
 @export var randomStrength: float = 10.0

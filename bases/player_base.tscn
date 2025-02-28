@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://c36x5w6hobq86"]
+[gd_scene load_steps=9 format=3 uid="uid://c36x5w6hobq86"]
 
 [ext_resource type="Script" path="res://bases/player_base.gd" id="1_25s31"]
 [ext_resource type="Texture2D" uid="uid://c1xsucbfkbfiv" path="res://age of war sprites/bases/cave/base/base.png" id="2_t4o2h"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://d1sj5rlj0tqvf" path="res://age of war sprites/bases/cave/tower_part/base_tower_part.png" id="4_07h3k"]
 [ext_resource type="Texture2D" uid="uid://caxi44uddr1wf" path="res://age of war sprites/bases/cave/tower_top/base_tower_top.png" id="5_civhq"]
 [ext_resource type="Theme" uid="uid://c4l0arxjc7n78" path="res://bases/base_button_theme.tres" id="6_8jc8w"]
+[ext_resource type="Texture2D" uid="uid://doeple8tlnbc3" path="res://age of war sprites/ui/black_line.png" id="7_mgkk8"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2s853"]
 size = Vector2(312, 183)
@@ -84,11 +85,50 @@ theme = ExtResource("6_8jc8w")
 disabled = true
 
 [node name="Label" type="Label" parent="."]
-offset_left = -70.0
-offset_top = -214.0
-offset_right = -30.0
-offset_bottom = -191.0
+offset_left = -57.0
+offset_top = -342.0
+offset_right = -17.0
+offset_bottom = -319.0
 text = "999"
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+offset_left = -91.0
+offset_top = -467.0
+offset_right = -70.0
+offset_bottom = -191.0
+
+[node name="health_bg" type="ColorRect" parent="PanelContainer"]
+layout_mode = 2
+color = Color(1, 1, 1, 0.588235)
+
+[node name="current_health" type="ColorRect" parent="PanelContainer"]
+custom_minimum_size = Vector2(0, 276)
+layout_mode = 2
+size_flags_vertical = 8
+color = Color(1, 0, 0, 1)
+
+[node name="BlackLine" type="Sprite2D" parent="."]
+position = Vector2(-80, -175)
+scale = Vector2(0.6875, 1)
+texture = ExtResource("7_mgkk8")
+
+[node name="BlackLine4" type="Sprite2D" parent="."]
+position = Vector2(-80, -483)
+rotation = -3.14159
+scale = Vector2(0.6875, 1)
+texture = ExtResource("7_mgkk8")
+
+[node name="BlackLine2" type="Sprite2D" parent="."]
+position = Vector2(-107, -329.106)
+rotation = 1.57079
+scale = Vector2(8.69417, 1)
+texture = ExtResource("7_mgkk8")
+
+[node name="BlackLine3" type="Sprite2D" parent="."]
+position = Vector2(-54, -329)
+rotation = -1.57079
+scale = Vector2(8.6383, 1)
+texture = ExtResource("7_mgkk8")
 
 [connection signal="pressed" from="Button_tower_base" to="." method="_on_button_tower_base_pressed"]
 [connection signal="pressed" from="Button_tower_bottom" to="." method="_on_button_tower_bottom_pressed"]

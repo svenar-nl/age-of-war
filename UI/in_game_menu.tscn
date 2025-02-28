@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://bwbjwinb2wuou"]
+[gd_scene load_steps=16 format=3 uid="uid://bwbjwinb2wuou"]
 
 [ext_resource type="Texture2D" uid="uid://cjm2h7jgkb3gh" path="res://age of war sprites/ui/root_ui.png" id="1_eesea"]
 [ext_resource type="Script" path="res://UI/in_game_menu.gd" id="1_wl8wd"]
@@ -10,6 +10,8 @@
 [ext_resource type="Texture2D" uid="uid://vaof7nc1ov4v" path="res://age of war sprites/ui/cancel_button0001.png" id="8_76dav"]
 [ext_resource type="Texture2D" uid="uid://cmbt5vcwlrbuy" path="res://age of war sprites/ui/cancel_button0002.png" id="8_foxd6"]
 [ext_resource type="Script" path="res://UI/special_button.gd" id="9_fyqc4"]
+[ext_resource type="Texture2D" uid="uid://cf4atnyk4f3c8" path="res://age of war sprites/ui/black_outline_box.png" id="11_23v3a"]
+[ext_resource type="Texture2D" uid="uid://doeple8tlnbc3" path="res://age of war sprites/ui/black_line.png" id="12_ke4u6"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3ru04"]
 bg_color = Color(0, 0, 0, 0)
@@ -377,6 +379,53 @@ offset_bottom = 91.0
 theme_override_colors/font_color = Color(1, 1, 0, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 20
+
+[node name="BlackOutlineBox" type="Sprite2D" parent="."]
+position = Vector2(618, 22)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("11_23v3a")
+
+[node name="BlackOutlineBox2" type="Sprite2D" parent="."]
+position = Vector2(638, 22)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("11_23v3a")
+
+[node name="BlackOutlineBox3" type="Sprite2D" parent="."]
+position = Vector2(658, 22)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("11_23v3a")
+
+[node name="BlackOutlineBox4" type="Sprite2D" parent="."]
+position = Vector2(678, 22)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("11_23v3a")
+
+[node name="BlackOutlineBox5" type="Sprite2D" parent="."]
+position = Vector2(698, 22)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("11_23v3a")
+
+[node name="BlackLine" type="Sprite2D" parent="."]
+position = Vector2(379, 30)
+scale = Vector2(13.5, 1)
+texture = ExtResource("12_ke4u6")
+
+[node name="BlackLine2" type="Sprite2D" parent="."]
+position = Vector2(379, 45)
+scale = Vector2(13.5, 1)
+texture = ExtResource("12_ke4u6")
+
+[node name="BlackLine3" type="Sprite2D" parent="."]
+position = Vector2(179, 22)
+rotation = -1.57079
+scale = Vector2(0.481113, 1)
+texture = ExtResource("12_ke4u6")
+
+[node name="BlackLine4" type="Sprite2D" parent="."]
+position = Vector2(579, 22)
+rotation = 1.57079
+scale = Vector2(0.481113, 1)
+texture = ExtResource("12_ke4u6")
 
 [connection signal="mouse_entered" from="root_hbox_container/unit" to="." method="_on_unit_mouse_entered"]
 [connection signal="mouse_exited" from="root_hbox_container/unit" to="." method="_on_unit_mouse_exited"]

@@ -5,7 +5,7 @@ var hit_sfx
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	health = 50
+	health = 70
 	damage = 10
 	move_speed = 50
 	money_die_reward = 20
@@ -22,7 +22,7 @@ func _ready():
 	if is_player_owned == false:
 		$Shadow.position.x = -$Shadow.position.x
 	
-	$Control.hide()
+	
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

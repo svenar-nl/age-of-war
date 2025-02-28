@@ -3,6 +3,7 @@ extends StaticBody2D
 @export var is_player_owned: bool = true
 
 var health
+var max_health
 var turret_array : Array
 var turret_data : Array
 
@@ -12,7 +13,7 @@ enum state {idle, attack, walk, die}
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	health = 500
-	
+	max_health = 500
 	# -1 unavailable to build (because no space)
 	# 0 means no turret (but there is space to build)
 	# 1 means there is a turret
@@ -26,6 +27,9 @@ func _ready():
 	$tower_part.hide()
 	$tower_top.hide()
 	
+	if scale.x == -1:
+		$Label.scale.x = -1
+		$Label.position.x = -20
 	
 	
 	deactivate_buttons()
@@ -144,6 +148,7 @@ func _on_button_tower_bottom_pressed():
 
 func take_damage(damage):
 	health -= damage
+	$PanelContainer/current_health.custom_minimum_size.y = 276 * health/max_health
 	if health <= 0:
 		if is_player_owned == true:
 			MusicManager.audioStreamPlayer.stop()
@@ -224,22 +229,30 @@ func advance_base_sprite():
 		$tower_bottom.texture = load("res://age of war sprites/bases/knight/tower_base/base_tower_bottom.png")
 		$tower_part.texture = load("res://age of war sprites/bases/knight/tower_part/base_tower_part.png")
 		$tower_top.texture = load("res://age of war sprites/bases/knight/tower_top/base_tower_top.png")
-		health = int(health * 750 / 500)
+		health += 600
+		max_health = 1100
+		$PanelContainer/current_health.custom_minimum_size.y = 276 * health/max_health
 	elif GlobalVariables.current_stage == GlobalVariables.stage.medival:
 		$Sprite2D.texture = load("res://age of war sprites/bases/medival/base/base.png")
 		$tower_bottom.texture = load("res://age of war sprites/bases/medival/tower_base/base_tower_bottom.png")
 		$tower_part.texture = load("res://age of war sprites/bases/medival/tower_part/base_tower_part.png")
 		$tower_top.texture = load("res://age of war sprites/bases/medival/tower_top/base_tower_top.png")
-		health = int(health * 1000 / 750)
+		health += 900
+		max_health = 2000
+		$PanelContainer/current_health.custom_minimum_size.y = 276 * health/max_health
 	elif GlobalVariables.current_stage == GlobalVariables.stage.miltary:
 		$Sprite2D.texture = load("res://age of war sprites/bases/miltary/base/base.png")
 		$tower_bottom.texture = load("res://age of war sprites/bases/miltary/tower_base/base_tower_bottom.png")
 		$tower_part.texture = load("res://age of war sprites/bases/miltary/tower_part/base_tower_part.png")
 		$tower_top.texture = load("res://age of war sprites/bases/miltary/tower_top/base_tower_top.png")
-		health = int(health * 1500 / 1000)
+		health += 1200
+		max_health = 3200
+		$PanelContainer/current_health.custom_minimum_size.y = 276 * health/max_health
 	elif GlobalVariables.current_stage == GlobalVariables.stage.future:
 		$Sprite2D.texture = load("res://age of war sprites/bases/future/base/base.png")
 		$tower_bottom.texture = load("res://age of war sprites/bases/future/tower_base/base_tower_bottom.png")
 		$tower_part.texture = load("res://age of war sprites/bases/future/tower_part/base_tower_part.png")
 		$tower_top.texture = load("res://age of war sprites/bases/future/tower_top/base_tower_top.png")
-		health = int(health * 3000 / 1500)
+		health += 1500
+		max_health = 4700
+		$PanelContainer/current_health.custom_minimum_size.y = 276 * health/max_health

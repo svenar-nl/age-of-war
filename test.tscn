@@ -40,9 +40,6 @@ position = Vector2(326, 1)
 [node name="future_melee" parent="." instance=ExtResource("6_5gxso")]
 position = Vector2(426, 1)
 
-[node name="medival_range" parent="." instance=ExtResource("7_gqy3g")]
-position = Vector2(240, 364)
-
 [node name="cave_tank" parent="." instance=ExtResource("8_j2fga")]
 position = Vector2(65, 190)
 
@@ -64,8 +61,11 @@ position = Vector2(20, 364)
 [node name="knight_range" parent="." instance=ExtResource("14_ju270")]
 position = Vector2(110, 367)
 
+[node name="medival_range" parent="." instance=ExtResource("7_gqy3g")]
+position = Vector2(240, 364)
+
 [node name="miltary_range" parent="." instance=ExtResource("15_ycmwn")]
-position = Vector2(404, 302)
+position = Vector2(403, 369)
 
 [node name="future_range" parent="." instance=ExtResource("16_1dvqs")]
-position = Vector2(542, 295)
+position = Vector2(551, 365)

@@ -17,13 +17,12 @@ func _ready():
 func _process(delta):
 	position.x +=  speed * delta
 	
-	
 	if position.x > 2000:
 		self.queue_free()
 	elif position.x > 1500:
 		timer.stop()
 	elif position.x > 200 and timer.is_paused() == true:
-		timer.start(0.4)
+		timer.start(0.5)
 		timer.paused = false
 
 

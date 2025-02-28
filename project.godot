@@ -29,3 +29,7 @@ folder_colors={
 "res://scripts/": "yellow",
 "res://units/": "teal"
 }
+
+[rendering]
+
+textures/canvas_textures/default_texture_filter=3

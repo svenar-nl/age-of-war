@@ -3,9 +3,11 @@ class_name range_unit
 
 @export var is_player_owned: bool = true
 
+var max_health
 var health
 var damage
 var move_speed
+var starting_health_bar_size
 
 var multiple_melee_attack_animations: bool = false # default to false
 enum state {die, idle, idle_attack, melee_attack, walk, walk_attack}
@@ -76,6 +78,16 @@ func _ready():
 		range_ray_cast.set_collision_mask_value(4, true)
 		melee_ray_cast.set_collision_mask_value(4, true)
 		self.z_index = 2
+		
+	if is_player_owned == false and GlobalVariables.current_difficulty == GlobalVariables.difficulty.hard:
+		health *= 1.25
+	elif is_player_owned == false and GlobalVariables.current_difficulty == GlobalVariables.difficulty.impossible:
+		health *= 1.5
+		
+	max_health = health
+	starting_health_bar_size = $Control/health_bar.size.x
+	$Control.hide()
+	$Label.hide()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -105,6 +117,7 @@ func _process(delta):
 		if is_player_owned == false:
 			GlobalVariables.player_money += money_die_reward
 			GlobalVariables.player_exp += 2 * money_die_reward
+			spawn_show_death_money()
 		else:
 			GlobalVariables.player_exp += int (money_die_reward/2)
 	
@@ -195,6 +208,11 @@ func _on_animated_sprite_2d_animation_finished():
 func _on_death_timer_timeout():
 	self.queue_free()
 
+func spawn_show_death_money():
+	var effect = load("res://show_death_money.tscn").instantiate()
+	effect.global_position = $Control.global_position
+	effect.get_node("Label").text = " +" + str(money_die_reward)
+	get_parent().add_child(effect)
 
 func is_idle_or_idle_attacking():
 	if current_state == state.idle or current_state == state.idle_attack or current_state == state.melee_attack:
@@ -215,6 +233,7 @@ func stop_all_sfx():
 
 func take_damage(outside_damage):
 	health -= outside_damage
+	$Control/health_bar.size.x = 48 * health / max_health
 
 func do_damage(unit_to_be_damaged):
 	unit_to_be_damaged.take_damage(damage)
@@ -291,7 +310,8 @@ func change_to_walk_attack_state():
 	animated_sprite.play("walk_attack")
 
 func _on_mouse_entered():
-	print("TODO, display visual of health")
+	$Control.show()
+	$Control/health_bar.size.x = starting_health_bar_size * health / max_health
 
 func _on_mouse_exited():
-	print("TODO, hide visual of health")
+	$Control.hide()

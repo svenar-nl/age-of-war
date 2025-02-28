@@ -1,7 +1,8 @@
-[gd_scene load_steps=323 format=3 uid="uid://bv4chsqcvty6w"]
+[gd_scene load_steps=324 format=3 uid="uid://bv4chsqcvty6w"]
 
 [ext_resource type="Script" path="res://units/knight/range/knight_range.gd" id="1_be3q5"]
 [ext_resource type="Texture2D" uid="uid://b6g2qubp14le6" path="res://age of war sprites/units/knight/range/die/knight_range_die0001.png" id="2_cr2yd"]
+[ext_resource type="Texture2D" uid="uid://cr1r5c47lxi16" path="res://age of war sprites/effects/shadow.png" id="2_px0bt"]
 [ext_resource type="Texture2D" uid="uid://duihpvgrpf64v" path="res://age of war sprites/units/knight/range/die/knight_range_die0002.png" id="3_g5pq8"]
 [ext_resource type="Texture2D" uid="uid://dursl1exen4pm" path="res://age of war sprites/units/knight/range/die/knight_range_die0003.png" id="4_mnica"]
 [ext_resource type="Texture2D" uid="uid://cowjufltdxmpm" path="res://age of war sprites/units/knight/range/die/knight_range_die0004.png" id="5_0urxj"]
@@ -1313,6 +1314,10 @@ animations = [{
 [node name="knight_range" type="RigidBody2D"]
 script = ExtResource("1_be3q5")
 
+[node name="Shadow" type="Sprite2D" parent="."]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_px0bt")
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -52.5)
 shape = SubResource("RectangleShape2D_tasdu")
@@ -1330,7 +1335,7 @@ target_position = Vector2(25, 0)
 
 [node name="RayCast2D_range" type="RayCast2D" parent="."]
 position = Vector2(0, -53)
-target_position = Vector2(210, 0)
+target_position = Vector2(200, 0)
 
 [node name="death_timer" type="Timer" parent="."]
 
@@ -1353,3 +1358,29 @@ stream = ExtResource("319_4l61l")
 
 [node name="stab_sfx" type="AudioStreamPlayer2D" parent="sfx"]
 stream = ExtResource("320_qojkj")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -24.0
+offset_top = -112.0
+offset_right = 24.0
+offset_bottom = -107.0
+
+[node name="health_bg" type="ColorRect" parent="Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.588235, 0.588235, 0.588235, 0.588235)
+
+[node name="health_bar" type="ColorRect" parent="Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(1, 0, 0, 1)

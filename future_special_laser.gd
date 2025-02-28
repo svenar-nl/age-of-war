@@ -2,7 +2,7 @@ extends Area2D
 
 
 var is_player_owned: bool
-var damage : int = 400
+var damage : int = 600
 
 func _ready():
 	is_player_owned = true

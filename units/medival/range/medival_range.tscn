@@ -1,4 +1,4 @@
-[gd_scene load_steps=301 format=3 uid="uid://3mxmgboq06ah"]
+[gd_scene load_steps=302 format=3 uid="uid://3mxmgboq06ah"]
 
 [ext_resource type="Texture2D" uid="uid://db8h51i1f2kwt" path="res://age of war sprites/units/medival/range/die/medival_range_die0001.png" id="1_8ago0"]
 [ext_resource type="Script" path="res://units/medival/range/medival_range.gd" id="1_a8ttx"]
@@ -298,6 +298,7 @@
 [ext_resource type="Texture2D" uid="uid://dgxqk5d2gxqew" path="res://age of war sprites/units/medival/range/walk_attack/medival_range_walk_attack0047.png" id="295_46tbt"]
 [ext_resource type="Texture2D" uid="uid://bvdf3u1xvuh7g" path="res://age of war sprites/units/medival/range/walk_attack/medival_range_walk_attack0048.png" id="296_yugoe"]
 [ext_resource type="AudioStream" uid="uid://dww27llb253di" path="res://age of war sprites/audio/sfx/medival_range_attack.mp3" id="298_b0fay"]
+[ext_resource type="Texture2D" uid="uid://cr1r5c47lxi16" path="res://age of war sprites/effects/shadow.png" id="299_mkk7i"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_dm7mp"]
 animations = [{
@@ -1365,6 +1366,10 @@ size = Vector2(68, 128)
 gravity_scale = 0.0
 script = ExtResource("1_a8ttx")
 
+[node name="Shadow" type="Sprite2D" parent="."]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("299_mkk7i")
+
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(-16, -63)
 scale = Vector2(0.5, 0.5)
@@ -1398,3 +1403,29 @@ offset_bottom = -105.0
 stream = ExtResource("298_b0fay")
 
 [node name="die_sfx" type="AudioStreamPlayer2D" parent="sfx"]
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -23.0
+offset_top = -139.0
+offset_right = 25.0
+offset_bottom = -134.0
+
+[node name="health_bg" type="ColorRect" parent="Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.588235, 0.588235, 0.588235, 0.588235)
+
+[node name="health_bar" type="ColorRect" parent="Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(1, 0, 0, 1)

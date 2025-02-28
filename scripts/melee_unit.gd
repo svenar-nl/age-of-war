@@ -43,8 +43,7 @@ func _ready():
 	melee_ray_cast = get_node("RayCast2D")
 	animated_sprite = get_node("AnimatedSprite2D")
 	collision_shape = get_node("CollisionShape2D")
-	max_health = health
-	starting_health_bar_size = $Control/health_bar.size.x
+	
 	
 	input_pickable = true
 	self.connect("mouse_entered", _on_mouse_entered)
@@ -79,6 +78,16 @@ func _ready():
 	else:
 		melee_ray_cast.set_collision_mask_value(4, true)
 		self.z_index = 2
+		
+	if is_player_owned == false and GlobalVariables.current_difficulty == GlobalVariables.difficulty.hard:
+		health *= 1.25
+	elif is_player_owned == false and GlobalVariables.current_difficulty == GlobalVariables.difficulty.impossible:
+		health *= 1.5
+		
+	max_health = health
+	starting_health_bar_size = $Control/health_bar.size.x
+	$Control.hide()
+	$Label.hide()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -106,12 +115,19 @@ func _process(delta):
 		if is_player_owned == false:
 			GlobalVariables.player_money += money_die_reward
 			GlobalVariables.player_exp += 2 * money_die_reward
+			spawn_show_death_money()
 		else:
 			GlobalVariables.player_exp += int (money_die_reward/2)
 
 	position.y = 570
 	$Label.text = str(health)
 	
+func spawn_show_death_money():
+	var effect = load("res://show_death_money.tscn").instantiate()
+	effect.global_position = $Control.global_position
+	effect.get_node("Label").text = " +" + str(money_die_reward)
+	get_parent().add_child(effect)
+
 func attack_state():
 	pass
 
@@ -214,8 +230,6 @@ func stop_all_sfx():
 func _on_mouse_entered():
 	$Control.show()
 	$Control/health_bar.size.x = starting_health_bar_size * health / max_health
-	print("TODO, display visual of health")
 
 func _on_mouse_exited():
 	$Control.hide()
-	print("TODO, hide visual of health")

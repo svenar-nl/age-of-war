@@ -8,6 +8,7 @@ func _ready():
 	spawn_projectile_frame = 3
 	play_audio_frame = 2
 	projectile_texture = load("res://age of war sprites/bases/cave/turret_2/cave_turret_2_projectile.png")
+	projectile_rotation = true
 	super()
 
 

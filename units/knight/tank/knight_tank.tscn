@@ -1,7 +1,8 @@
-[gd_scene load_steps=278 format=3 uid="uid://1v7bw6g8kre1"]
+[gd_scene load_steps=279 format=3 uid="uid://1v7bw6g8kre1"]
 
 [ext_resource type="Script" path="res://units/knight/tank/knight_tank.gd" id="1_4gjvt"]
 [ext_resource type="Texture2D" uid="uid://cud60f4caiew7" path="res://age of war sprites/units/knight/tank/attack/knight_tank_attack0001.png" id="2_mnely"]
+[ext_resource type="Texture2D" uid="uid://cr1r5c47lxi16" path="res://age of war sprites/effects/shadow.png" id="2_yk2xp"]
 [ext_resource type="Texture2D" uid="uid://yyy1uat5x7e" path="res://age of war sprites/units/knight/tank/attack/knight_tank_attack0002.png" id="3_qv5k3"]
 [ext_resource type="Texture2D" uid="uid://cevvgpio860no" path="res://age of war sprites/units/knight/tank/attack/knight_tank_attack0003.png" id="4_2u5km"]
 [ext_resource type="Texture2D" uid="uid://ua3d6xum5qcl" path="res://age of war sprites/units/knight/tank/attack/knight_tank_attack0004.png" id="5_elgmp"]
@@ -1116,11 +1117,16 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0vf41"]
-size = Vector2(128, 128)
+size = Vector2(170, 135)
 
 [node name="knight_tank" type="RigidBody2D"]
 gravity_scale = 0.0
 script = ExtResource("1_4gjvt")
+
+[node name="Shadow" type="Sprite2D" parent="."]
+position = Vector2(-1.13687e-13, 2.38419e-07)
+scale = Vector2(0.807229, 0.653614)
+texture = ExtResource("2_yk2xp")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(45, -70)
@@ -1131,12 +1137,12 @@ frame = 20
 frame_progress = 0.639566
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -64)
+position = Vector2(0, -67.5)
 shape = SubResource("RectangleShape2D_0vf41")
 
 [node name="RayCast2D" type="RayCast2D" parent="."]
 position = Vector2(0, -64)
-target_position = Vector2(76, 0)
+target_position = Vector2(91, 0)
 
 [node name="sfx" type="Node2D" parent="."]
 
@@ -1154,3 +1160,29 @@ offset_left = -64.0
 offset_top = -151.0
 offset_right = -24.0
 offset_bottom = -128.0
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -22.0
+offset_top = -146.0
+offset_right = 26.0
+offset_bottom = -141.0
+
+[node name="health_bg" type="ColorRect" parent="Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.588235, 0.588235, 0.588235, 0.588235)
+
+[node name="health_bar" type="ColorRect" parent="Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(1, 0, 0, 1)

@@ -2,7 +2,7 @@ extends range_unit
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	health = 40
+	health = 50
 	damage = 5
 	move_speed = 50
 	money_die_reward = 33

@@ -10,6 +10,7 @@ func _ready():
 	projectile_texture = load("res://age of war sprites/bases/miltary/turret_2/miltary_turret_2_projectile.png")
 	super()
 	play_audio_repeated = true
+	spawn_explosion_effect = true
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

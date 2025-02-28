@@ -40,4 +40,11 @@ func _on_body_entered(body):
 				get_node("/root/main_game").add_child(explosion)
 			self.queue_free()
 	elif body.name == "floor":
+		if spawn_explosion_effect == true:
+			var explosion = load("res://effects/explosion_effect.tscn").instantiate()
+			explosion.global_position = self.global_position
+			explosion.global_position.y -= 32
+			explosion.scale = Vector2(0.125, 0.125)
+			explosion.get_node("AudioStreamPlayer2D").volume_db = -10
+			get_node("/root/main_game").add_child(explosion)
 		self.queue_free()

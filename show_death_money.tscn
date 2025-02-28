@@ -1,0 +1,143 @@
+[gd_scene load_steps=19 format=3 uid="uid://cv64pgy22hl7f"]
+
+[ext_resource type="Script" path="res://show_death_money.gd" id="1_x586j"]
+[ext_resource type="Texture2D" uid="uid://de8me0wpgvh58" path="res://age of war sprites/effects/coin1_16x16.png" id="2_1tu7s"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uu4hl"]
+atlas = ExtResource("2_1tu7s")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uncbv"]
+atlas = ExtResource("2_1tu7s")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ice1o"]
+atlas = ExtResource("2_1tu7s")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4fkfq"]
+atlas = ExtResource("2_1tu7s")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mukri"]
+atlas = ExtResource("2_1tu7s")
+region = Rect2(64, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v6ghi"]
+atlas = ExtResource("2_1tu7s")
+region = Rect2(80, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n5b7b"]
+atlas = ExtResource("2_1tu7s")
+region = Rect2(96, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_88ftc"]
+atlas = ExtResource("2_1tu7s")
+region = Rect2(112, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qra76"]
+atlas = ExtResource("2_1tu7s")
+region = Rect2(128, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_domy0"]
+atlas = ExtResource("2_1tu7s")
+region = Rect2(144, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ieea1"]
+atlas = ExtResource("2_1tu7s")
+region = Rect2(160, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r5x6q"]
+atlas = ExtResource("2_1tu7s")
+region = Rect2(176, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1oojy"]
+atlas = ExtResource("2_1tu7s")
+region = Rect2(192, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dn5mp"]
+atlas = ExtResource("2_1tu7s")
+region = Rect2(208, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bbob8"]
+atlas = ExtResource("2_1tu7s")
+region = Rect2(224, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_6kfbs"]
+animations = [{
+"frames": [{
+"duration": 3.0,
+"texture": SubResource("AtlasTexture_uu4hl")
+}, {
+"duration": 3.0,
+"texture": SubResource("AtlasTexture_uncbv")
+}, {
+"duration": 3.0,
+"texture": SubResource("AtlasTexture_ice1o")
+}, {
+"duration": 3.0,
+"texture": SubResource("AtlasTexture_4fkfq")
+}, {
+"duration": 3.0,
+"texture": SubResource("AtlasTexture_mukri")
+}, {
+"duration": 3.0,
+"texture": SubResource("AtlasTexture_v6ghi")
+}, {
+"duration": 3.0,
+"texture": SubResource("AtlasTexture_n5b7b")
+}, {
+"duration": 3.0,
+"texture": SubResource("AtlasTexture_88ftc")
+}, {
+"duration": 3.0,
+"texture": SubResource("AtlasTexture_qra76")
+}, {
+"duration": 3.0,
+"texture": SubResource("AtlasTexture_domy0")
+}, {
+"duration": 3.0,
+"texture": SubResource("AtlasTexture_ieea1")
+}, {
+"duration": 3.0,
+"texture": SubResource("AtlasTexture_r5x6q")
+}, {
+"duration": 3.0,
+"texture": SubResource("AtlasTexture_1oojy")
+}, {
+"duration": 3.0,
+"texture": SubResource("AtlasTexture_dn5mp")
+}, {
+"duration": 3.0,
+"texture": SubResource("AtlasTexture_bbob8")
+}],
+"loop": true,
+"name": &"default",
+"speed": 30.0
+}]
+
+[node name="show_death_money" type="Node2D"]
+script = ExtResource("1_x586j")
+
+[node name="Label" type="Label" parent="."]
+offset_left = 8.0
+offset_top = -11.0
+offset_right = 48.0
+offset_bottom = 12.0
+theme_override_colors/font_color = Color(1, 1, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+text = "520"
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_6kfbs")
+autoplay = "default"
+frame = 4
+frame_progress = 0.813413
+
+[node name="Timer" type="Timer" parent="."]
+
+[node name="Timer2" type="Timer" parent="."]
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="Timer2" to="." method="_on_timer_2_timeout"]
