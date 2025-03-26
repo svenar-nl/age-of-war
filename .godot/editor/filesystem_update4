@@ -1,15 +1,5 @@
-res://units/future/tank/future_tank.tscn
+res://units/miltary/tank/miltary_tank.tscn
 res://UI/button_theme.tres
 res://bases/base_button_theme.tres
 res://units/future/super_soldier/future_super_soldier.gdshader
-res://scripts/melee_unit.gd
-res://units/future/tank/future_tank.gd
-res://main_game.tscn
-res://projectile_offspring.tscn
-res://projectile.tscn
-res://globals/music_manager.tscn
-res://scenes/options_menu.tscn
-res://effects/fire_effect.tscn
-res://effects/explosion_effect.tscn
-res://ai_spawner.tscn
-res://bases/player_base.tscn
+res://units/miltary/tank/miltary_tank.gd

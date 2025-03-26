@@ -37,3 +37,6 @@ func attack_state():
 		# whack_sfx.pitch_scale = randf_range(0.9, 1.1)
 	if $AnimatedSprite2D.frame == 24:
 		do_damage($RayCast2D.get_collider())
+
+func _on_animated_sprite_2d_animation_finished():
+	self.queue_free()
