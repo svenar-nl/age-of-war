@@ -61,6 +61,7 @@ text = "Click here to return to the menu"
 
 [node name="ColorRect" type="ColorRect" parent="Control"]
 z_index = -1
+layout_mode = 0
 offset_left = 320.0
 offset_top = 138.0
 offset_right = 832.0

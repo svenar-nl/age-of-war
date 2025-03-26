@@ -3,6 +3,7 @@
 [ext_resource type="Script" path="res://ai_spawner.gd" id="1_bbgo7"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_j04ul"]
+size = Vector2(32, 20)
 
 [node name="ai_spawner" type="Node2D"]
 script = ExtResource("1_bbgo7")
@@ -16,9 +17,14 @@ shape = SubResource("RectangleShape2D_j04ul")
 debug_color = Color(0.960784, 0, 0.956863, 0.419608)
 
 [node name="Timer2" type="Timer" parent="."]
-wait_time = 100.0
+wait_time = 120.0
+autostart = true
+
+[node name="Timer3" type="Timer" parent="."]
+wait_time = 30.0
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
 [connection signal="timeout" from="Timer2" to="." method="_on_timer_2_timeout"]
+[connection signal="timeout" from="Timer3" to="." method="_on_timer_3_timeout"]

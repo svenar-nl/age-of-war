@@ -12,7 +12,7 @@ radius = 800.0
 [sub_resource type="SpriteFrames" id="SpriteFrames_piley"]
 animations = [{
 "frames": [{
-"duration": 10.0,
+"duration": 8.0,
 "texture": ExtResource("1_6obvp")
 }, {
 "duration": 1.0,
@@ -21,7 +21,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("2_erh7s")
 }, {
-"duration": 10.0,
+"duration": 8.0,
 "texture": ExtResource("3_nx8t0")
 }],
 "loop": true,

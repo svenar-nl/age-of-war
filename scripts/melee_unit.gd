@@ -217,6 +217,7 @@ func _on_animated_sprite_2d_animation_finished():
 	if current_state == state.die:
 		death_timer.start()
 		
+		
 func _on_animated_sprite_2d_animation_looped():
 	if current_state == state.attack and (animated_sprite.get_animation() == "attack_1" or animated_sprite.get_animation() == "attack_2"):
 		# randomly pick between the two animations and play the attack animation again

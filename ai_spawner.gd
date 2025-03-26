@@ -3,12 +3,12 @@ extends Node2D
 
 var current_age
 
-enum phase1_states {spawn_m, spawn_mm, spawn_mmm}
-enum phase2_states {spawn_mr=3, spawn_mmr=4, spawn_mrr=5, spawn_mmrr=6}
-enum phase3_states {spawn_t=7, spawn_tr=8, spawn_ttr=9}
-var current_state
+enum phase {m, r, t}
+var current_phase = phase.m
 
 var enemy_units_container
+
+signal change_age
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -18,11 +18,7 @@ func _ready():
 	$Timer.start(3.0)
 	enemy_units_container = get_node("/root/main_game/enemy_units")
 	$Timer2.start()
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
+	$Timer3.start()
 
 
 
@@ -65,30 +61,17 @@ func advance_to_next_age():
 
 
 func _on_timer_timeout():
-	# Choose new state
 	var random_value = randi_range(1, 3)
-	$Timer.wait_time = randf_range(3.0, 5.0)
-	print(random_value)
 	if random_value == 1:
 		spawn_melee()
+		$Timer.wait_time = randf_range(2.0, 4.0)
 	elif random_value == 2:
 		spawn_range()
+		$Timer.wait_time = randf_range(2.0, 4.0)
 	elif random_value == 3:
 		spawn_tank()
-	elif random_value == 4:
-		pass
-	elif random_value == 5:
-		pass
-	elif random_value == 6:
-		pass
-	elif random_value == 7:
-		pass
-	elif random_value == 8:
-		pass
-	elif random_value == 9:
-		pass
-	elif random_value == 10:
-		pass
+		$Timer.wait_time = randf_range(4.0, 6.0)
+
 	
 
 
@@ -96,23 +79,27 @@ func _on_area_2d_body_entered(body):
 	$Timer.stop()
 	
 
-
-
 func _on_area_2d_body_exited(body):
 	$Timer.start()
 
-
 func _on_timer_2_timeout():
-	print("change age")
+	emit_signal("change_age")
 	if current_age == "cave":
 		current_age = "knight"
-		$Timer2.stop()
-		$Timer2.wait_time = 120
-		$Timer2.start()
+		$Timer2.wait_time = 150
 	elif current_age == "knight":
 		current_age = "medival"
+		$Timer2.wait_time = 160
 	elif current_age == "medival":
 		current_age = "miltary"
+		$Timer2.wait_time = 170
 	elif current_age == "miltary":
 		current_age = "future"
 		$Timer2.stop()
+
+
+func _on_timer_3_timeout():
+	# print("spawn turret")
+	# get_node("/root/main_game/enemy_base")
+	# MAYBE A TODO for Later
+	$Timer3.wait_time += 60

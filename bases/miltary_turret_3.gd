@@ -3,7 +3,7 @@ extends turret
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	projectile_damge = 60
+	projectile_damge = 80
 	projectile_speed = 1200
 	spawn_projectile_frame = 6
 	play_audio_frame = 5

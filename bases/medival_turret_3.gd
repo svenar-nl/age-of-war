@@ -12,6 +12,7 @@ func _ready():
 	super()
 	play_audio_repeated = true
 	offspring_texture = load("res://age of war sprites/bases/medival/turret_3/medival_turret_3_projectile_offspring.png")
+	spawn_explosion_effect = true
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

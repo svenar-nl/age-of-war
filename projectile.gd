@@ -50,7 +50,33 @@ func _on_body_entered(body):
 				get_node("/root/main_game").add_child(explosion)
 			self.queue_free()
 	elif body.name == "floor":
-		self.queue_free()
+		if spawn_offspring == true:
+			var i = 0
+			while i < 3:
+				var offspring = load("res://projectile_offspring.tscn").instantiate()
+				offspring.global_position = self.global_position
+				offspring.damage = 10
+				offspring.direction = Vector2(randf_range(-10, 10), randf_range(-20, -30))
+				offspring.speed = 10
+				offspring.is_player_owned = self.is_player_owned
+				offspring.get_node("Sprite2D").texture = offspring_texture
+				if spawn_explosion_effect == true:
+					offspring.spawn_explosion_effect = true
+				get_node("/root/main_game").add_child(offspring)
+				i += 1
+			if spawn_explosion_effect == true:
+				var explosion = load("res://effects/explosion_effect.tscn").instantiate()
+				explosion.global_position = self.global_position
+				explosion.global_position.y -= 48 - randi_range(0, 32)
+				explosion.scale = Vector2(0.25, 0.25)
+				get_node("/root/main_game").add_child(explosion)
+				
+				var fire = load("res://effects/fire_effect.tscn").instantiate()
+				fire.global_position = self.global_position
+				fire.global_position.y -= 32 - randi_range(0, 32)
+				fire.scale = Vector2(0.125, 0.125)
+				get_node("/root/main_game").add_child(fire)
+			self.queue_free()
 		
 	
 

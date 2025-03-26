@@ -16,6 +16,7 @@ func _ready():
 	$Camera2D/in_game_menu.connect("spawn_super_soldier", _on_super_soldier_button_pressed)
 	unable_to_spawn = false
 	medival_special_active = false
+	$ai_spawner.connect("change_age", _on_ai_change_age)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -24,19 +25,19 @@ func _process(delta):
 	$Camera2D/in_game_menu/exp.text = "exp: " + str(GlobalVariables.player_exp)
 	if medival_special_active == true:
 		if $medival_special_timer.is_stopped() == true:
-			$medival_special_timer.start(10.0)
+			$medival_special_timer.start(5.0)
 		for unit in get_node("player_units").get_children():
 			# Might want to remove the if statement if I want overhealing to be in the game.
 			# Overhealling is actually really good, all specials should be a "game saver".
-			if unit.health < unit.max_health:
-				unit.health += 1
-				if unit.get_node("heal_sprite") == null:
-					var sprite = Sprite2D.new()
-					sprite.texture = load("res://age of war sprites/effects/heal/medival_special_heal.png")
-					sprite.offset = Vector2(0, -74)
-					sprite.scale = Vector2(0.8, 0.8)
-					sprite.name = "heal_sprite"
-					unit.add_child(sprite)
+			unit.max_health += 1
+			unit.take_damage(-1)
+			if unit.get_node("heal_sprite") == null:
+				var sprite = Sprite2D.new()
+				sprite.texture = load("res://age of war sprites/effects/heal/medival_special_heal.png")
+				sprite.offset = Vector2(0, -74)
+				sprite.scale = Vector2(0.8, 0.8)
+				sprite.name = "heal_sprite"
+				unit.add_child(sprite)
 
 
 func get_first_player_unit():
@@ -56,6 +57,7 @@ func _on_melee_button_pressed():
 		return
 	var new_melee_unit = load("res://units/" + GlobalVariables.get_current_age_as_string() + "/melee/" + GlobalVariables.get_current_age_as_string() + "_melee.tscn").instantiate()
 	new_melee_unit.position = player_unit_spawn_position
+	new_melee_unit.position.x -= 32
 	new_melee_unit.is_player_owned = true
 	get_node("/root/main_game/player_units").add_child(new_melee_unit)
 	
@@ -68,6 +70,7 @@ func _on_range_button_pressed():
 		return
 	var cave_range = load("res://units/" + GlobalVariables.get_current_age_as_string() + "/range/" + GlobalVariables.get_current_age_as_string() + "_range.tscn").instantiate()
 	cave_range.position = player_unit_spawn_position
+	cave_range.position.x -= 32
 	cave_range.is_player_owned = true
 	get_node("/root/main_game/player_units").add_child(cave_range)
 	
@@ -80,15 +83,16 @@ func _on_tank_button_pressed():
 		return
 	var cave_tank = load("res://units/" + GlobalVariables.get_current_age_as_string() + "/tank/" + GlobalVariables.get_current_age_as_string() + "_tank.tscn").instantiate()
 	cave_tank.position = player_unit_spawn_position
+	cave_tank.position.x -= 32
 	cave_tank.is_player_owned = true
 	get_node("/root/main_game/player_units").add_child(cave_tank)
 	
 func _on_super_soldier_button_pressed():
-	print("here")
 	if unable_to_spawn == true:
 		return
 	var super_soldier = load("res://units/future/super_soldier/future_super_soldier.tscn").instantiate()
 	super_soldier.position = player_unit_spawn_position
+	super_soldier.position.x -= 32
 	super_soldier.is_player_owned = true
 	get_node("/root/main_game/player_units").add_child(super_soldier)
 
@@ -168,3 +172,6 @@ func _on_medival_special_timer_timeout():
 	for unit in get_node("player_units").get_children():
 		if unit.get_node("heal_sprite") != null:
 			unit.get_node("heal_sprite").queue_free()
+
+func _on_ai_change_age():
+	$enemy_base.update_sprite_ai()

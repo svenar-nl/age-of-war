@@ -1,9 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://3qpu205icvjb"]
+[gd_scene load_steps=10 format=3 uid="uid://3qpu205icvjb"]
 
 [ext_resource type="Script" path="res://main_game.gd" id="1_44exb"]
 [ext_resource type="Texture2D" uid="uid://bk20tm6uudxsk" path="res://age of war sprites/bg/background.png" id="2_6kpfg"]
 [ext_resource type="Script" path="res://camera.gd" id="3_tlcoe"]
 [ext_resource type="PackedScene" uid="uid://bwbjwinb2wuou" path="res://UI/in_game_menu.tscn" id="4_d7jmu"]
+[ext_resource type="PackedScene" uid="uid://5w6hh4jkl2mo" path="res://units/future/tank/future_tank.tscn" id="7_i7mmi"]
 [ext_resource type="PackedScene" uid="uid://d4bgctdvogk2y" path="res://ai_spawner.tscn" id="11_jpaar"]
 [ext_resource type="PackedScene" uid="uid://c36x5w6hobq86" path="res://bases/player_base.tscn" id="15_kvrvk"]
 
@@ -11,7 +12,7 @@
 size = Vector2(50, 20)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1lruk"]
-size = Vector2(1842, 20)
+size = Vector2(1842, 22)
 
 [node name="main_game" type="Node2D"]
 script = ExtResource("1_44exb")
@@ -21,6 +22,7 @@ z_index = -100
 position = Vector2(1400, 169)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("2_6kpfg")
+metadata/_edit_lock_ = true
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(576, 280)
@@ -52,37 +54,28 @@ offset_right = -536.0
 offset_bottom = 88.0
 color = Color(1, 1, 1, 0.392157)
 
-[node name="player_base_t" type="ColorRect" parent="."]
-visible = false
-z_index = -3
-offset_left = 112.0
-offset_top = 400.0
-offset_right = 265.0
-offset_bottom = 580.0
-
-[node name="player_base2" type="ColorRect" parent="."]
-visible = false
-z_index = -3
-offset_top = 400.0
-offset_right = 112.0
-offset_bottom = 428.0
-
-[node name="player_base3" type="ColorRect" parent="."]
-visible = false
-offset_left = 1664.0
-offset_top = 400.0
-offset_right = 1776.0
-offset_bottom = 428.0
-
-[node name="enemy_base" type="ColorRect" parent="."]
-visible = false
-offset_left = 1511.0
-offset_top = 400.0
-offset_right = 1664.0
-offset_bottom = 580.0
+[node name="Label" type="Label" parent="Camera2D"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -123.0
+offset_top = -24.5
+offset_right = 123.0
+offset_bottom = 24.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_font_sizes/font_size = 30
+text = "Game paused
+Press spacebar again to resume"
+horizontal_alignment = 1
 
 [node name="player_spawn_location" type="Area2D" parent="."]
-position = Vector2(250, 570)
+position = Vector2(233, 565)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="player_spawn_location"]
 shape = SubResource("RectangleShape2D_xhm1x")
@@ -92,13 +85,13 @@ debug_color = Color(0.955277, 3.08037e-06, 0.544055, 0.42)
 position = Vector2(630, 598)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="floor"]
-position = Vector2(292, -7)
+position = Vector2(292, -6)
 shape = SubResource("RectangleShape2D_1lruk")
 
 [node name="player_base" parent="." instance=ExtResource("15_kvrvk")]
 position = Vector2(118, 565)
 
-[node name="enemy_base2" parent="." instance=ExtResource("15_kvrvk")]
+[node name="enemy_base" parent="." instance=ExtResource("15_kvrvk")]
 position = Vector2(1724, 570)
 scale = Vector2(-1, 1)
 collision_layer = 8
@@ -109,9 +102,13 @@ is_player_owned = false
 [node name="enemy_units" type="Node2D" parent="."]
 
 [node name="ai_spawner" parent="." instance=ExtResource("11_jpaar")]
-position = Vector2(1527, 558)
+position = Vector2(1606, 565)
 
 [node name="medival_special_timer" type="Timer" parent="."]
+
+[node name="future_tank" parent="." instance=ExtResource("7_i7mmi")]
+position = Vector2(1058, 518)
+is_player_owned = false
 
 [connection signal="mouse_entered" from="Camera2D/right_box" to="Camera2D" method="_on_mouse_camera_move_right_mouse_entered"]
 [connection signal="mouse_exited" from="Camera2D/right_box" to="Camera2D" method="stop_camera_moving"]
