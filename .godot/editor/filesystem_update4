@@ -1,5 +1,11 @@
-res://units/miltary/tank/miltary_tank.tscn
+res://main_game.tscn
 res://UI/button_theme.tres
 res://bases/base_button_theme.tres
 res://units/future/super_soldier/future_super_soldier.gdshader
-res://units/miltary/tank/miltary_tank.gd
+res://units/future/tank/future_tank.tscn
+res://units/miltary/tank/miltary_tank.tscn
+res://globals/music_manager.tscn
+res://globals/music_manager.gd
+res://default_bus_layout.tres
+res://scenes/options_menu.tscn
+res://scenes/options_menu.gd
