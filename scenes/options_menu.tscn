@@ -50,6 +50,20 @@ mouse_default_cursor_shape = 2
 min_value = -50.0
 max_value = 0.0
 
+[node name="Label5" type="Label" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+text = "           Fullscreen"
+
+[node name="Fullscreen" type="CheckButton" parent="CenterContainer/VBoxContainer/Label5"]
+layout_mode = 0
+offset_left = 127.0
+offset_top = 1.0
+offset_right = 171.0
+offset_bottom = 25.0
+mouse_default_cursor_shape = 2
+
 [node name="Button" type="Button" parent="CenterContainer/VBoxContainer"]
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
@@ -58,4 +72,5 @@ text = "return to main menu"
 
 [connection signal="value_changed" from="CenterContainer/VBoxContainer/HSlider" to="." method="_on_slider_value_changed" binds= [&"Music"]]
 [connection signal="value_changed" from="CenterContainer/VBoxContainer/HSlider2" to="." method="_on_slider_value_changed" binds= [&"sfx"]]
+[connection signal="toggled" from="CenterContainer/VBoxContainer/Label5/Fullscreen" to="." method="_on_fullscreen_toggled"]
 [connection signal="pressed" from="CenterContainer/VBoxContainer/Button" to="." method="_on_button_pressed"]

@@ -22,3 +22,8 @@ func _on_slider_value_changed(value: float, bus: StringName) -> void:
 		AudioServer.set_bus_volume_db(bus_index, value)
 
 
+func _on_fullscreen_toggled(toggled_on: bool) -> void:
+	if toggled_on:
+		get_window().mode = Window.MODE_FULLSCREEN
+	else:
+		get_window().mode = Window.MODE_WINDOWED
