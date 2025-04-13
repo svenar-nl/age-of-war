@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://frkuqvl3a0k6"]
 
 [ext_resource type="Texture2D" uid="uid://6us4ow8vbnlw" path="res://age of war sprites/effects/miltary_special_plane/miltary_special_plane0001.png" id="1_0b5o5"]
-[ext_resource type="Script" path="res://miltary_special_plane.gd" id="1_gg3al"]
+[ext_resource type="Script" uid="uid://cp54g1bvcxl8t" path="res://miltary_special_plane.gd" id="1_gg3al"]
 [ext_resource type="Texture2D" uid="uid://ds85vhvch8f4p" path="res://age of war sprites/effects/miltary_special_plane/miltary_special_plane0002.png" id="2_6yk2p"]
 [ext_resource type="Texture2D" uid="uid://dp0b422m8qlsk" path="res://age of war sprites/effects/miltary_special_plane/miltary_special_plane0003.png" id="3_pxcjw"]
 [ext_resource type="AudioStream" uid="uid://ubb6pdfxpmx4" path="res://age of war sprites/audio/sfx/miltary_special_attack.mp3" id="5_tjpk8"]

@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://dadmjfp45lcs1"]
 
 [ext_resource type="Texture2D" uid="uid://bk20tm6uudxsk" path="res://age of war sprites/bg/background.png" id="1_3cwmi"]
-[ext_resource type="Script" path="res://scenes/win_screen.gd" id="1_3vrrs"]
+[ext_resource type="Script" uid="uid://bgx8j2g2qxj70" path="res://scenes/win_screen.gd" id="1_3vrrs"]
 
 [node name="win_screen" type="Node2D"]
 script = ExtResource("1_3vrrs")

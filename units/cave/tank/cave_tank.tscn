@@ -1,6 +1,6 @@
 [gd_scene load_steps=190 format=3 uid="uid://dexhbnofnhph0"]
 
-[ext_resource type="Script" path="res://units/cave/tank/cave_tank.gd" id="1_egoxl"]
+[ext_resource type="Script" uid="uid://08cxy7n0ukcp" path="res://units/cave/tank/cave_tank.gd" id="1_egoxl"]
 [ext_resource type="Texture2D" uid="uid://bicw4vxjolkse" path="res://age of war sprites/units/cave/tank/attack/cave_tank_attack0001.png" id="2_jol8u"]
 [ext_resource type="Texture2D" uid="uid://dvixyo0jwi657" path="res://age of war sprites/units/cave/tank/attack/cave_tank_attack0002.png" id="3_tpljt"]
 [ext_resource type="Texture2D" uid="uid://d3ei0nh1mkqjo" path="res://age of war sprites/units/cave/tank/attack/cave_tank_attack0003.png" id="4_e38ap"]

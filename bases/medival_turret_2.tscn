@@ -1,6 +1,6 @@
 [gd_scene load_steps=85 format=3 uid="uid://i842povs7onm"]
 
-[ext_resource type="Script" path="res://bases/medival_turret_2.gd" id="1_fjyt5"]
+[ext_resource type="Script" uid="uid://ctujy7vnluihw" path="res://bases/medival_turret_2.gd" id="1_fjyt5"]
 [ext_resource type="Texture2D" uid="uid://bglr0kgmwr4u6" path="res://age of war sprites/bases/medival/turret_2/medival_turret_2_attack0001.png" id="1_s5a7m"]
 [ext_resource type="Texture2D" uid="uid://blwief0vd8h3q" path="res://age of war sprites/bases/medival/turret_2/medival_turret_2_attack0002.png" id="2_nxeym"]
 [ext_resource type="Texture2D" uid="uid://cs2k1kuf3ituu" path="res://age of war sprites/bases/medival/turret_2/medival_turret_2_attack0003.png" id="3_ib5e4"]

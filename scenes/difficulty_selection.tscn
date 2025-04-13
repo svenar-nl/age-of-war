@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://d0fdab22qwonm"]
 
 [ext_resource type="Texture2D" uid="uid://bk20tm6uudxsk" path="res://age of war sprites/bg/background.png" id="1_d6dqb"]
-[ext_resource type="Script" path="res://scenes/difficulty_selection.gd" id="1_n0sbg"]
+[ext_resource type="Script" uid="uid://dqsxl0csu4eq0" path="res://scenes/difficulty_selection.gd" id="1_n0sbg"]
 
 [node name="difficulty_selection" type="Node2D"]
 script = ExtResource("1_n0sbg")

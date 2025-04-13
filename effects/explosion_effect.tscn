@@ -25,7 +25,7 @@
 [ext_resource type="Texture2D" uid="uid://bo4etvlfiurvu" path="res://age of war sprites/effects/explosion/explosion0023.png" id="23_jnodr"]
 [ext_resource type="Texture2D" uid="uid://bn5qkyk8sl8sc" path="res://age of war sprites/effects/explosion/explosion0024.png" id="24_5mkuy"]
 [ext_resource type="Texture2D" uid="uid://kqmbencaegav" path="res://age of war sprites/effects/explosion/explosion0025.png" id="25_8vwjf"]
-[ext_resource type="Script" path="res://effects/explosion_effect.gd" id="26_k365f"]
+[ext_resource type="Script" uid="uid://c4pcasptgpf1l" path="res://effects/explosion_effect.gd" id="26_k365f"]
 [ext_resource type="AudioStream" uid="uid://dg3hdpkeu5egi" path="res://age of war sprites/audio/sfx/explosion_01.mp3" id="27_bbgwk"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_tm5w2"]

@@ -1,7 +1,7 @@
 [gd_scene load_steps=304 format=3 uid="uid://x0vxi7mfo5r0"]
 
 [ext_resource type="Texture2D" uid="uid://dsdc0bf0rjant" path="res://age of war sprites/units/miltary/melee/attack/miltary_melee_attack0001.png" id="1_1r42s"]
-[ext_resource type="Script" path="res://units/miltary/melee/miltary_melee.gd" id="1_q4xbq"]
+[ext_resource type="Script" uid="uid://btawv8jhgkcsv" path="res://units/miltary/melee/miltary_melee.gd" id="1_q4xbq"]
 [ext_resource type="Texture2D" uid="uid://bqjwx2y88dpt7" path="res://age of war sprites/units/miltary/melee/attack/miltary_melee_attack0002.png" id="2_5dtcw"]
 [ext_resource type="Texture2D" uid="uid://cr1r5c47lxi16" path="res://age of war sprites/effects/shadow.png" id="2_tt6h6"]
 [ext_resource type="Texture2D" uid="uid://yom2mqkcws2o" path="res://age of war sprites/units/miltary/melee/attack/miltary_melee_attack0003.png" id="3_jiks0"]

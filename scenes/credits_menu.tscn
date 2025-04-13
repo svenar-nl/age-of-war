@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://bo2213gw58u2t"]
 
-[ext_resource type="Script" path="res://scenes/credits_menu.gd" id="1_7t8qv"]
+[ext_resource type="Script" uid="uid://dhri6ad2vgikv" path="res://scenes/credits_menu.gd" id="1_7t8qv"]
 [ext_resource type="Texture2D" uid="uid://bk20tm6uudxsk" path="res://age of war sprites/bg/background.png" id="1_q87h0"]
 
 [node name="credits_menu" type="Node2D"]

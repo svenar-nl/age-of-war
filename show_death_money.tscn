@@ -1,6 +1,6 @@
 [gd_scene load_steps=19 format=3 uid="uid://cv64pgy22hl7f"]
 
-[ext_resource type="Script" path="res://show_death_money.gd" id="1_x586j"]
+[ext_resource type="Script" uid="uid://drn22o7t8u00y" path="res://show_death_money.gd" id="1_x586j"]
 [ext_resource type="Texture2D" uid="uid://de8me0wpgvh58" path="res://age of war sprites/effects/coin1_16x16.png" id="2_1tu7s"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_uu4hl"]

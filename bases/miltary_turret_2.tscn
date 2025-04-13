@@ -1,6 +1,6 @@
 [gd_scene load_steps=45 format=3 uid="uid://mxcc5hfkw4b7"]
 
-[ext_resource type="Script" path="res://bases/miltary_turret_2.gd" id="1_2kidk"]
+[ext_resource type="Script" uid="uid://dxw5q1dwc6hw6" path="res://bases/miltary_turret_2.gd" id="1_2kidk"]
 [ext_resource type="Texture2D" uid="uid://blwkra0kfetvf" path="res://age of war sprites/bases/miltary/turret_2/miltary_turret_2_attack0001.png" id="1_e2hgw"]
 [ext_resource type="Texture2D" uid="uid://c4l4udxdt0udb" path="res://age of war sprites/bases/miltary/turret_2/miltary_turret_2_attack0002.png" id="2_6gtw6"]
 [ext_resource type="Texture2D" uid="uid://d4kwnfsg6k5g" path="res://age of war sprites/bases/miltary/turret_2/miltary_turret_2_attack0003.png" id="3_oefs1"]

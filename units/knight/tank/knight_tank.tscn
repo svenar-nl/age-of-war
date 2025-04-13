@@ -1,6 +1,6 @@
 [gd_scene load_steps=279 format=3 uid="uid://1v7bw6g8kre1"]
 
-[ext_resource type="Script" path="res://units/knight/tank/knight_tank.gd" id="1_4gjvt"]
+[ext_resource type="Script" uid="uid://dq4ue38wj5rxu" path="res://units/knight/tank/knight_tank.gd" id="1_4gjvt"]
 [ext_resource type="Texture2D" uid="uid://cud60f4caiew7" path="res://age of war sprites/units/knight/tank/attack/knight_tank_attack0001.png" id="2_mnely"]
 [ext_resource type="Texture2D" uid="uid://cr1r5c47lxi16" path="res://age of war sprites/effects/shadow.png" id="2_yk2xp"]
 [ext_resource type="Texture2D" uid="uid://yyy1uat5x7e" path="res://age of war sprites/units/knight/tank/attack/knight_tank_attack0002.png" id="3_qv5k3"]

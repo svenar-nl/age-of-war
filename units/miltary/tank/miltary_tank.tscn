@@ -1,6 +1,6 @@
 [gd_scene load_steps=186 format=3 uid="uid://hk6o6e2n3pu2"]
 
-[ext_resource type="Script" path="res://units/miltary/tank/miltary_tank.gd" id="1_2n135"]
+[ext_resource type="Script" uid="uid://d0m8xmic2sxk" path="res://units/miltary/tank/miltary_tank.gd" id="1_2n135"]
 [ext_resource type="Texture2D" uid="uid://cjp3ygdl04qw4" path="res://age of war sprites/units/miltary/tank/attack/miltary_tank_attack0001.png" id="1_ocku8"]
 [ext_resource type="Texture2D" uid="uid://dfmkuvthqmqnj" path="res://age of war sprites/units/miltary/tank/attack/miltary_tank_attack0002.png" id="2_0r87r"]
 [ext_resource type="Texture2D" uid="uid://cr1r5c47lxi16" path="res://age of war sprites/effects/shadow.png" id="2_3dtm3"]

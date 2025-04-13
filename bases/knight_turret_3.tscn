@@ -1,7 +1,7 @@
 [gd_scene load_steps=82 format=3 uid="uid://b0n7sjdl0jv0y"]
 
 [ext_resource type="Texture2D" uid="uid://c4qppra1rq0lg" path="res://age of war sprites/bases/knight/turret_3/knight_turret_3_attack0001.png" id="1_0vxpq"]
-[ext_resource type="Script" path="res://bases/knight_turret_3.gd" id="1_6730v"]
+[ext_resource type="Script" uid="uid://b42pv1qx7d2b7" path="res://bases/knight_turret_3.gd" id="1_6730v"]
 [ext_resource type="Texture2D" uid="uid://baud0eokuyogl" path="res://age of war sprites/bases/knight/turret_3/knight_turret_3_attack0002.png" id="2_u7dr7"]
 [ext_resource type="Texture2D" uid="uid://dt486a4kqklsx" path="res://age of war sprites/bases/knight/turret_3/knight_turret_3_attack0003.png" id="3_brrmy"]
 [ext_resource type="Texture2D" uid="uid://cy1w1abcif4nh" path="res://age of war sprites/bases/knight/turret_3/knight_turret_3_attack0004.png" id="4_d87nd"]

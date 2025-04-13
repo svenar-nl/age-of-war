@@ -30,7 +30,7 @@
 [ext_resource type="Texture2D" uid="uid://dm4lahnrx2wi0" path="res://age of war sprites/effects/fire/fire0028.png" id="28_js5xg"]
 [ext_resource type="Texture2D" uid="uid://blw5euvc7xvqe" path="res://age of war sprites/effects/fire/fire0029.png" id="29_fmvgy"]
 [ext_resource type="Texture2D" uid="uid://cgklquwu8ngvn" path="res://age of war sprites/effects/fire/fire0030.png" id="30_wcf5b"]
-[ext_resource type="Script" path="res://effects/fire_effect.gd" id="31_mfxt8"]
+[ext_resource type="Script" uid="uid://bn2pgcogmx0nl" path="res://effects/fire_effect.gd" id="31_mfxt8"]
 [ext_resource type="AudioStream" uid="uid://dsccpcvegiedb" path="res://age of war sprites/audio/sfx/fire_01.mp3" id="32_y2ut0"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_8e0wm"]

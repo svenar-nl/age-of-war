@@ -1,6 +1,6 @@
 [gd_scene load_steps=60 format=3 uid="uid://2oo7qesn030c"]
 
-[ext_resource type="Script" path="res://bases/cave_turret_3.gd" id="1_0ox7u"]
+[ext_resource type="Script" uid="uid://cfedeh6n1jmfq" path="res://bases/cave_turret_3.gd" id="1_0ox7u"]
 [ext_resource type="Texture2D" uid="uid://cfxrucmlywupv" path="res://age of war sprites/bases/cave/turret_3/cave_turret_3_attack0001.png" id="1_nt7ad"]
 [ext_resource type="Texture2D" uid="uid://bsia8ds5vxx8u" path="res://age of war sprites/bases/cave/turret_3/cave_turret_3_attack0002.png" id="2_kwh21"]
 [ext_resource type="Texture2D" uid="uid://djpwwjkowjwmd" path="res://age of war sprites/bases/cave/turret_3/cave_turret_3_attack0003.png" id="3_q6cir"]

@@ -1,7 +1,7 @@
 [gd_scene load_steps=318 format=3 uid="uid://blt36y4howeeb"]
 
-[ext_resource type="Shader" path="res://units/future/super_soldier/future_super_soldier.gdshader" id="1_ak6vw"]
-[ext_resource type="Script" path="res://units/future/super_soldier/future_super_soldier.gd" id="1_h6cxu"]
+[ext_resource type="Shader" uid="uid://cbg4chqhpukok" path="res://units/future/super_soldier/future_super_soldier.gdshader" id="1_ak6vw"]
+[ext_resource type="Script" uid="uid://dur43l8wqlnqm" path="res://units/future/super_soldier/future_super_soldier.gd" id="1_h6cxu"]
 [ext_resource type="Texture2D" uid="uid://beu4r7kw31tnb" path="res://age of war sprites/units/future/range/die/future_range_die0001.png" id="1_shlxt"]
 [ext_resource type="Texture2D" uid="uid://c2xkalmd26fpw" path="res://age of war sprites/units/future/range/die/future_range_die0002.png" id="2_q3v2q"]
 [ext_resource type="Texture2D" uid="uid://cr1r5c47lxi16" path="res://age of war sprites/effects/shadow.png" id="2_qholv"]

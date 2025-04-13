@@ -1,7 +1,7 @@
 [gd_scene load_steps=244 format=3 uid="uid://ca15vbklojxnj"]
 
 [ext_resource type="Texture2D" uid="uid://m6k7rnfjux6v" path="res://age of war sprites/units/knight/melee/attack/knight_melee_attack0002.png" id="1_bqi04"]
-[ext_resource type="Script" path="res://units/knight/melee/knight_melee.gd" id="1_kocjl"]
+[ext_resource type="Script" uid="uid://ccvommnww0hcy" path="res://units/knight/melee/knight_melee.gd" id="1_kocjl"]
 [ext_resource type="Texture2D" uid="uid://cr1r5c47lxi16" path="res://age of war sprites/effects/shadow.png" id="2_dhq21"]
 [ext_resource type="Texture2D" uid="uid://b388myxdupfko" path="res://age of war sprites/units/knight/melee/attack/knight_melee_attack0003.png" id="2_tk8cr"]
 [ext_resource type="Texture2D" uid="uid://dts27w1g0jqwt" path="res://age of war sprites/units/knight/melee/attack/knight_melee_attack0004.png" id="3_jy4xs"]

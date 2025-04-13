@@ -1,7 +1,7 @@
 [gd_scene load_steps=16 format=3 uid="uid://bwbjwinb2wuou"]
 
 [ext_resource type="Texture2D" uid="uid://cjm2h7jgkb3gh" path="res://age of war sprites/ui/root_ui.png" id="1_eesea"]
-[ext_resource type="Script" path="res://UI/in_game_menu.gd" id="1_wl8wd"]
+[ext_resource type="Script" uid="uid://dp6f8prxdelhq" path="res://UI/in_game_menu.gd" id="1_wl8wd"]
 [ext_resource type="Texture2D" uid="uid://crf20luwfmy10" path="res://age of war sprites/ui/top_ui.png" id="2_jhrmw"]
 [ext_resource type="Texture2D" uid="uid://bmfdhp30ir3hj" path="res://age of war sprites/ui/special_buttons0001.png" id="3_6fvdx"]
 [ext_resource type="Texture2D" uid="uid://cjplkf8v51iwa" path="res://age of war sprites/ui/units_buttons0001.png" id="3_uva1g"]
@@ -9,7 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://7r44da3tyasg" path="res://age of war sprites/ui/all_turret_UI0001.png" id="5_cp7c1"]
 [ext_resource type="Texture2D" uid="uid://vaof7nc1ov4v" path="res://age of war sprites/ui/cancel_button0001.png" id="8_76dav"]
 [ext_resource type="Texture2D" uid="uid://cmbt5vcwlrbuy" path="res://age of war sprites/ui/cancel_button0002.png" id="8_foxd6"]
-[ext_resource type="Script" path="res://UI/special_button.gd" id="9_fyqc4"]
+[ext_resource type="Script" uid="uid://ce8d8hhwfeulj" path="res://UI/special_button.gd" id="9_fyqc4"]
 [ext_resource type="Texture2D" uid="uid://cf4atnyk4f3c8" path="res://age of war sprites/ui/black_outline_box.png" id="11_23v3a"]
 [ext_resource type="Texture2D" uid="uid://doeple8tlnbc3" path="res://age of war sprites/ui/black_line.png" id="12_ke4u6"]
 

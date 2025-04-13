@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://skmn43wtucdx"]
 
-[ext_resource type="Script" path="res://scenes/game_over.gd" id="1_a13ri"]
+[ext_resource type="Script" uid="uid://ccf6f6b4inem1" path="res://scenes/game_over.gd" id="1_a13ri"]
 [ext_resource type="Texture2D" uid="uid://bk20tm6uudxsk" path="res://age of war sprites/bg/background.png" id="1_ep4bk"]
 
 [node name="game_over" type="Node2D"]

@@ -1,8 +1,8 @@
 [gd_scene load_steps=10 format=3 uid="uid://3qpu205icvjb"]
 
-[ext_resource type="Script" path="res://main_game.gd" id="1_44exb"]
+[ext_resource type="Script" uid="uid://duu6pkg0redjw" path="res://main_game.gd" id="1_44exb"]
 [ext_resource type="Texture2D" uid="uid://bk20tm6uudxsk" path="res://age of war sprites/bg/background.png" id="2_6kpfg"]
-[ext_resource type="Script" path="res://camera.gd" id="3_tlcoe"]
+[ext_resource type="Script" uid="uid://dcj7tknpoihr8" path="res://camera.gd" id="3_tlcoe"]
 [ext_resource type="PackedScene" uid="uid://bwbjwinb2wuou" path="res://UI/in_game_menu.tscn" id="4_d7jmu"]
 [ext_resource type="PackedScene" uid="uid://dexhbnofnhph0" path="res://units/cave/tank/cave_tank.tscn" id="7_q4myq"]
 [ext_resource type="PackedScene" uid="uid://d4bgctdvogk2y" path="res://ai_spawner.tscn" id="11_jpaar"]

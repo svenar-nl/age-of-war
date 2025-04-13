@@ -1,6 +1,6 @@
 [gd_scene load_steps=307 format=3 uid="uid://cofidai1qfg3y"]
 
-[ext_resource type="Script" path="res://units/medival/tank/medival_tank.gd" id="1_3ouk6"]
+[ext_resource type="Script" uid="uid://u4ou12gelags" path="res://units/medival/tank/medival_tank.gd" id="1_3ouk6"]
 [ext_resource type="Texture2D" uid="uid://sjc8kn7wc2m0" path="res://age of war sprites/units/medival/tank/attack/medival_tank_attack0001.png" id="1_jfdhi"]
 [ext_resource type="Texture2D" uid="uid://ctqt3csmd0w1b" path="res://age of war sprites/units/medival/tank/attack/medival_tank_attack0002.png" id="2_pxqtn"]
 [ext_resource type="Texture2D" uid="uid://c3uew1c6w5ufl" path="res://age of war sprites/units/medival/tank/attack/medival_tank_attack0003.png" id="3_l0o7k"]

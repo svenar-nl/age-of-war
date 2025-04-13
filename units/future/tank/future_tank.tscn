@@ -1,6 +1,6 @@
 [gd_scene load_steps=180 format=3 uid="uid://5w6hh4jkl2mo"]
 
-[ext_resource type="Script" path="res://units/future/tank/future_tank.gd" id="1_jq22a"]
+[ext_resource type="Script" uid="uid://x7icyu3fequb" path="res://units/future/tank/future_tank.gd" id="1_jq22a"]
 [ext_resource type="Texture2D" uid="uid://lbayk3stnyqi" path="res://age of war sprites/units/future/tank/attack/future_tank_attack0001.png" id="1_yuep6"]
 [ext_resource type="Texture2D" uid="uid://c3y1mtb14tqtv" path="res://age of war sprites/units/future/tank/attack/future_tank_attack0002.png" id="2_gtakp"]
 [ext_resource type="Texture2D" uid="uid://cr1r5c47lxi16" path="res://age of war sprites/effects/shadow.png" id="2_kj5ga"]

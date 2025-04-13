@@ -1,7 +1,7 @@
 [gd_scene load_steps=302 format=3 uid="uid://3mxmgboq06ah"]
 
 [ext_resource type="Texture2D" uid="uid://db8h51i1f2kwt" path="res://age of war sprites/units/medival/range/die/medival_range_die0001.png" id="1_8ago0"]
-[ext_resource type="Script" path="res://units/medival/range/medival_range.gd" id="1_a8ttx"]
+[ext_resource type="Script" uid="uid://c3iapfypupce0" path="res://units/medival/range/medival_range.gd" id="1_a8ttx"]
 [ext_resource type="Texture2D" uid="uid://bqygj06kfwp7d" path="res://age of war sprites/units/medival/range/walk/medival_range_walk0001.png" id="1_utw7g"]
 [ext_resource type="Texture2D" uid="uid://b5pbscrp6m002" path="res://age of war sprites/units/medival/range/walk/medival_range_walk0002.png" id="2_4x1tv"]
 [ext_resource type="Texture2D" uid="uid://bryg507s8adli" path="res://age of war sprites/units/medival/range/die/medival_range_die0002.png" id="2_uq34p"]

@@ -1,6 +1,6 @@
 [gd_scene load_steps=256 format=3 uid="uid://co2awp7evy8sm"]
 
-[ext_resource type="Script" path="res://scenes/main_menu.gd" id="1_bd7un"]
+[ext_resource type="Script" uid="uid://cc5qewqer58om" path="res://scenes/main_menu.gd" id="1_bd7un"]
 [ext_resource type="Texture2D" uid="uid://cu8pshlufb64c" path="res://age of war sprites/effects/logo/main menu0001.png" id="2_ygwc1"]
 [ext_resource type="Texture2D" uid="uid://nv323dehn560" path="res://age of war sprites/effects/logo/main menu0002.png" id="3_ubj3u"]
 [ext_resource type="Texture2D" uid="uid://bhl4b0i4xkur3" path="res://age of war sprites/effects/logo/main menu0003.png" id="4_bhs6t"]

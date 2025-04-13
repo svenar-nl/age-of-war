@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://cilpcvlubfvvv"]
 
-[ext_resource type="Script" path="res://scenes/extra_screen.gd" id="1_0txj3"]
+[ext_resource type="Script" uid="uid://bkto0bnn0m1wk" path="res://scenes/extra_screen.gd" id="1_0txj3"]
 [ext_resource type="Texture2D" uid="uid://bk20tm6uudxsk" path="res://age of war sprites/bg/background.png" id="1_7dcpa"]
 [ext_resource type="Texture2D" uid="uid://uvpi7jdm340p" path="res://age of war sprites/original_drawing.png" id="2_gwqsb"]
 

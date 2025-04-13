@@ -1,6 +1,6 @@
 [gd_scene load_steps=162 format=3 uid="uid://dqbghvmes7to2"]
 
-[ext_resource type="Script" path="res://units/cave/melee/cave_melee.gd" id="1_cwk6e"]
+[ext_resource type="Script" uid="uid://5pswuq3p8s2v" path="res://units/cave/melee/cave_melee.gd" id="1_cwk6e"]
 [ext_resource type="Texture2D" uid="uid://ugavwip3lugw" path="res://age of war sprites/units/cave/melee/walk/cave_melee_walk0001.png" id="1_l225s"]
 [ext_resource type="Texture2D" uid="uid://b1rjtgwf000ba" path="res://age of war sprites/units/cave/melee/attack/cave_melee_attack.png0001.png" id="1_x0jdc"]
 [ext_resource type="Texture2D" uid="uid://cr1r5c47lxi16" path="res://age of war sprites/effects/shadow.png" id="2_5lha4"]

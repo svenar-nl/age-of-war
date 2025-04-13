@@ -1,6 +1,6 @@
 [gd_scene load_steps=306 format=3 uid="uid://555135b3ersn"]
 
-[ext_resource type="Script" path="res://units/miltary/range/miltary_range.gd" id="1_iebnb"]
+[ext_resource type="Script" uid="uid://cxkqpxdsdtukr" path="res://units/miltary/range/miltary_range.gd" id="1_iebnb"]
 [ext_resource type="Texture2D" uid="uid://1lqgkgkfc6ge" path="res://age of war sprites/units/miltary/range/die/miltary_range_die0001.png" id="1_tnyni"]
 [ext_resource type="Texture2D" uid="uid://cr1r5c47lxi16" path="res://age of war sprites/effects/shadow.png" id="2_ftbur"]
 [ext_resource type="Texture2D" uid="uid://ss4bmhya4v6p" path="res://age of war sprites/units/miltary/range/die/miltary_range_die0002.png" id="2_ijbdu"]

@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://l6g2pmglx4k" path="res://age of war sprites/units/cave/range/walk/cave_range_walk0001.png" id="1_c7mx8"]
 [ext_resource type="Texture2D" uid="uid://cj4phrsitc3n2" path="res://age of war sprites/units/cave/range/die/cave_range_die0001.png" id="1_k37tx"]
-[ext_resource type="Script" path="res://units/cave/range/cave_range.gd" id="1_qqlps"]
+[ext_resource type="Script" uid="uid://cdgwic20t3cl0" path="res://units/cave/range/cave_range.gd" id="1_qqlps"]
 [ext_resource type="Texture2D" uid="uid://cr1r5c47lxi16" path="res://age of war sprites/effects/shadow.png" id="2_5xu4j"]
 [ext_resource type="Texture2D" uid="uid://dq1c0x4q1y2el" path="res://age of war sprites/units/cave/range/die/cave_range_die0002.png" id="2_n5ocv"]
 [ext_resource type="Texture2D" uid="uid://0q1ripoyw54l" path="res://age of war sprites/units/cave/range/walk/cave_range_walk0002.png" id="2_oihdh"]

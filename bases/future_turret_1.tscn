@@ -1,7 +1,7 @@
 [gd_scene load_steps=45 format=3 uid="uid://cg6oqnt0toytf"]
 
 [ext_resource type="Texture2D" uid="uid://dvitad7il8i5g" path="res://age of war sprites/bases/future/turret_1/future_turret_1_attack0001.png" id="1_ecniv"]
-[ext_resource type="Script" path="res://bases/future_turret_1.gd" id="1_vur54"]
+[ext_resource type="Script" uid="uid://d0dfnjs3b8imc" path="res://bases/future_turret_1.gd" id="1_vur54"]
 [ext_resource type="Texture2D" uid="uid://cae7sqs1rgiuq" path="res://age of war sprites/bases/future/turret_1/future_turret_1_attack0002.png" id="2_40x1l"]
 [ext_resource type="Texture2D" uid="uid://cggpvystuwd40" path="res://age of war sprites/bases/future/turret_1/future_turret_1_attack0003.png" id="3_wisf5"]
 [ext_resource type="Texture2D" uid="uid://jilx45vwuson" path="res://age of war sprites/bases/future/turret_1/future_turret_1_attack0004.png" id="4_uxs6m"]

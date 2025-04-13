@@ -1,6 +1,6 @@
 [gd_scene load_steps=36 format=3 uid="uid://ciqbtq7y6ep6y"]
 
-[ext_resource type="Script" path="res://cave_special_projectile.gd" id="1_c62pa"]
+[ext_resource type="Script" uid="uid://cdnq3lkyt8wu" path="res://cave_special_projectile.gd" id="1_c62pa"]
 [ext_resource type="Texture2D" uid="uid://bs5jqltnpvt3t" path="res://age of war sprites/effects/fire_trail.png" id="1_jl2rg"]
 [ext_resource type="Texture2D" uid="uid://b57y8hbyxg1na" path="res://age of war sprites/effects/cave_special_projectile/cave_special_projectile0001.png" id="3_3tb6g"]
 [ext_resource type="Texture2D" uid="uid://dcnsi731lrg2n" path="res://age of war sprites/effects/cave_special_projectile/cave_special_projectile0002.png" id="4_esy2h"]
