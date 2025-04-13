@@ -5,7 +5,8 @@ res://units/future/super_soldier/future_super_soldier.gdshader
 res://units/future/tank/future_tank.tscn
 res://units/miltary/tank/miltary_tank.tscn
 res://globals/music_manager.tscn
-res://globals/music_manager.gd
-res://default_bus_layout.tres
 res://scenes/options_menu.tscn
-res://scenes/options_menu.gd
+res://units/cave/tank/cave_tank.tscn
+res://test/test_temp_room.tscn
+res://ai_spawner.tscn
+res://ai_spawner.gd

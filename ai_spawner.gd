@@ -99,7 +99,12 @@ func _on_timer_2_timeout():
 
 
 func _on_timer_3_timeout():
-	# print("spawn turret")
+	print("spawn turret")
 	# get_node("/root/main_game/enemy_base")
 	# MAYBE A TODO for Later
+	# pick from options
+	# 1 remove turret
+	# 2 add turret
+	# 3 upgrade turret
+	# 4 add a turret spot
 	$Timer3.wait_time += 60
