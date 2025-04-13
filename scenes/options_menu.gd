@@ -8,6 +8,11 @@ func _ready():
 	var sfx_index2 = AudioServer.get_bus_index("sfx")
 	var start_value2 = AudioServer.get_bus_volume_db(sfx_index2)
 	$CenterContainer/VBoxContainer/HSlider2.value = start_value2
+	
+	if get_window().mode == Window.MODE_FULLSCREEN:
+		$CenterContainer/VBoxContainer/Label5/Fullscreen.button_pressed = true
+	else:
+		$CenterContainer/VBoxContainer/Label5/Fullscreen.button_pressed = false
 
 func _on_button_pressed():
 	get_tree().change_scene_to_file("res://scenes/main_menu.tscn")
