@@ -1,5 +1,7 @@
 extends Node2D
 
+var config: ConfigFile
+
 var player_money
 var player_exp
 

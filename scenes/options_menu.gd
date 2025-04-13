@@ -15,6 +15,11 @@ func _ready():
 		$CenterContainer/VBoxContainer/Label5/Fullscreen.button_pressed = false
 
 func _on_button_pressed():
+	var config = GlobalVariables.config
+	config.set_value("Audio", "music", int($CenterContainer/VBoxContainer/HSlider.value))
+	config.set_value("Audio", "sfx", int($CenterContainer/VBoxContainer/HSlider2.value))
+	config.set_value("Video", "fullscreen", $CenterContainer/VBoxContainer/Label5/Fullscreen.button_pressed)
+	config.save("user://options.cfg")
 	get_tree().change_scene_to_file("res://scenes/main_menu.tscn")
 
 
