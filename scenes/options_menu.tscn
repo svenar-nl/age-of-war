@@ -34,8 +34,9 @@ horizontal_alignment = 1
 [node name="HSlider" type="HSlider" parent="CenterContainer/VBoxContainer"]
 layout_mode = 2
 mouse_default_cursor_shape = 2
-min_value = -50.0
-max_value = 0.0
+max_value = 1.0
+step = 0.01
+value = 1.0
 
 [node name="Label4" type="Label" parent="CenterContainer/VBoxContainer"]
 layout_mode = 2
@@ -47,8 +48,9 @@ horizontal_alignment = 1
 [node name="HSlider2" type="HSlider" parent="CenterContainer/VBoxContainer"]
 layout_mode = 2
 mouse_default_cursor_shape = 2
-min_value = -50.0
-max_value = 0.0
+max_value = 1.0
+step = 0.01
+value = 1.0
 
 [node name="Label5" type="Label" parent="CenterContainer/VBoxContainer"]
 layout_mode = 2

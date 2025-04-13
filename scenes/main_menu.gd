@@ -8,11 +8,11 @@ func _ready() -> void:
 
 		var value = config.get_value("Audio", "music", 0)
 		var bus_index = AudioServer.get_bus_index("Music")
-		AudioServer.set_bus_volume_db(bus_index, value)
+		AudioServer.set_bus_volume_db(bus_index, linear_to_db(value))
 
 		value = config.get_value("Audio", "sfx", 0)
 		bus_index = AudioServer.get_bus_index("sfx")
-		AudioServer.set_bus_volume_db(bus_index, value)
+		AudioServer.set_bus_volume_db(bus_index, linear_to_db(value))
 
 		value = config.get_value("Video", "fullscreen", false)
 		if value:
