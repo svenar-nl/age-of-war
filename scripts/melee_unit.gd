@@ -71,14 +71,12 @@ func _ready():
 	lock_rotation = true
 	
 	gravity_scale = 0
-	"""
 	if is_player_owned == false:
 		melee_ray_cast.set_collision_mask_value(3, true)
 		self.z_index = 1
 	else:
 		melee_ray_cast.set_collision_mask_value(4, true)
 		self.z_index = 2
-	"""
 	if is_player_owned == false and GlobalVariables.current_difficulty == GlobalVariables.difficulty.hard:
 		health *= 1.25
 	elif is_player_owned == false and GlobalVariables.current_difficulty == GlobalVariables.difficulty.impossible:
