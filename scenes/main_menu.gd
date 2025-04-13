@@ -1,10 +1,5 @@
 extends Node2D
 
-
-func _process(delta):
-	var mouse_position = get_viewport().get_mouse_position() / 10
-	$ParallaxBackground.scroll_offset = mouse_position
-
 func _on_play_pressed():
 	GlobalVariables.current_stage = GlobalVariables.stage.cave
 	GlobalVariables.player_exp = 0
