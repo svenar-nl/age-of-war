@@ -1,6 +1,6 @@
 extends Node2D
 
-var config: ConfigFile
+var config := ConfigFile.new()
 
 var player_money
 var player_exp
@@ -12,17 +12,9 @@ enum difficulty {normal, hard, impossible}
 var current_difficulty
 
 func _ready():
-	init_config()
-	
 	player_money = 175
 	player_exp = 0
 	current_stage = stage.cave
-
-func init_config():
-	if config != null:
-		return
-	
-	config = ConfigFile.new()
 
 func get_current_age_as_string():
 	if current_stage == stage.cave:
