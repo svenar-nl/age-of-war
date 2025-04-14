@@ -3265,7 +3265,10 @@ text = "Exit"
 layout_mode = 2
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 5
-text = "Made by Alex Piotrowski in Godot"
+theme_override_font_sizes/font_size = 15
+text = "game made by Louissi
+Remade by Alex Piotrowski in Godot"
+horizontal_alignment = 1
 
 [connection signal="pressed" from="CenterContainer/VBoxContainer/play" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="CenterContainer/VBoxContainer/instructions" to="." method="_on_instructions_pressed"]
