@@ -5,7 +5,7 @@ var current_age
 
 enum phase {m, r, t}
 var current_phase = phase.m
-var first_phase_time = 45
+var first_phase_time = 60
 var second_phase_time = 60
 
 var enemy_units_container
@@ -23,7 +23,7 @@ func _ready():
 	current_age = "cave"
 	unit_timer.start(3.0)
 	enemy_units_container = get_node("/root/main_game/enemy_units")
-	$change_age_timer.wait_time = 120
+	$change_age_timer.wait_time = 180
 	$change_age_timer.start()
 	$turret_timer.start()
 	
@@ -85,14 +85,14 @@ func _on_timer_timeout():
 			unit_timer.wait_time = randf_range(3.0, 6.0)
 			
 	elif current_phase == phase.t:
-		var random_value = randi_range(1, 3)
+		var random_value = randi_range(1, 4)
 		if random_value == 1:
 			spawn_melee()
 			unit_timer.wait_time = randf_range(2.0, 4.0)
 		elif random_value == 2:
 			spawn_range()
 			unit_timer.wait_time = randf_range(2.0, 4.0)
-		elif random_value == 3:
+		elif random_value == 3 or random_value == 4:
 			spawn_tank()
 			unit_timer.wait_time = randf_range(4.0, 6.0)
 
@@ -110,13 +110,13 @@ func _on_timer_2_timeout():
 	emit_signal("change_age")
 	if current_age == "cave":
 		current_age = "knight"
-		$change_age_timer.wait_time = 150
+		$change_age_timer.wait_time = 200
 	elif current_age == "knight":
 		current_age = "medival"
-		$change_age_timer.wait_time = 160
+		$change_age_timer.wait_time = 220
 	elif current_age == "medival":
 		current_age = "miltary"
-		$change_age_timer.wait_time = 170
+		$change_age_timer.wait_time = 240
 	elif current_age == "miltary":
 		current_age = "future"
 		$change_age_timer.stop()
