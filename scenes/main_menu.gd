@@ -6,11 +6,11 @@ func _ready() -> void:
 		var config = GlobalVariables.config
 		config.load("user://options.cfg")
 
-		var value = config.get_value("Audio", "music", 0)
+		var value = config.get_value("Audio", "music", 1)
 		var bus_index = AudioServer.get_bus_index("Music")
 		AudioServer.set_bus_volume_db(bus_index, linear_to_db(value))
 
-		value = config.get_value("Audio", "sfx", 0)
+		value = config.get_value("Audio", "sfx", 1)
 		bus_index = AudioServer.get_bus_index("sfx")
 		AudioServer.set_bus_volume_db(bus_index, linear_to_db(value))
 
