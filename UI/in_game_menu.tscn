@@ -306,15 +306,6 @@ custom_minimum_size = Vector2(16, 16)
 layout_mode = 2
 color = Color(1, 1, 1, 0.588235)
 
-[node name="ColorRect6" type="ColorRect" parent="queue"]
-custom_minimum_size = Vector2(16, 16)
-layout_mode = 2
-offset_left = 163.0
-offset_top = 14.0
-offset_right = 595.0
-offset_bottom = 30.0
-color = Color(1, 1, 1, 0.588235)
-
 [node name="ColorRect7" type="ColorRect" parent="queue"]
 layout_mode = 2
 offset_left = 163.0
