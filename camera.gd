@@ -22,7 +22,6 @@ func randomOffset() -> Vector2:
 func _ready():
 	self.limit_right = right_most_position + 576 
 	velocity = Vector2.ZERO
-	$Label.hide()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
