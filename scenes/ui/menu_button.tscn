@@ -4,17 +4,17 @@
 [ext_resource type="Script" path="res://scripts/menu_button.gd" id="1_kobky"]
 [ext_resource type="Texture2D" uid="uid://cqi5y7ryvx4wh" path="res://age of war sprites/ui/ui_sword.png" id="3_860tu"]
 
-[sub_resource type="LabelSettings" id="LabelSettings_2gm1y"]
+[sub_resource type="LabelSettings" id="LabelSettings_7vwxl"]
 font = ExtResource("1_0jv2s")
 font_size = 26
 font_color = Color(0, 0, 0, 1)
 
-[sub_resource type="LabelSettings" id="LabelSettings_h5hwg"]
+[sub_resource type="LabelSettings" id="LabelSettings_o7px7"]
 font = ExtResource("1_0jv2s")
 font_size = 26
 font_color = Color(0, 0, 0, 1)
 
-[sub_resource type="LabelSettings" id="LabelSettings_v16hs"]
+[sub_resource type="LabelSettings" id="LabelSettings_5xada"]
 font = ExtResource("1_0jv2s")
 font_size = 26
 
@@ -49,7 +49,7 @@ offset_top = -1.0
 offset_bottom = 34.0
 grow_horizontal = 2
 text = "NEW BUTTON"
-label_settings = SubResource("LabelSettings_2gm1y")
+label_settings = SubResource("LabelSettings_7vwxl")
 horizontal_alignment = 1
 
 [node name="LabelBG" type="Label" parent="."]
@@ -60,7 +60,7 @@ offset_top = -2.0
 offset_bottom = 33.0
 grow_horizontal = 2
 text = "NEW BUTTON"
-label_settings = SubResource("LabelSettings_h5hwg")
+label_settings = SubResource("LabelSettings_o7px7")
 horizontal_alignment = 1
 
 [node name="LabelFG" type="Label" parent="."]
@@ -71,7 +71,7 @@ offset_top = -4.0
 offset_bottom = 31.0
 grow_horizontal = 2
 text = "NEW BUTTON"
-label_settings = SubResource("LabelSettings_v16hs")
+label_settings = SubResource("LabelSettings_5xada")
 horizontal_alignment = 1
 
 [node name="Pointer" type="TextureRect" parent="."]

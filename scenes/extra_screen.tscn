@@ -1,9 +1,10 @@
-[gd_scene load_steps=12 format=3 uid="uid://cilpcvlubfvvv"]
+[gd_scene load_steps=11 format=3 uid="uid://cilpcvlubfvvv"]
 
 [ext_resource type="Script" path="res://scenes/extra_screen.gd" id="1_0txj3"]
 [ext_resource type="PackedScene" uid="uid://dwx7knn8q5clv" path="res://scenes/menu_parallax_background.tscn" id="2_8ot5c"]
 [ext_resource type="Texture2D" uid="uid://uvpi7jdm340p" path="res://age of war sprites/original_drawing.png" id="2_gwqsb"]
-[ext_resource type="FontFile" uid="uid://bi67eh3ngbnui" path="res://fonts/Lora/static/Lora-Bold.ttf" id="3_ayvcs"]
+[ext_resource type="LabelSettings" uid="uid://chnsy2dt5a4rw" path="res://UI/title_text.tres" id="3_4nshv"]
+[ext_resource type="LabelSettings" uid="uid://bq7rf2ulwh2gg" path="res://UI/regular_text.tres" id="4_gdfuu"]
 [ext_resource type="Shader" path="res://shaders/image_effects.gdshader" id="4_p6qtx"]
 [ext_resource type="PackedScene" uid="uid://0fkoqk68ht8c" path="res://scenes/ui/menu_button.tscn" id="4_ws257"]
 [ext_resource type="Script" path="res://scripts/image_tilt_effect.gd" id="6_7vy32"]
@@ -14,20 +15,6 @@ corner_radius_top_left = 32
 corner_radius_top_right = 32
 corner_radius_bottom_right = 32
 corner_radius_bottom_left = 32
-
-[sub_resource type="LabelSettings" id="LabelSettings_lpy07"]
-font = ExtResource("3_ayvcs")
-font_size = 60
-outline_color = Color(0, 0, 0, 1)
-shadow_color = Color(0, 0, 0, 1)
-shadow_offset = Vector2(0, 3)
-
-[sub_resource type="LabelSettings" id="LabelSettings_btp21"]
-font = ExtResource("3_ayvcs")
-outline_color = Color(0, 0, 0, 1)
-shadow_size = 2
-shadow_color = Color(0, 0, 0, 0.8)
-shadow_offset = Vector2(0, 1)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_t6bcp"]
 shader = ExtResource("4_p6qtx")
@@ -85,7 +72,7 @@ theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 5
 theme_override_font_sizes/font_size = 40
 text = "Extra"
-label_settings = SubResource("LabelSettings_lpy07")
+label_settings = ExtResource("3_4nshv")
 horizontal_alignment = 1
 
 [node name="Label" type="Label" parent="Panel/VBoxContainer"]
@@ -93,7 +80,7 @@ layout_mode = 2
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 5
 text = "Check out the cool original drawing of the knight by louissi"
-label_settings = SubResource("LabelSettings_btp21")
+label_settings = ExtResource("4_gdfuu")
 horizontal_alignment = 1
 
 [node name="Control" type="Control" parent="Panel/VBoxContainer"]

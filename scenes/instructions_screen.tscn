@@ -1,9 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://ca86sp4x6dnrj"]
+[gd_scene load_steps=7 format=3 uid="uid://ca86sp4x6dnrj"]
 
 [ext_resource type="Script" path="res://scenes/instructions_screen.gd" id="1_o4ra7"]
 [ext_resource type="PackedScene" uid="uid://dwx7knn8q5clv" path="res://scenes/menu_parallax_background.tscn" id="2_6y5u0"]
-[ext_resource type="FontFile" uid="uid://bi67eh3ngbnui" path="res://fonts/Lora/static/Lora-Bold.ttf" id="3_wosss"]
+[ext_resource type="LabelSettings" uid="uid://chnsy2dt5a4rw" path="res://UI/title_text.tres" id="3_w7x26"]
 [ext_resource type="PackedScene" uid="uid://0fkoqk68ht8c" path="res://scenes/ui/menu_button.tscn" id="4_d5krd"]
+[ext_resource type="LabelSettings" uid="uid://bq7rf2ulwh2gg" path="res://UI/regular_text.tres" id="4_i8nm2"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lmrxp"]
 bg_color = Color(1, 1, 1, 0.313726)
@@ -11,21 +12,6 @@ corner_radius_top_left = 32
 corner_radius_top_right = 32
 corner_radius_bottom_right = 32
 corner_radius_bottom_left = 32
-
-[sub_resource type="LabelSettings" id="LabelSettings_j0klg"]
-font = ExtResource("3_wosss")
-font_size = 60
-outline_color = Color(0, 0, 0, 1)
-shadow_color = Color(0, 0, 0, 1)
-shadow_offset = Vector2(0, 3)
-
-[sub_resource type="LabelSettings" id="LabelSettings_e26ey"]
-font = ExtResource("3_wosss")
-outline_size = 1
-outline_color = Color(0, 0, 0, 1)
-shadow_size = 2
-shadow_color = Color(0, 0, 0, 0.8)
-shadow_offset = Vector2(0, 1)
 
 [node name="instructions_screen" type="Control"]
 layout_mode = 3
@@ -71,7 +57,7 @@ theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 5
 theme_override_font_sizes/font_size = 40
 text = "Instructions"
-label_settings = SubResource("LabelSettings_j0klg")
+label_settings = ExtResource("3_w7x26")
 horizontal_alignment = 1
 
 [node name="Label" type="Label" parent="Panel/VBoxContainer"]
@@ -93,7 +79,7 @@ special attack.
 
 You cannot repair your base, but it will gain health points 
 everytime you evolve to the next age. Protect your base at all cost!"
-label_settings = SubResource("LabelSettings_e26ey")
+label_settings = ExtResource("4_i8nm2")
 
 [node name="BtnReturn" parent="Panel/VBoxContainer" instance=ExtResource("4_d5krd")]
 layout_mode = 2
