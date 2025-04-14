@@ -1,36 +1,80 @@
-[gd_scene load_steps=3 format=3 uid="uid://ca86sp4x6dnrj"]
+[gd_scene load_steps=8 format=3 uid="uid://ca86sp4x6dnrj"]
 
 [ext_resource type="Script" path="res://scenes/instructions_screen.gd" id="1_o4ra7"]
 [ext_resource type="PackedScene" uid="uid://dwx7knn8q5clv" path="res://scenes/menu_parallax_background.tscn" id="2_6y5u0"]
+[ext_resource type="FontFile" uid="uid://bi67eh3ngbnui" path="res://fonts/Lora/static/Lora-Bold.ttf" id="3_wosss"]
+[ext_resource type="PackedScene" uid="uid://0fkoqk68ht8c" path="res://scenes/ui/menu_button.tscn" id="4_d5krd"]
 
-[node name="instructions_screen" type="Node2D"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lmrxp"]
+bg_color = Color(1, 1, 1, 0.313726)
+corner_radius_top_left = 32
+corner_radius_top_right = 32
+corner_radius_bottom_right = 32
+corner_radius_bottom_left = 32
+
+[sub_resource type="LabelSettings" id="LabelSettings_j0klg"]
+font = ExtResource("3_wosss")
+font_size = 60
+outline_color = Color(0, 0, 0, 1)
+shadow_color = Color(0, 0, 0, 1)
+shadow_offset = Vector2(0, 3)
+
+[sub_resource type="LabelSettings" id="LabelSettings_e26ey"]
+font = ExtResource("3_wosss")
+outline_size = 1
+outline_color = Color(0, 0, 0, 1)
+shadow_size = 2
+shadow_color = Color(0, 0, 0, 0.8)
+shadow_offset = Vector2(0, 1)
+
+[node name="instructions_screen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 script = ExtResource("1_o4ra7")
 
 [node name="ParallaxBackground" parent="." instance=ExtResource("2_6y5u0")]
 
-[node name="Control" type="Control" parent="."]
-layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -309.0
+offset_top = -562.0
+offset_right = 309.0
+offset_bottom = -61.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_lmrxp")
 
-[node name="CenterContainer" type="CenterContainer" parent="Control"]
-layout_mode = 0
-offset_right = 1152.0
-offset_bottom = 648.0
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 6.0
+offset_top = 5.0
+offset_right = -6.0
+offset_bottom = -5.0
+grow_horizontal = 2
+grow_vertical = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Control/CenterContainer"]
-layout_mode = 2
-
-[node name="Label2" type="Label" parent="Control/CenterContainer/VBoxContainer"]
+[node name="Title" type="Label" parent="Panel/VBoxContainer"]
 layout_mode = 2
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 5
 theme_override_font_sizes/font_size = 40
 text = "Instructions"
+label_settings = SubResource("LabelSettings_j0klg")
 horizontal_alignment = 1
 
-[node name="Label" type="Label" parent="Control/CenterContainer/VBoxContainer"]
+[node name="Label" type="Label" parent="Panel/VBoxContainer"]
 layout_mode = 2
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 5
@@ -49,19 +93,10 @@ special attack.
 
 You cannot repair your base, but it will gain health points 
 everytime you evolve to the next age. Protect your base at all cost!"
+label_settings = SubResource("LabelSettings_e26ey")
 
-[node name="Button" type="Button" parent="Control/CenterContainer/VBoxContainer"]
+[node name="BtnReturn" parent="Panel/VBoxContainer" instance=ExtResource("4_d5krd")]
 layout_mode = 2
-mouse_default_cursor_shape = 2
 text = "Click here to return to the menu"
 
-[node name="ColorRect" type="ColorRect" parent="Control"]
-z_index = -1
-layout_mode = 0
-offset_left = 320.0
-offset_top = 138.0
-offset_right = 832.0
-offset_bottom = 533.0
-color = Color(1, 1, 1, 0.588235)
-
-[connection signal="pressed" from="Control/CenterContainer/VBoxContainer/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Panel/VBoxContainer/BtnReturn" to="." method="_on_button_pressed"]

@@ -1,66 +1,109 @@
-[gd_scene load_steps=3 format=3 uid="uid://d0fdab22qwonm"]
+[gd_scene load_steps=8 format=3 uid="uid://d0fdab22qwonm"]
 
 [ext_resource type="Script" path="res://scenes/difficulty_selection.gd" id="1_n0sbg"]
 [ext_resource type="PackedScene" uid="uid://dwx7knn8q5clv" path="res://scenes/menu_parallax_background.tscn" id="2_esw4u"]
+[ext_resource type="FontFile" uid="uid://bi67eh3ngbnui" path="res://fonts/Lora/static/Lora-Bold.ttf" id="3_c4t0d"]
+[ext_resource type="PackedScene" uid="uid://0fkoqk68ht8c" path="res://scenes/ui/menu_button.tscn" id="4_qp2ld"]
 
-[node name="difficulty_selection" type="Node2D"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ging2"]
+bg_color = Color(1, 1, 1, 0.313726)
+corner_radius_top_left = 32
+corner_radius_top_right = 32
+corner_radius_bottom_right = 32
+corner_radius_bottom_left = 32
+
+[sub_resource type="LabelSettings" id="LabelSettings_dwoys"]
+font = ExtResource("3_c4t0d")
+font_size = 60
+outline_color = Color(0, 0, 0, 1)
+shadow_color = Color(0, 0, 0, 1)
+shadow_offset = Vector2(0, 3)
+
+[sub_resource type="LabelSettings" id="LabelSettings_okkl5"]
+font = ExtResource("3_c4t0d")
+font_size = 22
+outline_color = Color(0, 0, 0, 1)
+shadow_color = Color(0, 0, 0, 1)
+shadow_offset = Vector2(0, 3)
+
+[node name="difficulty_selection" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 script = ExtResource("1_n0sbg")
 
 [node name="ParallaxBackground" parent="." instance=ExtResource("2_esw4u")]
 
-[node name="CenterContainer" type="CenterContainer" parent="."]
-offset_right = 1152.0
-offset_bottom = 648.0
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -291.0
+offset_top = -481.0
+offset_right = 291.0
+offset_bottom = -61.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_ging2")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
-layout_mode = 2
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
-[node name="Label" type="Label" parent="CenterContainer/VBoxContainer"]
+[node name="Label" type="Label" parent="Panel/VBoxContainer"]
 layout_mode = 2
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 5
 theme_override_font_sizes/font_size = 40
 text = "Difficulty"
+label_settings = SubResource("LabelSettings_dwoys")
 horizontal_alignment = 1
 
-[node name="Label2" type="Label" parent="CenterContainer/VBoxContainer"]
+[node name="Label2" type="Label" parent="Panel/VBoxContainer"]
 layout_mode = 2
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 5
 theme_override_font_sizes/font_size = 20
 text = "Choose a difficulty to start the game:
 "
+label_settings = SubResource("LabelSettings_okkl5")
 horizontal_alignment = 1
 
-[node name="normal" type="Button" parent="CenterContainer/VBoxContainer"]
-custom_minimum_size = Vector2(286.155, 0)
+[node name="Spacer" type="Control" parent="Panel/VBoxContainer"]
+custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
-size_flags_horizontal = 4
-mouse_default_cursor_shape = 2
+
+[node name="BtnNormal" parent="Panel/VBoxContainer" instance=ExtResource("4_qp2ld")]
+layout_mode = 2
 text = "Normal"
 
-[node name="hard" type="Button" parent="CenterContainer/VBoxContainer"]
-custom_minimum_size = Vector2(286.155, 0)
+[node name="BtnHard" parent="Panel/VBoxContainer" instance=ExtResource("4_qp2ld")]
 layout_mode = 2
-size_flags_horizontal = 4
-mouse_default_cursor_shape = 2
 text = "Hard"
 
-[node name="impossible" type="Button" parent="CenterContainer/VBoxContainer"]
-custom_minimum_size = Vector2(286.155, 0)
+[node name="BtnImpossible" parent="Panel/VBoxContainer" instance=ExtResource("4_qp2ld")]
 layout_mode = 2
-size_flags_horizontal = 4
-mouse_default_cursor_shape = 2
 text = "Impossible"
 
-[node name="return" type="Button" parent="CenterContainer/VBoxContainer"]
-custom_minimum_size = Vector2(286.155, 0)
+[node name="Spacer2" type="Control" parent="Panel/VBoxContainer"]
+custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
-size_flags_horizontal = 4
-mouse_default_cursor_shape = 2
+
+[node name="BtnReturn" parent="Panel/VBoxContainer" instance=ExtResource("4_qp2ld")]
+layout_mode = 2
 text = "Click here to return to the menu"
 
-[connection signal="pressed" from="CenterContainer/VBoxContainer/normal" to="." method="_on_normal_pressed"]
-[connection signal="pressed" from="CenterContainer/VBoxContainer/hard" to="." method="_on_hard_pressed"]
-[connection signal="pressed" from="CenterContainer/VBoxContainer/impossible" to="." method="_on_impossible_pressed"]
-[connection signal="pressed" from="CenterContainer/VBoxContainer/return" to="." method="_on_return_pressed"]
+[connection signal="pressed" from="Panel/VBoxContainer/BtnNormal" to="." method="_on_normal_pressed"]
+[connection signal="pressed" from="Panel/VBoxContainer/BtnHard" to="." method="_on_hard_pressed"]
+[connection signal="pressed" from="Panel/VBoxContainer/BtnImpossible" to="." method="_on_impossible_pressed"]
+[connection signal="pressed" from="Panel/VBoxContainer/BtnReturn" to="." method="_on_return_pressed"]
