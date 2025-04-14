@@ -60,8 +60,8 @@ func _ready():
 		z_index = 1
 	change_to_walk_state()
 	
-	death_timer.connect("timeout", _on_death_timer_timeout)
-	animated_sprite.connect("animation_finished", _on_animated_sprite_2d_animation_finished)
+	#death_timer.connect("timeout", _on_death_timer_timeout)
+	#animated_sprite.connect("animation_finished", _on_animated_sprite_2d_animation_finished)
 	animated_sprite.connect("animation_looped", _on_animated_sprite_2d_animation_looped)
 	
 	for child in get_node("sfx").get_children():
