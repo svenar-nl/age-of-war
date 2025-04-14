@@ -11,11 +11,18 @@ var current_stage
 enum difficulty {normal, hard, impossible}
 var current_difficulty
 
-# Called when the node enters the scene tree for the first time.
 func _ready():
+	init_config()
+	
 	player_money = 175
 	player_exp = 0
 	current_stage = stage.cave
+
+func init_config():
+	if config != null:
+		return
+	
+	config = ConfigFile.new()
 
 func get_current_age_as_string():
 	if current_stage == stage.cave:
