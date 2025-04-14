@@ -120,6 +120,7 @@ scale = Vector2(0.5, 0.5)
 pivot_offset = Vector2(371, 277)
 texture = ExtResource("2_gwqsb")
 script = ExtResource("6_7vy32")
+enable_eyecandy = false
 zoom_speed = 3.0
 
 [node name="BtnReturn" parent="Panel/VBoxContainer" instance=ExtResource("4_ws257")]
