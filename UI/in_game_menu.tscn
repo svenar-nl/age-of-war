@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://bwbjwinb2wuou"]
+[gd_scene load_steps=20 format=3 uid="uid://bwbjwinb2wuou"]
 
 [ext_resource type="Texture2D" uid="uid://cjm2h7jgkb3gh" path="res://age of war sprites/ui/root_ui.png" id="1_eesea"]
 [ext_resource type="Script" path="res://UI/in_game_menu.gd" id="1_wl8wd"]
@@ -9,9 +9,21 @@
 [ext_resource type="Texture2D" uid="uid://7r44da3tyasg" path="res://age of war sprites/ui/all_turret_UI0001.png" id="5_cp7c1"]
 [ext_resource type="Texture2D" uid="uid://vaof7nc1ov4v" path="res://age of war sprites/ui/cancel_button0001.png" id="8_76dav"]
 [ext_resource type="Texture2D" uid="uid://cmbt5vcwlrbuy" path="res://age of war sprites/ui/cancel_button0002.png" id="8_foxd6"]
+[ext_resource type="Texture2D" uid="uid://b33sv8l4h6bi7" path="res://age of war sprites/ui/coin.png" id="9_7p6yn"]
 [ext_resource type="Script" path="res://UI/special_button.gd" id="9_fyqc4"]
 [ext_resource type="Texture2D" uid="uid://cf4atnyk4f3c8" path="res://age of war sprites/ui/black_outline_box.png" id="11_23v3a"]
 [ext_resource type="Texture2D" uid="uid://doeple8tlnbc3" path="res://age of war sprites/ui/black_line.png" id="12_ke4u6"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_isqpy"]
+font_color = Color(1, 1, 0, 1)
+shadow_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_cyo5v"]
+font_color = Color(1, 0, 0, 1)
+shadow_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_64o2u"]
+font_color = Color(0, 0, 0, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3ru04"]
 bg_color = Color(0, 0, 0, 0)
@@ -222,21 +234,40 @@ texture = ExtResource("8_76dav")
 
 [node name="money" type="Label" parent="."]
 layout_mode = 0
-offset_left = 8.0
-offset_top = 22.0
-offset_right = 67.0
-offset_bottom = 45.0
+offset_left = 32.0
+offset_top = 14.0
+offset_right = 91.0
+offset_bottom = 37.0
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 text = "12345w"
+label_settings = SubResource("LabelSettings_isqpy")
+
+[node name="TextureRect" type="TextureRect" parent="money"]
+layout_mode = 0
+offset_left = -25.0
+offset_top = 2.0
+offset_right = 15.0
+offset_bottom = 42.0
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("9_7p6yn")
 
 [node name="exp" type="Label" parent="."]
 layout_mode = 0
-offset_left = 8.0
+offset_left = 41.0
 offset_top = 45.0
-offset_right = 65.6
+offset_right = 98.6
 offset_bottom = 68.0
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 text = "exp"
+label_settings = SubResource("LabelSettings_cyo5v")
+
+[node name="label" type="Label" parent="exp"]
+offset_left = -35.0
+offset_right = 22.6
+offset_bottom = 23.0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+text = "Exp:"
+label_settings = SubResource("LabelSettings_64o2u")
 
 [node name="queue" type="Control" parent="."]
 anchors_preset = 0

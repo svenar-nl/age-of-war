@@ -21,8 +21,8 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	$Camera2D/in_game_menu/money.text = "money: " + str(GlobalVariables.player_money)
-	$Camera2D/in_game_menu/exp.text = "exp: " + str(GlobalVariables.player_exp)
+	$Camera2D/in_game_menu/money.text = str(GlobalVariables.player_money)
+	$Camera2D/in_game_menu/exp.text = str(GlobalVariables.player_exp)
 	if medival_special_active == true:
 		if $medival_special_timer.is_stopped() == true:
 			$medival_special_timer.start(5.0)

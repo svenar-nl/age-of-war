@@ -37,6 +37,8 @@ metadata/_edit_lock_ = true
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(576, 280)
 script = ExtResource("3_tlcoe")
+scroll_speed = 800
+left_most_position = 550
 right_most_position = 1625
 
 [node name="AudioListener2D" type="AudioListener2D" parent="Camera2D"]
@@ -51,7 +53,7 @@ offset_bottom = -324.0
 
 [node name="right_box" type="ColorRect" parent="Camera2D" node_paths=PackedStringArray("camera")]
 z_index = 2
-offset_left = 506.0
+offset_left = 376.0
 offset_top = -116.0
 offset_right = 576.0
 offset_bottom = 368.0
@@ -63,7 +65,7 @@ camera = NodePath("..")
 z_index = 2
 offset_left = -576.0
 offset_top = -116.0
-offset_right = -506.0
+offset_right = -376.0
 offset_bottom = 367.0
 color = Color(1, 1, 1, 0.392157)
 script = ExtResource("5_6jeu4")
