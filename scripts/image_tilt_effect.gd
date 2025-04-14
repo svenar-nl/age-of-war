@@ -14,6 +14,7 @@ var mouse_over: bool = false
 
 func _process(_delta):
 	if not enable_eyecandy:
+		material.set_shader_parameter("shimmer_strength", 0.0)
 		return
 	
 	if not mouse_over:
