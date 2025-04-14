@@ -1,8 +1,7 @@
 extends Node2D
 
-
+@onready var player_unit_spawn_position : Vector2 = $player_spawn_location.global_position
 var unit_array : Array
-var player_unit_spawn_position : Vector2 = Vector2(240,570)
 var player_spawn_location_occupied : bool = false
 var unable_to_spawn
 var medival_special_active : bool
@@ -60,6 +59,7 @@ func _on_melee_button_pressed():
 	new_melee_unit.position.x -= 32
 	new_melee_unit.is_player_owned = true
 	get_node("/root/main_game/player_units").add_child(new_melee_unit)
+	%PlayerSpawnAura.flash()
 	
 
 	
@@ -73,6 +73,7 @@ func _on_range_button_pressed():
 	cave_range.position.x -= 32
 	cave_range.is_player_owned = true
 	get_node("/root/main_game/player_units").add_child(cave_range)
+	%PlayerSpawnAura.flash()
 	
 	
 	
@@ -86,6 +87,7 @@ func _on_tank_button_pressed():
 	cave_tank.position.x -= 32
 	cave_tank.is_player_owned = true
 	get_node("/root/main_game/player_units").add_child(cave_tank)
+	%PlayerSpawnAura.flash()
 	
 func _on_super_soldier_button_pressed():
 	if unable_to_spawn == true:
@@ -95,6 +97,7 @@ func _on_super_soldier_button_pressed():
 	super_soldier.position.x -= 32
 	super_soldier.is_player_owned = true
 	get_node("/root/main_game/player_units").add_child(super_soldier)
+	%PlayerSpawnAura.flash()
 
 
 func _on_player_spawn_location_body_entered(body):
