@@ -124,7 +124,7 @@ func _on_timer_2_timeout():
 
 
 func _on_timer_3_timeout():
-	print("spawn turret")
+	# print("spawn turret")
 	# get_node("/root/main_game/enemy_base")
 	# MAYBE A TODO for Later
 	# pick from options
