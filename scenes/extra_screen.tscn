@@ -9,8 +9,8 @@
 [ext_resource type="PackedScene" uid="uid://0fkoqk68ht8c" path="res://scenes/ui/menu_button.tscn" id="4_ws257"]
 [ext_resource type="Script" path="res://scripts/image_tilt_effect.gd" id="6_7vy32"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hdn48"]
-bg_color = Color(1, 1, 1, 0.313726)
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mipt4"]
+bg_color = Color(1, 1, 1, 0.72549)
 corner_radius_top_left = 32
 corner_radius_top_right = 32
 corner_radius_bottom_right = 32
@@ -45,13 +45,13 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -309.0
-offset_top = -570.0
-offset_right = 309.0
+offset_left = -414.0
+offset_top = -582.0
+offset_right = 414.0
 offset_bottom = -82.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_hdn48")
+theme_override_styles/panel = SubResource("StyleBoxFlat_mipt4")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Panel"]
 layout_mode = 1
@@ -59,9 +59,9 @@ anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = 19.0
-offset_top = 13.0
+offset_top = -6.0
 offset_right = -19.0
-offset_bottom = -9.0
+offset_bottom = 5.0
 grow_horizontal = 2
 grow_vertical = 2
 alignment = 1
@@ -71,7 +71,7 @@ layout_mode = 2
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 5
 theme_override_font_sizes/font_size = 40
-text = "Extra"
+text = "Extras:"
 label_settings = ExtResource("3_4nshv")
 horizontal_alignment = 1
 
@@ -79,12 +79,12 @@ horizontal_alignment = 1
 layout_mode = 2
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 5
-text = "Check out the cool original drawing of the knight by louissi"
+text = "Here is a sweet drawing Louissi made for the knight:"
 label_settings = ExtResource("4_gdfuu")
 horizontal_alignment = 1
 
 [node name="Control" type="Control" parent="Panel/VBoxContainer"]
-custom_minimum_size = Vector2(0, 250)
+custom_minimum_size = Vector2(0, 339)
 layout_mode = 2
 size_flags_vertical = 3
 
@@ -98,21 +98,23 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -370.0
-offset_top = -272.095
+offset_top = -279.5
 offset_right = 373.0
-offset_bottom = 282.905
+offset_bottom = 275.5
 grow_horizontal = 2
 grow_vertical = 2
-scale = Vector2(0.5, 0.5)
+scale = Vector2(0.6, 0.6)
 pivot_offset = Vector2(371, 277)
 texture = ExtResource("2_gwqsb")
 script = ExtResource("6_7vy32")
 enable_eyecandy = false
+zoom_start = Vector2(0.6, 0.6)
 zoom_speed = 3.0
 
 [node name="BtnReturn" parent="Panel/VBoxContainer" instance=ExtResource("4_ws257")]
 layout_mode = 2
 text = "Click here to return to the menu"
+dark = true
 
 [connection signal="mouse_entered" from="Panel/VBoxContainer/Control/OriginalDrawing" to="Panel/VBoxContainer/Control/OriginalDrawing" method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="Panel/VBoxContainer/Control/OriginalDrawing" to="Panel/VBoxContainer/Control/OriginalDrawing" method="_on_mouse_exited"]

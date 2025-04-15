@@ -6,8 +6,8 @@
 [ext_resource type="PackedScene" uid="uid://0fkoqk68ht8c" path="res://scenes/ui/menu_button.tscn" id="4_d5krd"]
 [ext_resource type="LabelSettings" uid="uid://bq7rf2ulwh2gg" path="res://UI/regular_text.tres" id="4_i8nm2"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lmrxp"]
-bg_color = Color(1, 1, 1, 0.313726)
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fh4jt"]
+bg_color = Color(1, 1, 1, 0.72549)
 corner_radius_top_left = 32
 corner_radius_top_right = 32
 corner_radius_bottom_right = 32
@@ -31,27 +31,28 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -309.0
-offset_top = -562.0
-offset_right = 309.0
-offset_bottom = -61.0
+offset_left = -369.0
+offset_top = -607.0
+offset_right = 369.0
+offset_bottom = -45.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_lmrxp")
+theme_override_styles/panel = SubResource("StyleBoxFlat_fh4jt")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Panel"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 6.0
-offset_top = 5.0
-offset_right = -6.0
-offset_bottom = -5.0
+offset_left = 80.0
+offset_top = 10.0
+offset_right = -80.0
+offset_bottom = 34.0
 grow_horizontal = 2
 grow_vertical = 2
 
 [node name="Title" type="Label" parent="Panel/VBoxContainer"]
+visible = false
 layout_mode = 2
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 5
@@ -81,8 +82,13 @@ You cannot repair your base, but it will gain health points
 everytime you evolve to the next age. Protect your base at all cost!"
 label_settings = ExtResource("4_i8nm2")
 
+[node name="Spacer" type="Control" parent="Panel/VBoxContainer"]
+custom_minimum_size = Vector2(0, 12)
+layout_mode = 2
+
 [node name="BtnReturn" parent="Panel/VBoxContainer" instance=ExtResource("4_d5krd")]
 layout_mode = 2
 text = "Click here to return to the menu"
+dark = true
 
 [connection signal="pressed" from="Panel/VBoxContainer/BtnReturn" to="." method="_on_button_pressed"]

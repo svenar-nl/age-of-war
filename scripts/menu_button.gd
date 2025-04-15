@@ -13,12 +13,19 @@ signal pressed
 @export var label_background_nodes: Array[Label]
 @export var label_foreground_node: Label
 @export var hover_pointer: Control
+@export var dark: bool = false
 
 var editor_update_previous_text: String
 
 func _ready() -> void:
 	_on_button_exited()
 	set_text(text)
+	
+	if dark:
+		for label_node in label_background_nodes:
+			label_node.visible = false
+		label_foreground_node.label_settings.font_color = Color(0, 0, 0, 1)
+		
 	
 	button.connect("mouse_entered", _on_button_enter)
 	button.connect("mouse_exited", _on_button_exited)

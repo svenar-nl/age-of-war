@@ -1,13 +1,14 @@
-[gd_scene load_steps=7 format=3 uid="uid://betadrpscm46d"]
+[gd_scene load_steps=8 format=3 uid="uid://betadrpscm46d"]
 
 [ext_resource type="Script" path="res://scenes/options_menu.gd" id="1_jf4ox"]
 [ext_resource type="PackedScene" uid="uid://dwx7knn8q5clv" path="res://scenes/menu_parallax_background.tscn" id="2_0hats"]
 [ext_resource type="LabelSettings" uid="uid://chnsy2dt5a4rw" path="res://UI/title_text.tres" id="3_kvf8o"]
 [ext_resource type="LabelSettings" uid="uid://bq7rf2ulwh2gg" path="res://UI/regular_text.tres" id="4_0any7"]
 [ext_resource type="PackedScene" uid="uid://0fkoqk68ht8c" path="res://scenes/ui/menu_button.tscn" id="4_pgjr8"]
+[ext_resource type="Theme" uid="uid://cmj82rsd2tadk" path="res://UI/options_theme.tres" id="5_3637b"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ldsui"]
-bg_color = Color(1, 1, 1, 0.313726)
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_j1c71"]
+bg_color = Color(1, 1, 1, 0.72549)
 corner_radius_top_left = 32
 corner_radius_top_right = 32
 corner_radius_bottom_right = 32
@@ -37,7 +38,7 @@ offset_right = 241.0
 offset_bottom = -147.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_ldsui")
+theme_override_styles/panel = SubResource("StyleBoxFlat_j1c71")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Panel"]
 layout_mode = 1
@@ -77,6 +78,7 @@ horizontal_alignment = 1
 unique_name_in_owner = true
 layout_mode = 2
 mouse_default_cursor_shape = 2
+theme = ExtResource("5_3637b")
 max_value = 1.0
 step = 0.01
 value = 1.0
@@ -93,6 +95,7 @@ horizontal_alignment = 1
 unique_name_in_owner = true
 layout_mode = 2
 mouse_default_cursor_shape = 2
+theme = ExtResource("5_3637b")
 max_value = 1.0
 step = 0.01
 value = 1.0
@@ -108,11 +111,12 @@ horizontal_alignment = 1
 [node name="FullscreenSwitch" type="CheckButton" parent="Panel/VBoxContainer/Label5"]
 unique_name_in_owner = true
 layout_mode = 0
-offset_left = 187.0
-offset_top = 1.0
-offset_right = 324.0
-offset_bottom = 25.0
+offset_left = 177.0
+offset_top = 2.0
+offset_right = 349.0
+offset_bottom = 34.0
 mouse_default_cursor_shape = 2
+theme = ExtResource("5_3637b")
 
 [node name="Spacer2" type="Control" parent="Panel/VBoxContainer"]
 custom_minimum_size = Vector2(0, 16)
@@ -122,8 +126,9 @@ size_flags_vertical = 3
 [node name="BtnReturn" parent="Panel/VBoxContainer" instance=ExtResource("4_pgjr8")]
 layout_mode = 2
 text = "Click here to return to the menu"
+dark = true
 
-[connection signal="value_changed" from="Panel/VBoxContainer/MusicSlider" to="." method="_on_slider_value_changed"]
-[connection signal="value_changed" from="Panel/VBoxContainer/SFXSlider" to="." method="_on_slider_value_changed"]
+[connection signal="value_changed" from="Panel/VBoxContainer/MusicSlider" to="." method="_on_slider_value_changed" binds= ["Music"]]
+[connection signal="value_changed" from="Panel/VBoxContainer/SFXSlider" to="." method="_on_slider_value_changed" binds= ["sfx"]]
 [connection signal="toggled" from="Panel/VBoxContainer/Label5/FullscreenSwitch" to="." method="_on_fullscreen_toggled"]
 [connection signal="pressed" from="Panel/VBoxContainer/BtnReturn" to="." method="_on_button_pressed"]

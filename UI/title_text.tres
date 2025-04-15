@@ -5,6 +5,4 @@
 [resource]
 font = ExtResource("1_kvxie")
 font_size = 60
-outline_color = Color(0, 0, 0, 1)
-shadow_color = Color(0, 0, 0, 1)
-shadow_offset = Vector2(0, 3)
+font_color = Color(0, 0, 0, 1)

@@ -1,6 +1,9 @@
 extends Node2D
 
 var config := ConfigFile.new()
+var default_window_size = DisplayServer.window_get_size()
+var queue_move_to_center: bool = false
+var move_to_center_delay_time: float = 0.0
 
 var player_money
 var player_exp
@@ -12,9 +15,45 @@ enum difficulty {normal, hard, impossible}
 var current_difficulty
 
 func _ready():
+	load_config()
+	
 	player_money = 175
 	player_exp = 0
 	current_stage = stage.cave
+
+func _process(delta: float) -> void:
+	if queue_move_to_center:
+		move_to_center_delay_time += delta
+		if move_to_center_delay_time > 0.1: # Slight delay is required to let the OS resize the window
+			move_to_center_delay_time = 0.0
+			queue_move_to_center = false
+			get_viewport().move_to_center()
+
+func load_config() -> void:
+	var config = config
+	config.load("user://options.cfg")
+
+	var value = config.get_value("Audio", "music", 1)
+	var bus_index = AudioServer.get_bus_index("Music")
+	AudioServer.set_bus_volume_db(bus_index, linear_to_db(value))
+
+	value = config.get_value("Audio", "sfx", 1)
+	bus_index = AudioServer.get_bus_index("sfx")
+	AudioServer.set_bus_volume_db(bus_index, linear_to_db(value))
+
+	value = config.get_value("Video", "fullscreen", false)
+	if value:
+		get_window().mode = Window.MODE_FULLSCREEN
+	else:
+		get_window().mode = Window.MODE_WINDOWED
+
+func update_fullscreen(toggled_on: bool) -> void:
+	if toggled_on:
+		get_window().mode = Window.MODE_FULLSCREEN
+	else:
+		get_window().mode = Window.MODE_WINDOWED
+		DisplayServer.window_set_size(default_window_size)
+		queue_move_to_center = true
 
 func get_current_age_as_string():
 	if current_stage == stage.cave:
