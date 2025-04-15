@@ -131,7 +131,7 @@ func cave_special_attack():
 		projectile.global_position = Vector2(randf_range(300, 1500), randf_range(-200, -1000))
 		projectile.direction = Vector2(randf_range(-0.5, 0.5), randf_range(2, 4)).normalized()
 		projectile.damage = 80
-		projectile.speed = 300
+		projectile.speed = randi_range(250, 350)
 		projectile.is_player_owned = true
 		projectile.spawn_offspring = false
 		projectile.time_to_die = 8.0
