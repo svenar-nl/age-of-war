@@ -51,45 +51,38 @@ func get_last_player_unit():
 func get_last_enemy_unit():
 	pass
 
-func _on_melee_button_pressed():
+func _on_melee_button_pressed(stage: String):
 	if unable_to_spawn == true:
 		return
-	var new_melee_unit = load("res://units/" + GlobalVariables.get_current_age_as_string() + "/melee/" + GlobalVariables.get_current_age_as_string() + "_melee.tscn").instantiate()
+	var new_melee_unit = load("res://units/" + stage + "/melee/" + stage + "_melee.tscn").instantiate()
 	new_melee_unit.position = player_unit_spawn_position
 	new_melee_unit.position.x -= 32
 	new_melee_unit.is_player_owned = true
 	get_node("/root/main_game/player_units").add_child(new_melee_unit)
 	%PlayerSpawnAura.flash()
-	
 
-	
-
-
-func _on_range_button_pressed():
+func _on_range_button_pressed(stage: String):
 	if unable_to_spawn == true:
 		return
-	var cave_range = load("res://units/" + GlobalVariables.get_current_age_as_string() + "/range/" + GlobalVariables.get_current_age_as_string() + "_range.tscn").instantiate()
+	var cave_range = load("res://units/" + stage + "/range/" + stage + "_range.tscn").instantiate()
 	cave_range.position = player_unit_spawn_position
 	cave_range.position.x -= 32
 	cave_range.is_player_owned = true
 	get_node("/root/main_game/player_units").add_child(cave_range)
 	%PlayerSpawnAura.flash()
-	
-	
-	
 
-
-func _on_tank_button_pressed():
+func _on_tank_button_pressed(stage: String):
 	if unable_to_spawn == true:
 		return
-	var cave_tank = load("res://units/" + GlobalVariables.get_current_age_as_string() + "/tank/" + GlobalVariables.get_current_age_as_string() + "_tank.tscn").instantiate()
+	var cave_tank = load("res://units/" + stage + "/tank/" + stage + "_tank.tscn").instantiate()
 	cave_tank.position = player_unit_spawn_position
 	cave_tank.position.x -= 32
 	cave_tank.is_player_owned = true
 	get_node("/root/main_game/player_units").add_child(cave_tank)
 	%PlayerSpawnAura.flash()
 	
-func _on_super_soldier_button_pressed():
+# Unused variable stage in this function
+func _on_super_soldier_button_pressed(stage: String):
 	if unable_to_spawn == true:
 		return
 	var super_soldier = load("res://units/future/super_soldier/future_super_soldier.tscn").instantiate()
