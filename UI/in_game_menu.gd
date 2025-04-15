@@ -16,7 +16,7 @@ signal spawn_super_soldier
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	current_menu = menu.root
-	$root_hbox_container.show()
+	$default_menu/root_hbox_container.show()
 	$units_menu.hide()
 	$turret_menu.hide()
 
@@ -39,7 +39,7 @@ func _process(delta):
 
 func _on_unit_pressed():
 	# Enter unit menu
-	$root_hbox_container.hide()
+	$default_menu/root_hbox_container.hide()
 	$units_menu.show()
 	current_menu = menu.unit
 	pass # Replace with function body.
@@ -49,7 +49,7 @@ func _on_back_pressed():
 	if current_menu != menu.root:
 		$units_menu/Label.text = ""
 		current_menu = menu.root
-		$root_hbox_container.show()
+		$default_menu/root_hbox_container.show()
 		$units_menu.hide()
 		$turret_menu.hide()
 
@@ -70,7 +70,7 @@ func _on_advance_pressed():
 
 
 func _on_turret_pressed():
-	$root_hbox_container.hide()
+	$default_menu/root_hbox_container.hide()
 	$turret_menu.show()
 	current_menu = menu.turret
 
@@ -78,20 +78,20 @@ func update_sprites_with_age():
 	if GlobalVariables.current_stage == GlobalVariables.stage.knight:
 		$units_menu/units_UI.texture = load("res://age of war sprites/ui/units_buttons0002.png")
 		$turret_menu/AllTurretUi0001.texture = load("res://age of war sprites/ui/all_turret_UI0002.png")
-		$overlay/SpecialButtons0001.texture = load("res://age of war sprites/ui/special_buttons0002.png")
+		%SpecialButtonSprite.texture = load("res://age of war sprites/ui/special_buttons0002.png")
 	elif GlobalVariables.current_stage == GlobalVariables.stage.medival:
 		$units_menu/units_UI.texture = load("res://age of war sprites/ui/units_buttons0003.png")
 		$turret_menu/AllTurretUi0001.texture = load("res://age of war sprites/ui/all_turret_UI0003.png")
-		$overlay/SpecialButtons0001.texture = load("res://age of war sprites/ui/special_buttons0003.png")
+		%SpecialButtonSprite.texture = load("res://age of war sprites/ui/special_buttons0003.png")
 	elif GlobalVariables.current_stage == GlobalVariables.stage.miltary:
 		$units_menu/units_UI.texture = load("res://age of war sprites/ui/units_buttons0004.png")
 		$turret_menu/AllTurretUi0001.texture = load("res://age of war sprites/ui/all_turret_UI0004.png")
-		$overlay/SpecialButtons0001.texture = load("res://age of war sprites/ui/special_buttons0004.png")
+		%SpecialButtonSprite.texture = load("res://age of war sprites/ui/special_buttons0004.png")
 	elif GlobalVariables.current_stage == GlobalVariables.stage.future:
 		$units_menu/units_UI.texture = load("res://age of war sprites/ui/units_buttons0005.png")
 		$turret_menu/AllTurretUi0001.texture = load("res://age of war sprites/ui/all_turret_UI0005.png")
-		$overlay/SpecialButtons0001.texture = load("res://age of war sprites/ui/special_buttons0005.png")
-		$root_hbox_container/advance.disabled = true
+		%SpecialButtonSprite.texture = load("res://age of war sprites/ui/special_buttons0005.png")
+		$default_menu/root_hbox_container/advance.disabled = true
 
 func add_to_queue(type: String, load_time: float, stage: String):
 	if queue.size() >= 5:
@@ -359,7 +359,7 @@ func _on_sell_turret_pressed():
 	sprite_follow_mouse.self_modulate = Color(1,1,1, 0.5)
 	get_node("/root/main_game").add_child(sprite_follow_mouse)
 	get_node("/root/main_game/player_base").activate_turret_sell_buttons()
-	$root_hbox_container.hide()
+	$default_menu/root_hbox_container.hide()
 	$sell_turret_cancel.show()
 
 
@@ -401,7 +401,7 @@ func _on_advance_mouse_entered():
 
 func _on_cancel_sell_turret_pressed():
 	get_node("/root/main_game/sprite_follow_player_mouse").queue_free()
-	$root_hbox_container.show()
+	$default_menu/root_hbox_container.show()
 	$sell_turret_cancel.hide()
 	get_node("/root/main_game/player_base").deactivate_buttons()
 

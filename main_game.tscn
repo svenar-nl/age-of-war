@@ -5,7 +5,7 @@
 [ext_resource type="Script" path="res://camera.gd" id="3_tlcoe"]
 [ext_resource type="PackedScene" uid="uid://bwbjwinb2wuou" path="res://UI/in_game_menu.tscn" id="4_d7jmu"]
 [ext_resource type="Script" path="res://scripts/camera_scroll.gd" id="5_6jeu4"]
-[ext_resource type="PackedScene" path="res://effects/spawn_aura.tscn" id="7_m5ets"]
+[ext_resource type="PackedScene" uid="uid://2elbildsvawn" path="res://effects/spawn_aura.tscn" id="7_m5ets"]
 [ext_resource type="PackedScene" uid="uid://d4bgctdvogk2y" path="res://ai_spawner.tscn" id="11_jpaar"]
 [ext_resource type="PackedScene" uid="uid://c36x5w6hobq86" path="res://bases/player_base.tscn" id="15_kvrvk"]
 

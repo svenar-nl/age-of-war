@@ -1,11 +1,13 @@
-[gd_scene load_steps=20 format=3 uid="uid://bwbjwinb2wuou"]
+[gd_scene load_steps=23 format=3 uid="uid://bwbjwinb2wuou"]
 
 [ext_resource type="Texture2D" uid="uid://cjm2h7jgkb3gh" path="res://age of war sprites/ui/root_ui.png" id="1_eesea"]
 [ext_resource type="Script" path="res://UI/in_game_menu.gd" id="1_wl8wd"]
-[ext_resource type="Texture2D" uid="uid://crf20luwfmy10" path="res://age of war sprites/ui/top_ui.png" id="2_jhrmw"]
+[ext_resource type="Texture2D" uid="uid://c851p324k7cvp" path="res://age of war sprites/ui/top_ui_gradient.png" id="2_0ak4h"]
 [ext_resource type="Texture2D" uid="uid://bmfdhp30ir3hj" path="res://age of war sprites/ui/special_buttons0001.png" id="3_6fvdx"]
 [ext_resource type="Texture2D" uid="uid://cjplkf8v51iwa" path="res://age of war sprites/ui/units_buttons0001.png" id="3_uva1g"]
+[ext_resource type="Texture2D" uid="uid://cmexoeu7mcw7q" path="res://age of war sprites/ui/top_ui_bg_left.png" id="3_wyum5"]
 [ext_resource type="Theme" uid="uid://cxas3ve5roipy" path="res://UI/button_theme.tres" id="3_yts8d"]
+[ext_resource type="Texture2D" uid="uid://cgsgn3xxh2w6t" path="res://age of war sprites/ui/top_ui_bg_right.png" id="4_5jhvo"]
 [ext_resource type="Texture2D" uid="uid://7r44da3tyasg" path="res://age of war sprites/ui/all_turret_UI0001.png" id="5_cp7c1"]
 [ext_resource type="Texture2D" uid="uid://vaof7nc1ov4v" path="res://age of war sprites/ui/cancel_button0001.png" id="8_76dav"]
 [ext_resource type="Texture2D" uid="uid://cmbt5vcwlrbuy" path="res://age of war sprites/ui/cancel_button0002.png" id="8_foxd6"]
@@ -13,6 +15,11 @@
 [ext_resource type="Script" path="res://UI/special_button.gd" id="9_fyqc4"]
 [ext_resource type="Texture2D" uid="uid://cf4atnyk4f3c8" path="res://age of war sprites/ui/black_outline_box.png" id="11_23v3a"]
 [ext_resource type="Texture2D" uid="uid://doeple8tlnbc3" path="res://age of war sprites/ui/black_line.png" id="12_ke4u6"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_lq2kt"]
+font_size = 22
+font_color = Color(1, 1, 0, 1)
+shadow_color = Color(0, 0, 0, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_isqpy"]
 font_color = Color(1, 1, 0, 1)
@@ -50,65 +57,120 @@ anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="TopUi" type="Sprite2D" parent="overlay"]
-position = Vector2(640, 92)
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("2_jhrmw")
+[node name="top_gradient" type="TextureRect" parent="overlay"]
+layout_mode = 1
+offset_right = 1152.0
+offset_bottom = 178.0
+texture = ExtResource("2_0ak4h")
+expand_mode = 1
 
-[node name="SpecialButtons0001" type="Sprite2D" parent="overlay"]
-position = Vector2(1061, 170)
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("3_6fvdx")
-
-[node name="root_hbox_container" type="HBoxContainer" parent="."]
+[node name="top_left" type="TextureRect" parent="overlay"]
 layout_mode = 0
-offset_left = 755.0
-offset_top = 22.0
-offset_right = 1163.0
-offset_bottom = 90.0
+offset_left = -125.0
+offset_top = -25.0
+offset_right = 148.0
+offset_bottom = 153.0
+texture = ExtResource("3_wyum5")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="top_right2" type="TextureRect" parent="overlay"]
+layout_mode = 0
+offset_left = 898.0
+offset_top = 59.0
+offset_right = 1388.0
+offset_bottom = 212.0
+texture = ExtResource("4_5jhvo")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="ColorRect" type="ColorRect" parent="overlay/top_right2"]
+layout_mode = 0
+offset_left = 2.0
+offset_top = 44.0
+offset_right = 308.0
+offset_bottom = 84.0
+color = Color(0, 0, 0, 0.309804)
+
+[node name="SpecialLabel" type="Label" parent="overlay/top_right2"]
+layout_mode = 0
+offset_left = 44.0
+offset_top = 95.0
+offset_right = 124.0
+offset_bottom = 126.0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+text = "Special:"
+label_settings = SubResource("LabelSettings_lq2kt")
+
+[node name="top_right1" type="TextureRect" parent="overlay"]
+layout_mode = 0
+offset_left = 690.0
+offset_top = -10.0
+offset_right = 1180.0
+offset_bottom = 143.0
+texture = ExtResource("4_5jhvo")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="default_menu" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="root_hbox_container" type="HBoxContainer" parent="default_menu"]
+layout_mode = 0
+offset_left = 733.0
+offset_top = 40.0
+offset_right = 1141.0
+offset_bottom = 108.0
 theme_override_constants/separation = 12
 
-[node name="RootUi" type="Sprite2D" parent="root_hbox_container"]
+[node name="RootUi" type="Sprite2D" parent="default_menu/root_hbox_container"]
 position = Vector2(194, 34)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("1_eesea")
 
-[node name="unit" type="Button" parent="root_hbox_container"]
+[node name="unit" type="Button" parent="default_menu/root_hbox_container"]
 custom_minimum_size = Vector2(68, 68)
 layout_mode = 2
 focus_mode = 0
 theme = ExtResource("3_yts8d")
-text = "Units"
 
-[node name="turret" type="Button" parent="root_hbox_container"]
+[node name="turret" type="Button" parent="default_menu/root_hbox_container"]
 custom_minimum_size = Vector2(68, 68)
 layout_mode = 2
 focus_mode = 0
 theme = ExtResource("3_yts8d")
-text = "Tur"
 
-[node name="sell_turret" type="Button" parent="root_hbox_container"]
+[node name="sell_turret" type="Button" parent="default_menu/root_hbox_container"]
 custom_minimum_size = Vector2(68, 68)
 layout_mode = 2
 focus_mode = 0
 theme = ExtResource("3_yts8d")
-text = "Sell"
 
-[node name="add_turret_spot" type="Button" parent="root_hbox_container"]
+[node name="add_turret_spot" type="Button" parent="default_menu/root_hbox_container"]
 custom_minimum_size = Vector2(68, 68)
 layout_mode = 2
 focus_mode = 0
 theme = ExtResource("3_yts8d")
-text = "Add"
 
-[node name="advance" type="Button" parent="root_hbox_container"]
+[node name="advance" type="Button" parent="default_menu/root_hbox_container"]
 custom_minimum_size = Vector2(68, 68)
 layout_mode = 2
 focus_mode = 0
 theme = ExtResource("3_yts8d")
-text = "Adv"
+
+[node name="MenuLabel" type="Label" parent="default_menu"]
+offset_left = 733.0
+offset_top = 3.0
+offset_right = 813.0
+offset_bottom = 34.0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+text = "Menu"
+label_settings = SubResource("LabelSettings_lq2kt")
 
 [node name="units_menu" type="Control" parent="."]
+visible = false
 anchors_preset = 0
 offset_left = 19.0
 offset_top = -26.0
@@ -116,16 +178,16 @@ offset_right = 59.0
 offset_bottom = 14.0
 
 [node name="units_UI" type="Sprite2D" parent="units_menu"]
-position = Vector2(919, 82)
+position = Vector2(919, 100)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("3_uva1g")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="units_menu"]
 layout_mode = 0
 offset_left = 714.0
-offset_top = 48.0
-offset_right = 782.0
-offset_bottom = 116.0
+offset_top = 66.0
+offset_right = 1022.0
+offset_bottom = 134.0
 theme_override_constants/separation = 12
 
 [node name="melee" type="Button" parent="units_menu/HBoxContainer"]
@@ -157,9 +219,9 @@ disabled = true
 custom_minimum_size = Vector2(68, 68)
 layout_mode = 2
 offset_left = 1056.0
-offset_top = 48.0
+offset_top = 66.0
 offset_right = 1124.0
-offset_bottom = 116.0
+offset_bottom = 134.0
 focus_mode = 0
 theme = ExtResource("3_yts8d")
 
@@ -173,7 +235,17 @@ theme_override_colors/font_color = Color(1, 1, 0, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 20
 
+[node name="MenuLabel" type="Label" parent="units_menu"]
+offset_left = 714.0
+offset_top = 29.0
+offset_right = 794.0
+offset_bottom = 60.0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+text = "Menu - Units"
+label_settings = SubResource("LabelSettings_lq2kt")
+
 [node name="turret_menu" type="Control" parent="."]
+visible = false
 anchors_preset = 0
 offset_left = 19.0
 offset_top = -26.0
@@ -181,16 +253,16 @@ offset_right = 59.0
 offset_bottom = 14.0
 
 [node name="AllTurretUi0001" type="Sprite2D" parent="turret_menu"]
-position = Vector2(919, 82)
+position = Vector2(918, 100)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("5_cp7c1")
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="turret_menu"]
 layout_mode = 0
 offset_left = 714.0
-offset_top = 48.0
+offset_top = 66.0
 offset_right = 942.0
-offset_bottom = 116.0
+offset_bottom = 134.0
 theme_override_constants/separation = 12
 
 [node name="turret_1" type="Button" parent="turret_menu/HBoxContainer2"]
@@ -215,11 +287,20 @@ theme = ExtResource("3_yts8d")
 custom_minimum_size = Vector2(68, 68)
 layout_mode = 2
 offset_left = 1056.0
-offset_top = 48.0
+offset_top = 66.0
 offset_right = 1124.0
-offset_bottom = 116.0
+offset_bottom = 134.0
 focus_mode = 0
 theme = ExtResource("3_yts8d")
+
+[node name="MenuLabel" type="Label" parent="turret_menu"]
+offset_left = 714.0
+offset_top = 29.0
+offset_right = 794.0
+offset_bottom = 60.0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+text = "Menu - Turrets"
+label_settings = SubResource("LabelSettings_lq2kt")
 
 [node name="Control" type="Control" parent="."]
 visible = false
@@ -272,7 +353,8 @@ label_settings = SubResource("LabelSettings_64o2u")
 
 [node name="queue" type="Control" parent="."]
 anchors_preset = 0
-offset_right = 40.0
+offset_left = -20.0
+offset_right = 20.0
 offset_bottom = 40.0
 
 [node name="HBoxContainer" type="HBoxContainer" parent="queue"]
@@ -309,22 +391,30 @@ color = Color(1, 1, 1, 0.588235)
 
 [node name="ColorRect7" type="ColorRect" parent="queue"]
 layout_mode = 2
-offset_left = 163.0
+offset_left = 172.0
 offset_top = 14.0
-offset_right = 163.0
+offset_right = 172.0
 offset_bottom = 30.0
 color = Color(1, 0, 0.00392157, 1)
 
 [node name="special_button" type="Button" parent="."]
 custom_minimum_size = Vector2(113, 50.105)
 layout_mode = 0
-offset_left = 1004.0
+offset_left = 1027.0
 offset_top = 145.0
-offset_right = 1118.0
+offset_right = 1141.0
 offset_bottom = 195.105
 focus_mode = 0
 theme = ExtResource("3_yts8d")
 script = ExtResource("9_fyqc4")
+
+[node name="SpecialButtonSprite" type="TextureRect" parent="special_button"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_right = 226.0
+offset_bottom = 100.0
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_6fvdx")
 
 [node name="ColorRect" type="ColorRect" parent="special_button"]
 layout_mode = 0
@@ -332,6 +422,7 @@ offset_left = 32.0
 offset_top = 4.0
 offset_right = 80.0
 offset_bottom = 45.0
+mouse_filter = 2
 color = Color(0.2, 0.2, 0.2, 0.588235)
 
 [node name="ProgressBar" type="ProgressBar" parent="special_button"]
@@ -404,67 +495,67 @@ theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 20
 
 [node name="BlackOutlineBox" type="Sprite2D" parent="."]
-position = Vector2(618, 22)
+position = Vector2(598, 22)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("11_23v3a")
 
 [node name="BlackOutlineBox2" type="Sprite2D" parent="."]
-position = Vector2(638, 22)
+position = Vector2(618, 22)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("11_23v3a")
 
 [node name="BlackOutlineBox3" type="Sprite2D" parent="."]
-position = Vector2(658, 22)
+position = Vector2(638, 22)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("11_23v3a")
 
 [node name="BlackOutlineBox4" type="Sprite2D" parent="."]
-position = Vector2(678, 22)
+position = Vector2(658, 22)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("11_23v3a")
 
 [node name="BlackOutlineBox5" type="Sprite2D" parent="."]
-position = Vector2(698, 22)
+position = Vector2(678, 22)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("11_23v3a")
 
 [node name="BlackLine" type="Sprite2D" parent="."]
-position = Vector2(379, 30)
+position = Vector2(368, 30)
 scale = Vector2(13.5, 1)
 texture = ExtResource("12_ke4u6")
 
 [node name="BlackLine2" type="Sprite2D" parent="."]
-position = Vector2(379, 45)
+position = Vector2(368, 45)
 scale = Vector2(13.5, 1)
 texture = ExtResource("12_ke4u6")
 
 [node name="BlackLine3" type="Sprite2D" parent="."]
-position = Vector2(179, 22)
+position = Vector2(168, 22)
 rotation = -1.57079
 scale = Vector2(0.481113, 1)
 texture = ExtResource("12_ke4u6")
 
 [node name="BlackLine4" type="Sprite2D" parent="."]
-position = Vector2(579, 22)
+position = Vector2(568, 22)
 rotation = 1.57079
 scale = Vector2(0.481113, 1)
 texture = ExtResource("12_ke4u6")
 
-[connection signal="mouse_entered" from="root_hbox_container/unit" to="." method="_on_unit_mouse_entered"]
-[connection signal="mouse_exited" from="root_hbox_container/unit" to="." method="_on_unit_mouse_exited"]
-[connection signal="pressed" from="root_hbox_container/unit" to="." method="_on_unit_pressed"]
-[connection signal="mouse_entered" from="root_hbox_container/turret" to="." method="_on_turret_mouse_entered"]
-[connection signal="mouse_exited" from="root_hbox_container/turret" to="." method="_on_unit_mouse_exited"]
-[connection signal="pressed" from="root_hbox_container/turret" to="." method="_on_turret_pressed"]
-[connection signal="mouse_entered" from="root_hbox_container/sell_turret" to="." method="_on_sell_turret_mouse_entered"]
-[connection signal="mouse_exited" from="root_hbox_container/sell_turret" to="." method="_on_back_mouse_exited_from_turret"]
-[connection signal="pressed" from="root_hbox_container/sell_turret" to="." method="_on_sell_turret_pressed"]
-[connection signal="mouse_entered" from="root_hbox_container/add_turret_spot" to="." method="_on_add_turret_spot_mouse_entered"]
-[connection signal="mouse_exited" from="root_hbox_container/add_turret_spot" to="." method="_on_back_mouse_exited_from_turret"]
-[connection signal="pressed" from="root_hbox_container/add_turret_spot" to="." method="_on_add_turret_spot_pressed"]
-[connection signal="mouse_entered" from="root_hbox_container/advance" to="." method="_on_advance_mouse_entered"]
-[connection signal="mouse_exited" from="root_hbox_container/advance" to="." method="_on_back_mouse_exited_from_turret"]
-[connection signal="pressed" from="root_hbox_container/advance" to="." method="_on_advance_pressed"]
+[connection signal="mouse_entered" from="default_menu/root_hbox_container/unit" to="." method="_on_unit_mouse_entered"]
+[connection signal="mouse_exited" from="default_menu/root_hbox_container/unit" to="." method="_on_unit_mouse_exited"]
+[connection signal="pressed" from="default_menu/root_hbox_container/unit" to="." method="_on_unit_pressed"]
+[connection signal="mouse_entered" from="default_menu/root_hbox_container/turret" to="." method="_on_turret_mouse_entered"]
+[connection signal="mouse_exited" from="default_menu/root_hbox_container/turret" to="." method="_on_unit_mouse_exited"]
+[connection signal="pressed" from="default_menu/root_hbox_container/turret" to="." method="_on_turret_pressed"]
+[connection signal="mouse_entered" from="default_menu/root_hbox_container/sell_turret" to="." method="_on_sell_turret_mouse_entered"]
+[connection signal="mouse_exited" from="default_menu/root_hbox_container/sell_turret" to="." method="_on_back_mouse_exited_from_turret"]
+[connection signal="pressed" from="default_menu/root_hbox_container/sell_turret" to="." method="_on_sell_turret_pressed"]
+[connection signal="mouse_entered" from="default_menu/root_hbox_container/add_turret_spot" to="." method="_on_add_turret_spot_mouse_entered"]
+[connection signal="mouse_exited" from="default_menu/root_hbox_container/add_turret_spot" to="." method="_on_back_mouse_exited_from_turret"]
+[connection signal="pressed" from="default_menu/root_hbox_container/add_turret_spot" to="." method="_on_add_turret_spot_pressed"]
+[connection signal="mouse_entered" from="default_menu/root_hbox_container/advance" to="." method="_on_advance_mouse_entered"]
+[connection signal="mouse_exited" from="default_menu/root_hbox_container/advance" to="." method="_on_back_mouse_exited_from_turret"]
+[connection signal="pressed" from="default_menu/root_hbox_container/advance" to="." method="_on_advance_pressed"]
 [connection signal="mouse_entered" from="units_menu/HBoxContainer/melee" to="." method="_on_melee_mouse_entered"]
 [connection signal="mouse_exited" from="units_menu/HBoxContainer/melee" to="." method="_on_unit_button_mouse_exited"]
 [connection signal="pressed" from="units_menu/HBoxContainer/melee" to="." method="_on_melee_pressed"]
