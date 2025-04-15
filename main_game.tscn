@@ -1,9 +1,11 @@
-[gd_scene load_steps=9 format=3 uid="uid://3qpu205icvjb"]
+[gd_scene load_steps=11 format=3 uid="uid://3qpu205icvjb"]
 
 [ext_resource type="Script" path="res://main_game.gd" id="1_44exb"]
 [ext_resource type="Texture2D" uid="uid://bk20tm6uudxsk" path="res://age of war sprites/bg/background.png" id="2_6kpfg"]
 [ext_resource type="Script" path="res://camera.gd" id="3_tlcoe"]
 [ext_resource type="PackedScene" uid="uid://bwbjwinb2wuou" path="res://UI/in_game_menu.tscn" id="4_d7jmu"]
+[ext_resource type="Script" path="res://scripts/camera_scroll.gd" id="5_6jeu4"]
+[ext_resource type="PackedScene" path="res://effects/spawn_aura.tscn" id="7_m5ets"]
 [ext_resource type="PackedScene" uid="uid://d4bgctdvogk2y" path="res://ai_spawner.tscn" id="11_jpaar"]
 [ext_resource type="PackedScene" uid="uid://c36x5w6hobq86" path="res://bases/player_base.tscn" id="15_kvrvk"]
 
@@ -16,9 +18,19 @@ size = Vector2(1842, 22)
 [node name="main_game" type="Node2D"]
 script = ExtResource("1_44exb")
 
-[node name="background sprite" type="Sprite2D" parent="."]
+[node name="background_container" type="Node2D" parent="."]
+metadata/_edit_lock_ = true
+
+[node name="background sprite2" type="Sprite2D" parent="background_container"]
 z_index = -100
-position = Vector2(1400, 169)
+position = Vector2(-1397, 168)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_6kpfg")
+metadata/_edit_lock_ = true
+
+[node name="background sprite" type="Sprite2D" parent="background_container"]
+z_index = -100
+position = Vector2(1574, 169)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("2_6kpfg")
 metadata/_edit_lock_ = true
@@ -26,6 +38,9 @@ metadata/_edit_lock_ = true
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(576, 280)
 script = ExtResource("3_tlcoe")
+scroll_speed = 800
+left_most_position = 550
+right_most_position = 1625
 
 [node name="AudioListener2D" type="AudioListener2D" parent="Camera2D"]
 current = true
@@ -37,23 +52,29 @@ offset_top = -324.0
 offset_right = -576.0
 offset_bottom = -324.0
 
-[node name="right_box" type="ColorRect" parent="Camera2D"]
+[node name="right_box" type="ColorRect" parent="Camera2D" node_paths=PackedStringArray("camera")]
 z_index = 2
-offset_left = 536.0
+offset_left = 376.0
 offset_top = -116.0
 offset_right = 576.0
-offset_bottom = 88.0
+offset_bottom = 368.0
 color = Color(1, 1, 1, 0.392157)
+script = ExtResource("5_6jeu4")
+camera = NodePath("..")
 
-[node name="left_box" type="ColorRect" parent="Camera2D"]
+[node name="left_box" type="ColorRect" parent="Camera2D" node_paths=PackedStringArray("camera")]
 z_index = 2
 offset_left = -576.0
 offset_top = -116.0
-offset_right = -536.0
-offset_bottom = 88.0
+offset_right = -376.0
+offset_bottom = 367.0
 color = Color(1, 1, 1, 0.392157)
+script = ExtResource("5_6jeu4")
+camera = NodePath("..")
+inverted = true
 
 [node name="Label" type="Label" parent="Camera2D"]
+visible = false
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -70,8 +91,17 @@ theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 5
 theme_override_font_sizes/font_size = 30
 text = "Game paused
-Press spacebar again to resume"
+Press spacebar/escape again to resume"
 horizontal_alignment = 1
+
+[node name="Button" type="Button" parent="Camera2D"]
+process_mode = 3
+visible = false
+offset_left = -81.5
+offset_top = 60.0
+offset_right = 81.5
+offset_bottom = 91.0
+text = " Quit to main menu "
 
 [node name="player_spawn_location" type="Area2D" parent="."]
 position = Vector2(233, 565)
@@ -79,6 +109,11 @@ position = Vector2(233, 565)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="player_spawn_location"]
 shape = SubResource("RectangleShape2D_xhm1x")
 debug_color = Color(0.955277, 3.08037e-06, 0.544055, 0.42)
+
+[node name="PlayerSpawnAura" parent="player_spawn_location" instance=ExtResource("7_m5ets")]
+unique_name_in_owner = true
+z_index = 2
+position = Vector2(-26, -43)
 
 [node name="floor" type="StaticBody2D" parent="."]
 position = Vector2(630, 598)
@@ -91,7 +126,7 @@ shape = SubResource("RectangleShape2D_1lruk")
 position = Vector2(118, 565)
 
 [node name="enemy_base" parent="." instance=ExtResource("15_kvrvk")]
-position = Vector2(1724, 570)
+position = Vector2(2014, 570)
 scale = Vector2(-1, 1)
 collision_layer = 8
 is_player_owned = false
@@ -101,8 +136,10 @@ is_player_owned = false
 [node name="enemy_units" type="Node2D" parent="."]
 
 [node name="ai_spawner" parent="." instance=ExtResource("11_jpaar")]
-visible = false
-position = Vector2(1606, 565)
+position = Vector2(1874, 565)
+
+[node name="EnemySpawnAura" parent="ai_spawner" instance=ExtResource("7_m5ets")]
+position = Vector2(-10, -43)
 
 [node name="medival_special_timer" type="Timer" parent="."]
 
@@ -110,6 +147,7 @@ position = Vector2(1606, 565)
 [connection signal="mouse_exited" from="Camera2D/right_box" to="Camera2D" method="stop_camera_moving"]
 [connection signal="mouse_entered" from="Camera2D/left_box" to="Camera2D" method="_on_mouse_camera_move_left_mouse_entered"]
 [connection signal="mouse_exited" from="Camera2D/left_box" to="Camera2D" method="stop_camera_moving"]
+[connection signal="pressed" from="Camera2D/Button" to="." method="_on_button_pressed"]
 [connection signal="body_entered" from="player_spawn_location" to="." method="_on_player_spawn_location_body_entered"]
 [connection signal="body_exited" from="player_spawn_location" to="." method="_on_player_spawn_location_body_exited"]
 [connection signal="timeout" from="medival_special_timer" to="." method="_on_medival_special_timer_timeout"]

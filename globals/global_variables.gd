@@ -29,43 +29,45 @@ func get_current_age_as_string():
 		return "future"
 
 func _unhandled_key_input(event):
-	if event.is_action_pressed("spacebar") and get_node("/root/main_game") != null and get_node("/root/main_game").process_mode == ProcessMode.PROCESS_MODE_INHERIT:
+	if event.is_action_pressed("pause") and get_node("/root/main_game") != null and get_node("/root/main_game").process_mode == ProcessMode.PROCESS_MODE_INHERIT:
 		get_node("/root/main_game").process_mode = ProcessMode.PROCESS_MODE_DISABLED
 		get_node("/root/main_game/Camera2D/Label").show()
-	elif event.is_action_pressed("spacebar") and get_node("/root/main_game") != null and get_node("/root/main_game").process_mode == ProcessMode.PROCESS_MODE_DISABLED:
+		get_node("/root/main_game/Camera2D/Button").show()
+	elif event.is_action_pressed("pause") and get_node("/root/main_game") != null and get_node("/root/main_game").process_mode == ProcessMode.PROCESS_MODE_DISABLED:
 		get_node("/root/main_game").process_mode = ProcessMode.PROCESS_MODE_INHERIT
 		get_node("/root/main_game/Camera2D/Label").hide()
+		get_node("/root/main_game/Camera2D/Button").hide()
 
 func get_unit_name(unit_type: String, input_stage):
-	if input_stage == stage.cave:
+	if input_stage == "cave":
 		if unit_type == "melee":
 			return "Club Man"
 		elif unit_type == "range":
 			return "Slingshot Man"
 		elif unit_type == "tank":
 			return "Dino Rider"
-	elif input_stage == stage.knight:
+	elif input_stage == "knight":
 		if unit_type == "melee":
 			return "Sword Man"
 		elif unit_type == "range":
 			return "Archer"
 		elif unit_type == "tank":
 			return "Knight"
-	elif input_stage == stage.medival:
+	elif input_stage == "medival":
 		if unit_type == "melee":
 			return "Dueler"
 		elif unit_type == "range":
 			return "Musketeer"
 		elif unit_type == "tank":
 			return "Cannoneer"
-	elif input_stage == stage.miltary:
+	elif input_stage == "miltary":
 		if unit_type == "melee":
 			return "Melee Infantry"
 		elif unit_type == "range":
 			return "Infantry"
 		elif unit_type == "tank":
 			return "Tank"
-	elif input_stage == stage.future:
+	elif input_stage == "future":
 		if unit_type == "melee":
 			return "God's Blade"
 		elif unit_type == "range":

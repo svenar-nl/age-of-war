@@ -1,8 +1,7 @@
 extends Node2D
 
-
+@onready var player_unit_spawn_position : Vector2 = $player_spawn_location.global_position
 var unit_array : Array
-var player_unit_spawn_position : Vector2 = Vector2(240,570)
 var player_spawn_location_occupied : bool = false
 var unable_to_spawn
 var medival_special_active : bool
@@ -21,8 +20,8 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	$Camera2D/in_game_menu/money.text = "money: " + str(GlobalVariables.player_money)
-	$Camera2D/in_game_menu/exp.text = "exp: " + str(GlobalVariables.player_exp)
+	$Camera2D/in_game_menu/money.text = str(GlobalVariables.player_money)
+	$Camera2D/in_game_menu/exp.text = str(GlobalVariables.player_exp)
 	if medival_special_active == true:
 		if $medival_special_timer.is_stopped() == true:
 			$medival_special_timer.start(5.0)
@@ -52,42 +51,38 @@ func get_last_player_unit():
 func get_last_enemy_unit():
 	pass
 
-func _on_melee_button_pressed():
+func _on_melee_button_pressed(stage: String):
 	if unable_to_spawn == true:
 		return
-	var new_melee_unit = load("res://units/" + GlobalVariables.get_current_age_as_string() + "/melee/" + GlobalVariables.get_current_age_as_string() + "_melee.tscn").instantiate()
+	var new_melee_unit = load("res://units/" + stage + "/melee/" + stage + "_melee.tscn").instantiate()
 	new_melee_unit.position = player_unit_spawn_position
 	new_melee_unit.position.x -= 32
 	new_melee_unit.is_player_owned = true
 	get_node("/root/main_game/player_units").add_child(new_melee_unit)
-	
+	%PlayerSpawnAura.flash()
 
-	
-
-
-func _on_range_button_pressed():
+func _on_range_button_pressed(stage: String):
 	if unable_to_spawn == true:
 		return
-	var cave_range = load("res://units/" + GlobalVariables.get_current_age_as_string() + "/range/" + GlobalVariables.get_current_age_as_string() + "_range.tscn").instantiate()
+	var cave_range = load("res://units/" + stage + "/range/" + stage + "_range.tscn").instantiate()
 	cave_range.position = player_unit_spawn_position
 	cave_range.position.x -= 32
 	cave_range.is_player_owned = true
 	get_node("/root/main_game/player_units").add_child(cave_range)
-	
-	
-	
+	%PlayerSpawnAura.flash()
 
-
-func _on_tank_button_pressed():
+func _on_tank_button_pressed(stage: String):
 	if unable_to_spawn == true:
 		return
-	var cave_tank = load("res://units/" + GlobalVariables.get_current_age_as_string() + "/tank/" + GlobalVariables.get_current_age_as_string() + "_tank.tscn").instantiate()
+	var cave_tank = load("res://units/" + stage + "/tank/" + stage + "_tank.tscn").instantiate()
 	cave_tank.position = player_unit_spawn_position
 	cave_tank.position.x -= 32
 	cave_tank.is_player_owned = true
 	get_node("/root/main_game/player_units").add_child(cave_tank)
+	%PlayerSpawnAura.flash()
 	
-func _on_super_soldier_button_pressed():
+# Unused variable stage in this function
+func _on_super_soldier_button_pressed(stage: String):
 	if unable_to_spawn == true:
 		return
 	var super_soldier = load("res://units/future/super_soldier/future_super_soldier.tscn").instantiate()
@@ -95,6 +90,7 @@ func _on_super_soldier_button_pressed():
 	super_soldier.position.x -= 32
 	super_soldier.is_player_owned = true
 	get_node("/root/main_game/player_units").add_child(super_soldier)
+	%PlayerSpawnAura.flash()
 
 
 func _on_player_spawn_location_body_entered(body):
@@ -127,8 +123,8 @@ func cave_special_attack():
 		var projectile = load("res://cave_special_projectile.tscn").instantiate()
 		projectile.global_position = Vector2(randf_range(300, 1500), randf_range(-200, -1000))
 		projectile.direction = Vector2(randf_range(-0.5, 0.5), randf_range(2, 4)).normalized()
-		projectile.damage = 60
-		projectile.speed = 300
+		projectile.damage = 80
+		projectile.speed = randi_range(250, 350)
 		projectile.is_player_owned = true
 		projectile.spawn_offspring = false
 		projectile.time_to_die = 8.0
@@ -175,3 +171,8 @@ func _on_medival_special_timer_timeout():
 
 func _on_ai_change_age():
 	$enemy_base.update_sprite_ai()
+
+
+func _on_button_pressed() -> void:
+	MusicManager.audioStreamPlayer.stop()
+	get_tree().change_scene_to_file("res://scenes/main_menu.tscn")

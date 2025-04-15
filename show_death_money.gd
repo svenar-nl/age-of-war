@@ -20,5 +20,5 @@ func _on_timer_timeout():
 
 func _on_timer_2_timeout():
 	var tween = create_tween()
-	tween.tween_property(self, "modulate", Color(1,1,1,0), 3.0)
+	tween.tween_property(self, "modulate", Color(1,1,1,0), 1.0)
 	tween.play()

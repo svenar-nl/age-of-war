@@ -984,7 +984,6 @@ scale = Vector2(0.5, 0.5)
 sprite_frames = SubResource("SpriteFrames_u5a35")
 animation = &"melee_attack"
 autoplay = "walk"
-frame_progress = 0.569138
 flip_h = true
 
 [node name="RayCast2D_melee" type="RayCast2D" parent="."]

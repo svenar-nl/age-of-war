@@ -28,7 +28,7 @@ func _process(delta):
 		loading_unit = true
 		load_first_unit_in_queue()
 	if queue.size() != 0 and loading_unit == true and get_node("/root/main_game").unable_to_spawn == false and load_finish == true:
-		_tween_queue_finished(queue[0][0])
+		_tween_queue_finished(queue[0][0], queue[0][2])
 	if loading_unit == true and load_finish == true:
 		$sublabel_queue.text = "Waiting for space"
 	elif loading_unit == true:
@@ -55,15 +55,12 @@ func _on_back_pressed():
 
 
 func _on_advance_pressed():
-	if GlobalVariables.player_exp >= GlobalVariables.get_exp_to_next_age() and queue.is_empty():
+	if GlobalVariables.player_exp >= GlobalVariables.get_exp_to_next_age():
 		GlobalVariables.current_stage += 1
 		update_sprites_with_age()
 		get_node("/root/main_game/player_base").advance_base_sprite()
 		if GlobalVariables.current_stage == GlobalVariables.stage.future:
 			$units_menu/HBoxContainer/special.disabled = false
-	elif queue.is_empty() != true:
-		$root_label.show()
-		$root_label.text = "Build queue must be empty before advancing!"
 	else:
 		$root_label.show()
 		$root_label.text = "Not enough XP!"
@@ -96,21 +93,22 @@ func update_sprites_with_age():
 		$overlay/SpecialButtons0001.texture = load("res://age of war sprites/ui/special_buttons0005.png")
 		$root_hbox_container/advance.disabled = true
 
-func add_to_queue(type: String, load_time: float):
+func add_to_queue(type: String, load_time: float, stage: String):
 	if queue.size() >= 5:
 		return
-	queue.append([type, load_time])
+	queue.append([type, load_time, stage])
 
 func load_first_unit_in_queue():
 	load_finish = false
 	var unit = queue[0]
 	var type = unit[0]
 	var time_to_load = unit[1]
+	var stage = unit[2]
 	var tween = create_tween()
 	tween.tween_property($queue/ColorRect7, "size", Vector2(432, 16), time_to_load)
-	tween.connect("finished", _tween_queue_finished.bind(type))
+	tween.connect("finished", _tween_queue_finished.bind(type, stage))
 	tween.play()
-	$sublabel_queue.text = "Training " + GlobalVariables.get_unit_name(type, GlobalVariables.current_stage) + "..."
+	$sublabel_queue.text = "Training " + GlobalVariables.get_unit_name(type, stage) + "..."
 	
 
 func queue_load(time, unit: String):
@@ -122,9 +120,9 @@ func queue_load(time, unit: String):
 	tween.play()
 
 
-func _tween_queue_finished(unit: String):
+func _tween_queue_finished(unit: String, stage: String):
 	if get_node("/root/main_game").unable_to_spawn == false:
-		emit_signal("spawn_" + unit)
+		emit_signal("spawn_" + unit, stage)
 		$queue/ColorRect7.size.x = 0
 		loading_unit = false
 		queue.pop_front()
@@ -135,27 +133,33 @@ func _tween_queue_finished(unit: String):
 
 # TODO make money values and time to spawn dynamic based of current age
 func _on_melee_pressed():
-	if GlobalVariables.player_money >= GlobalVariables.get_unit_cost("melee", GlobalVariables.current_stage) and queue.size() < 5:
-		GlobalVariables.player_money -= GlobalVariables.get_unit_cost("melee", GlobalVariables.current_stage)
-		add_to_queue("melee", 0.5)
+	if GlobalVariables.player_money >= GlobalVariables.get_unit_cost("melee", GlobalVariables.current_stage):
+		if queue.size() < 5:
+			GlobalVariables.player_money -= GlobalVariables.get_unit_cost("melee", GlobalVariables.current_stage)
+			var stage = GlobalVariables.get_current_age_as_string()
+			add_to_queue("melee", 0.5, stage)
 	else:
 		$units_menu/Label.show()
 		$units_menu/Label.text = "Not enough money!"
 
 
 func _on_range_pressed():
-	if GlobalVariables.player_money >= GlobalVariables.get_unit_cost("range", GlobalVariables.current_stage) and queue.size() < 5:
-		GlobalVariables.player_money -= GlobalVariables.get_unit_cost("range", GlobalVariables.current_stage)
-		add_to_queue("range", 1)
+	if GlobalVariables.player_money >= GlobalVariables.get_unit_cost("range", GlobalVariables.current_stage):
+		if queue.size() < 5:
+			GlobalVariables.player_money -= GlobalVariables.get_unit_cost("range", GlobalVariables.current_stage)
+			var stage = GlobalVariables.get_current_age_as_string()
+			add_to_queue("range", 1, stage)
 	else:
 		$units_menu/Label.show()
 		$units_menu/Label.text = "Not enough money!"
 
 
 func _on_tank_pressed():
-	if GlobalVariables.player_money >= GlobalVariables.get_unit_cost("tank", GlobalVariables.current_stage) and queue.size() < 5:
-		GlobalVariables.player_money -= GlobalVariables.get_unit_cost("tank", GlobalVariables.current_stage)
-		add_to_queue("tank", 2.0)
+	if GlobalVariables.player_money >= GlobalVariables.get_unit_cost("tank", GlobalVariables.current_stage):
+		if queue.size() < 5:
+			GlobalVariables.player_money -= GlobalVariables.get_unit_cost("tank", GlobalVariables.current_stage)
+			var stage = GlobalVariables.get_current_age_as_string()
+			add_to_queue("tank", 2.0, stage)
 	else:
 		$units_menu/Label.show()
 		$units_menu/Label.text = "Not enough money!"
@@ -222,7 +226,7 @@ func _on_melee_mouse_entered():
 	# display melee cost and name
 	$units_menu/Label.show()
 	$units_menu/Label.text = "${price} - {unit}".format({"price" : GlobalVariables.get_unit_cost("melee", GlobalVariables.current_stage),
-														"unit" : GlobalVariables.get_unit_name("melee", GlobalVariables.current_stage)})
+														"unit" : GlobalVariables.get_unit_name("melee", GlobalVariables.get_current_age_as_string())})
 
 
 func _on_unit_button_mouse_exited():
@@ -234,13 +238,13 @@ func _on_unit_button_mouse_exited():
 func _on_range_mouse_entered():
 	$units_menu/Label.show()
 	$units_menu/Label.text = "${price} - {unit}".format({"price" : GlobalVariables.get_unit_cost("range", GlobalVariables.current_stage),
-														"unit" : GlobalVariables.get_unit_name("range", GlobalVariables.current_stage)})
+														"unit" : GlobalVariables.get_unit_name("range", GlobalVariables.get_current_age_as_string())})
 
 
 func _on_tank_mouse_entered():
 	$units_menu/Label.show()
 	$units_menu/Label.text = "${price} - {unit}".format({"price" : GlobalVariables.get_unit_cost("tank", GlobalVariables.current_stage),
-														"unit" : GlobalVariables.get_unit_name("tank", GlobalVariables.current_stage)})
+														"unit" : GlobalVariables.get_unit_name("tank", GlobalVariables.get_current_age_as_string())})
 
 
 func _on_turret_1_pressed():
@@ -434,13 +438,16 @@ func _on_turret_3_pressed():
 func _on_special_pressed():
 	if GlobalVariables.player_money >= 150000 and queue.size() < 5:
 		GlobalVariables.player_money -= 150000
-		add_to_queue("super_soldier", 10.0)
+		var stage = GlobalVariables.get_current_age_as_string()
+		add_to_queue("super_soldier", 10.0, stage)
 	else:
 		$units_menu/Label.show()
 		$units_menu/Label.text = "Not enough money!"
 
 
 func _on_special_mouse_entered():
+	if GlobalVariables.current_stage != GlobalVariables.stage.future:
+		return
 	$units_menu/Label.show()
 	$units_menu/Label.text = "${price} - {unit}".format({"price" : 150000,
 														"unit" : "super soldier"})

@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://c36x5w6hobq86"]
+[gd_scene load_steps=10 format=3 uid="uid://c36x5w6hobq86"]
 
 [ext_resource type="Script" path="res://bases/player_base.gd" id="1_25s31"]
 [ext_resource type="Texture2D" uid="uid://c1xsucbfkbfiv" path="res://age of war sprites/bases/cave/base/base.png" id="2_t4o2h"]
@@ -10,6 +10,10 @@
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2s853"]
 size = Vector2(312, 183)
+
+[sub_resource type="LabelSettings" id="LabelSettings_ilwnw"]
+font_size = 18
+font_color = Color(0.821911, 2.62313e-06, 7.70092e-07, 1)
 
 [node name="player_base" type="StaticBody2D"]
 collision_layer = 4
@@ -85,11 +89,12 @@ theme = ExtResource("6_8jc8w")
 disabled = true
 
 [node name="Label" type="Label" parent="."]
-offset_left = -57.0
-offset_top = -342.0
-offset_right = -17.0
-offset_bottom = -319.0
+offset_left = -68.0
+offset_top = -405.0
+offset_right = -28.0
+offset_bottom = -379.0
 text = "999"
+label_settings = SubResource("LabelSettings_ilwnw")
 
 [node name="PanelContainer" type="PanelContainer" parent="."]
 offset_left = -91.0
