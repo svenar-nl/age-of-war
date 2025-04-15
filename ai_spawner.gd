@@ -37,18 +37,21 @@ func spawn_melee():
 	cave_melee2.position = self.global_position
 	cave_melee2.is_player_owned = false
 	enemy_units_container.add_child(cave_melee2)
+	$EnemySpawnAura.flash()
 
 func spawn_range():
 	var cave_range2 = load("res://units/" + current_age + "/range/" + current_age + "_range.tscn").instantiate()
 	cave_range2.position = self.global_position
 	cave_range2.is_player_owned = false
 	enemy_units_container.add_child(cave_range2)
+	$EnemySpawnAura.flash()
 
 func spawn_tank():
 	var cave_tank2 = load("res://units/" + current_age + "/tank/" + current_age + "_tank.tscn").instantiate()
 	cave_tank2.position = self.global_position
 	cave_tank2.is_player_owned = false
 	enemy_units_container.add_child(cave_tank2)
+	$EnemySpawnAura.flash()
 	
 func buy_turret():
 	pass

@@ -135,27 +135,30 @@ func _tween_queue_finished(unit: String):
 
 # TODO make money values and time to spawn dynamic based of current age
 func _on_melee_pressed():
-	if GlobalVariables.player_money >= GlobalVariables.get_unit_cost("melee", GlobalVariables.current_stage) and queue.size() < 5:
-		GlobalVariables.player_money -= GlobalVariables.get_unit_cost("melee", GlobalVariables.current_stage)
-		add_to_queue("melee", 0.5)
+	if GlobalVariables.player_money >= GlobalVariables.get_unit_cost("melee", GlobalVariables.current_stage):
+		if queue.size() < 5:
+			GlobalVariables.player_money -= GlobalVariables.get_unit_cost("melee", GlobalVariables.current_stage)
+			add_to_queue("melee", 0.5)
 	else:
 		$units_menu/Label.show()
 		$units_menu/Label.text = "Not enough money!"
 
 
 func _on_range_pressed():
-	if GlobalVariables.player_money >= GlobalVariables.get_unit_cost("range", GlobalVariables.current_stage) and queue.size() < 5:
-		GlobalVariables.player_money -= GlobalVariables.get_unit_cost("range", GlobalVariables.current_stage)
-		add_to_queue("range", 1)
+	if GlobalVariables.player_money >= GlobalVariables.get_unit_cost("range", GlobalVariables.current_stage):
+		if queue.size() < 5:
+			GlobalVariables.player_money -= GlobalVariables.get_unit_cost("range", GlobalVariables.current_stage)
+			add_to_queue("range", 1)
 	else:
 		$units_menu/Label.show()
 		$units_menu/Label.text = "Not enough money!"
 
 
 func _on_tank_pressed():
-	if GlobalVariables.player_money >= GlobalVariables.get_unit_cost("tank", GlobalVariables.current_stage) and queue.size() < 5:
-		GlobalVariables.player_money -= GlobalVariables.get_unit_cost("tank", GlobalVariables.current_stage)
-		add_to_queue("tank", 2.0)
+	if GlobalVariables.player_money >= GlobalVariables.get_unit_cost("tank", GlobalVariables.current_stage):
+		if queue.size() < 5:
+			GlobalVariables.player_money -= GlobalVariables.get_unit_cost("tank", GlobalVariables.current_stage)
+			add_to_queue("tank", 2.0)
 	else:
 		$units_menu/Label.show()
 		$units_menu/Label.text = "Not enough money!"
