@@ -5,15 +5,15 @@
 [ext_resource type="Script" path="res://camera.gd" id="3_tlcoe"]
 [ext_resource type="PackedScene" uid="uid://bwbjwinb2wuou" path="res://UI/in_game_menu.tscn" id="4_d7jmu"]
 [ext_resource type="Script" path="res://scripts/camera_scroll.gd" id="5_6jeu4"]
-[ext_resource type="PackedScene" uid="uid://2elbildsvawn" path="res://effects/spawn_aura.tscn" id="7_m5ets"]
+[ext_resource type="PackedScene" path="res://effects/spawn_aura.tscn" id="7_m5ets"]
 [ext_resource type="PackedScene" uid="uid://d4bgctdvogk2y" path="res://ai_spawner.tscn" id="11_jpaar"]
 [ext_resource type="PackedScene" uid="uid://c36x5w6hobq86" path="res://bases/player_base.tscn" id="15_kvrvk"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_1lruk"]
-size = Vector2(1842, 22)
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xhm1x"]
 size = Vector2(50, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1lruk"]
+size = Vector2(1842, 22)
 
 [node name="main_game" type="Node2D"]
 script = ExtResource("1_44exb")
@@ -110,6 +110,11 @@ position = Vector2(233, 565)
 shape = SubResource("RectangleShape2D_xhm1x")
 debug_color = Color(0.955277, 3.08037e-06, 0.544055, 0.42)
 
+[node name="PlayerSpawnAura" parent="player_spawn_location" instance=ExtResource("7_m5ets")]
+unique_name_in_owner = true
+z_index = 2
+position = Vector2(-26, -43)
+
 [node name="floor" type="StaticBody2D" parent="."]
 position = Vector2(630, 598)
 
@@ -130,18 +135,6 @@ is_player_owned = false
 
 [node name="enemy_units" type="Node2D" parent="."]
 
-[node name="player_spawn_location" type="Area2D" parent="."]
-position = Vector2(249, 570)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="player_spawn_location"]
-shape = SubResource("RectangleShape2D_xhm1x")
-debug_color = Color(0.955277, 3.08037e-06, 0.544055, 0.42)
-
-[node name="PlayerSpawnAura" parent="player_spawn_location" instance=ExtResource("7_m5ets")]
-unique_name_in_owner = true
-z_index = 2
-position = Vector2(-26, -43)
-
 [node name="ai_spawner" parent="." instance=ExtResource("11_jpaar")]
 position = Vector2(1874, 565)
 
@@ -150,13 +143,11 @@ position = Vector2(-10, -43)
 
 [node name="medival_special_timer" type="Timer" parent="."]
 
-
 [connection signal="mouse_entered" from="Camera2D/right_box" to="Camera2D" method="_on_mouse_camera_move_right_mouse_entered"]
 [connection signal="mouse_exited" from="Camera2D/right_box" to="Camera2D" method="stop_camera_moving"]
 [connection signal="mouse_entered" from="Camera2D/left_box" to="Camera2D" method="_on_mouse_camera_move_left_mouse_entered"]
 [connection signal="mouse_exited" from="Camera2D/left_box" to="Camera2D" method="stop_camera_moving"]
 [connection signal="pressed" from="Camera2D/Button" to="." method="_on_button_pressed"]
-
 [connection signal="body_entered" from="player_spawn_location" to="." method="_on_player_spawn_location_body_entered"]
 [connection signal="body_exited" from="player_spawn_location" to="." method="_on_player_spawn_location_body_exited"]
 [connection signal="timeout" from="medival_special_timer" to="." method="_on_medival_special_timer_timeout"]
