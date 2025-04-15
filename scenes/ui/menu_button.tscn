@@ -30,6 +30,7 @@ script = ExtResource("1_kobky")
 button = NodePath("Button")
 label_background_nodes = [NodePath("LabelBG2"), NodePath("LabelBG")]
 label_foreground_node = NodePath("LabelFG")
+show_hover_pointer = null
 hover_pointer = NodePath("Pointer")
 dark = null
 

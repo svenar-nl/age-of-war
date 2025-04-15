@@ -12,6 +12,7 @@ signal pressed
 @export var button: Button
 @export var label_background_nodes: Array[Label]
 @export var label_foreground_node: Label
+@export var show_hover_pointer: bool = true
 @export var hover_pointer: Control
 @export var dark: bool = false
 
@@ -53,6 +54,10 @@ func set_text(text: String) -> void:
 	hover_pointer.position.x = (position.x + size.x / 4.0) - text_width / 2.0 + (hover_pointer.size.x * hover_pointer.scale.x) / 2.0 - hover_pointer_offset
 
 func _on_button_enter():
+	if not show_hover_pointer:
+		_on_button_exited()
+		return
+	
 	hover_pointer.visible = true
 
 func _on_button_exited():

@@ -126,6 +126,7 @@ size_flags_vertical = 3
 [node name="BtnReturn" parent="Panel/VBoxContainer" instance=ExtResource("4_pgjr8")]
 layout_mode = 2
 text = "Click here to return to the menu"
+show_hover_pointer = null
 dark = true
 
 [connection signal="value_changed" from="Panel/VBoxContainer/MusicSlider" to="." method="_on_slider_value_changed" binds= ["Music"]]

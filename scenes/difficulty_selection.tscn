@@ -73,6 +73,7 @@ layout_mode = 2
 [node name="BtnNormal" parent="Panel/VBoxContainer" instance=ExtResource("4_qp2ld")]
 layout_mode = 2
 text = "Normal"
+show_hover_pointer = null
 dark = true
 
 [node name="SpacerBtn1" type="Control" parent="Panel/VBoxContainer"]
@@ -82,6 +83,7 @@ layout_mode = 2
 [node name="BtnHard" parent="Panel/VBoxContainer" instance=ExtResource("4_qp2ld")]
 layout_mode = 2
 text = "Harder"
+show_hover_pointer = null
 dark = true
 
 [node name="SpacerBtn2" type="Control" parent="Panel/VBoxContainer"]
@@ -91,6 +93,7 @@ layout_mode = 2
 [node name="BtnImpossible" parent="Panel/VBoxContainer" instance=ExtResource("4_qp2ld")]
 layout_mode = 2
 text = "Impossible"
+show_hover_pointer = null
 dark = true
 
 [node name="Spacer2" type="Control" parent="Panel/VBoxContainer"]
@@ -101,6 +104,7 @@ size_flags_vertical = 3
 [node name="BtnReturn" parent="Panel/VBoxContainer" instance=ExtResource("4_qp2ld")]
 layout_mode = 2
 text = "Click here to return to the menu"
+show_hover_pointer = null
 dark = true
 
 [connection signal="pressed" from="Panel/VBoxContainer/BtnNormal" to="." method="_on_normal_pressed"]
