@@ -74,6 +74,7 @@ camera = NodePath("..")
 inverted = true
 
 [node name="Label" type="Label" parent="Camera2D"]
+visible = false
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -90,8 +91,24 @@ theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 5
 theme_override_font_sizes/font_size = 30
 text = "Game paused
-Press spacebar again to resume"
+Press spacebar/escape again to resume"
 horizontal_alignment = 1
+
+[node name="Button" type="Button" parent="Camera2D"]
+process_mode = 3
+visible = false
+offset_left = -81.5
+offset_top = 60.0
+offset_right = 81.5
+offset_bottom = 91.0
+text = " Quit to main menu "
+
+[node name="player_spawn_location" type="Area2D" parent="."]
+position = Vector2(233, 565)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="player_spawn_location"]
+shape = SubResource("RectangleShape2D_xhm1x")
+debug_color = Color(0.955277, 3.08037e-06, 0.544055, 0.42)
 
 [node name="floor" type="StaticBody2D" parent="."]
 position = Vector2(630, 598)
@@ -132,6 +149,13 @@ position = Vector2(1874, 565)
 position = Vector2(-10, -43)
 
 [node name="medival_special_timer" type="Timer" parent="."]
+
+
+[connection signal="mouse_entered" from="Camera2D/right_box" to="Camera2D" method="_on_mouse_camera_move_right_mouse_entered"]
+[connection signal="mouse_exited" from="Camera2D/right_box" to="Camera2D" method="stop_camera_moving"]
+[connection signal="mouse_entered" from="Camera2D/left_box" to="Camera2D" method="_on_mouse_camera_move_left_mouse_entered"]
+[connection signal="mouse_exited" from="Camera2D/left_box" to="Camera2D" method="stop_camera_moving"]
+[connection signal="pressed" from="Camera2D/Button" to="." method="_on_button_pressed"]
 
 [connection signal="body_entered" from="player_spawn_location" to="." method="_on_player_spawn_location_body_entered"]
 [connection signal="body_exited" from="player_spawn_location" to="." method="_on_player_spawn_location_body_exited"]

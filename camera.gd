@@ -21,7 +21,6 @@ func randomOffset() -> Vector2:
 func _ready():
 	self.limit_right = right_most_position + 576 
 	velocity = Vector2.ZERO
-	$Label.hide()
 
 func _process(delta):
 	if velocity != Vector2.ZERO:
