@@ -262,6 +262,7 @@ text = "exp"
 label_settings = SubResource("LabelSettings_cyo5v")
 
 [node name="label" type="Label" parent="exp"]
+layout_mode = 0
 offset_left = -35.0
 offset_right = 22.6
 offset_bottom = 23.0

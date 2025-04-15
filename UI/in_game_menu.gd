@@ -444,6 +444,8 @@ func _on_special_pressed():
 
 
 func _on_special_mouse_entered():
+	if GlobalVariables.current_stage != GlobalVariables.stage.future:
+		return
 	$units_menu/Label.show()
 	$units_menu/Label.text = "${price} - {unit}".format({"price" : 150000,
 														"unit" : "super soldier"})

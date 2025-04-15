@@ -41,7 +41,7 @@ text = "Play again?"
 layout_mode = 2
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 5
-text = "Visit my website at alexpiotrowski.xyz"
+text = "https://github.com/apiotrowski255/age-of-war"
 horizontal_alignment = 1
 
 [connection signal="pressed" from="CenterContainer/VBoxContainer/Button" to="." method="_on_button_pressed"]
