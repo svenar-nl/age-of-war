@@ -175,3 +175,8 @@ func _on_medival_special_timer_timeout():
 
 func _on_ai_change_age():
 	$enemy_base.update_sprite_ai()
+
+
+func _on_button_pressed() -> void:
+	MusicManager.audioStreamPlayer.stop()
+	get_tree().change_scene_to_file("res://scenes/main_menu.tscn")

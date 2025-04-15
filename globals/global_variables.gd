@@ -30,12 +30,14 @@ func get_current_age_as_string():
 		return "future"
 
 func _unhandled_key_input(event):
-	if event.is_action_pressed("spacebar") and get_node("/root/main_game") != null and get_node("/root/main_game").process_mode == ProcessMode.PROCESS_MODE_INHERIT:
+	if event.is_action_pressed("pause") and get_node("/root/main_game") != null and get_node("/root/main_game").process_mode == ProcessMode.PROCESS_MODE_INHERIT:
 		get_node("/root/main_game").process_mode = ProcessMode.PROCESS_MODE_DISABLED
 		get_node("/root/main_game/Camera2D/Label").show()
-	elif event.is_action_pressed("spacebar") and get_node("/root/main_game") != null and get_node("/root/main_game").process_mode == ProcessMode.PROCESS_MODE_DISABLED:
+		get_node("/root/main_game/Camera2D/Button").show()
+	elif event.is_action_pressed("pause") and get_node("/root/main_game") != null and get_node("/root/main_game").process_mode == ProcessMode.PROCESS_MODE_DISABLED:
 		get_node("/root/main_game").process_mode = ProcessMode.PROCESS_MODE_INHERIT
 		get_node("/root/main_game/Camera2D/Label").hide()
+		get_node("/root/main_game/Camera2D/Button").hide()
 
 func get_unit_name(unit_type: String, input_stage):
 	if input_stage == stage.cave:
