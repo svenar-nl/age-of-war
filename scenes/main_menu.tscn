@@ -1,4 +1,4 @@
-[gd_scene load_steps=753 format=3 uid="uid://co2awp7evy8sm"]
+[gd_scene load_steps=755 format=3 uid="uid://co2awp7evy8sm"]
 
 [ext_resource type="Script" path="res://scenes/main_menu.gd" id="1_bd7un"]
 [ext_resource type="PackedScene" uid="uid://dwx7knn8q5clv" path="res://scenes/menu_parallax_background.tscn" id="2_6vtid"]
@@ -259,6 +259,7 @@
 [ext_resource type="Texture2D" uid="uid://bv54tsgpel1eg" path="res://age of war sprites/units/cave/tank/walk/cave_tank_walk0038.png" id="702_orn7k"]
 [ext_resource type="Texture2D" uid="uid://dunieceiywyu0" path="res://age of war sprites/units/cave/tank/walk/cave_tank_walk0039.png" id="703_h0hwc"]
 [ext_resource type="Texture2D" uid="uid://pcbk8jpy3g48" path="res://age of war sprites/units/cave/tank/walk/cave_tank_walk0040.png" id="704_6g2rx"]
+[ext_resource type="PackedScene" uid="uid://0fkoqk68ht8c" path="res://scenes/ui/menu_button.tscn" id="737_nlns6"]
 [ext_resource type="Texture2D" uid="uid://bmvih7alaya77" path="res://age of war sprites/units/knight/melee/walk/knight_melee_walk0001.png" id="901_pro86"]
 [ext_resource type="Texture2D" uid="uid://do17hs4hsqyq8" path="res://age of war sprites/units/knight/melee/walk/knight_melee_walk0002.png" id="902_wb8po"]
 [ext_resource type="Texture2D" uid="uid://cphwefjbfaxny" path="res://age of war sprites/units/knight/melee/walk/knight_melee_walk0003.png" id="903_klq5w"]
@@ -736,6 +737,13 @@
 [ext_resource type="Texture2D" uid="uid://bg7jrvh3rslkk" path="res://age of war sprites/units/future/tank/walk/future_tank_walk0026.png" id="3913_23q4l"]
 [ext_resource type="Texture2D" uid="uid://f1d2l1vqtmuh" path="res://age of war sprites/units/future/tank/walk/future_tank_walk0027.png" id="3914_ybkxf"]
 [ext_resource type="Texture2D" uid="uid://bucivpi3koks2" path="res://age of war sprites/units/future/tank/walk/future_tank_walk0028.png" id="3915_8xt4v"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0t776"]
+bg_color = Color(1, 1, 1, 0.313726)
+corner_radius_top_left = 32
+corner_radius_top_right = 32
+corner_radius_bottom_right = 32
+corner_radius_bottom_left = 32
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_i01kn"]
 animations = [{
@@ -3064,23 +3072,106 @@ animations = [{
 "speed": 30.0
 }]
 
-[node name="main_menu" type="Node2D"]
+[node name="main_menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 script = ExtResource("1_bd7un")
 
 [node name="ParallaxBackground" parent="." instance=ExtResource("2_6vtid")]
 
-[node name="CenterContainer" type="CenterContainer" parent="."]
-offset_right = 1152.0
-offset_bottom = 648.0
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -181.0
+offset_top = -357.0
+offset_right = 181.0
+offset_bottom = -47.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_0t776")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_bottom = 6.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 2
+
+[node name="BtnPlay" parent="Panel/VBoxContainer" instance=ExtResource("737_nlns6")]
+layout_mode = 2
+text = "Play"
+dark = false
+
+[node name="BtnInstructions" parent="Panel/VBoxContainer" instance=ExtResource("737_nlns6")]
+layout_mode = 2
+text = "Instructions"
+dark = false
+
+[node name="BtnOptions" parent="Panel/VBoxContainer" instance=ExtResource("737_nlns6")]
+layout_mode = 2
+text = "Options"
+dark = false
+
+[node name="BtnExtra" parent="Panel/VBoxContainer" instance=ExtResource("737_nlns6")]
+layout_mode = 2
+text = "Extra"
+dark = false
+
+[node name="BtnCredits" parent="Panel/VBoxContainer" instance=ExtResource("737_nlns6")]
+layout_mode = 2
+text = "Credits"
+dark = false
+
+[node name="BtnExit" parent="Panel/VBoxContainer" instance=ExtResource("737_nlns6")]
+layout_mode = 2
+text = "Exit"
+dark = false
+
+[node name="Spacer" type="Control" parent="Panel/VBoxContainer"]
+custom_minimum_size = Vector2(0, 6)
 layout_mode = 2
 
-[node name="Title" type="Control" parent="CenterContainer/VBoxContainer"]
-custom_minimum_size = Vector2(0, 139.155)
+[node name="BtnOrigCreator" parent="Panel/VBoxContainer" instance=ExtResource("737_nlns6")]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+text = "Original game developed by Louissi"
+font_size = 16
+dark = false
+
+[node name="BtnRemakeCreator" parent="Panel/VBoxContainer" instance=ExtResource("737_nlns6")]
+layout_mode = 2
+text = "Remake by Alex Piotrowski in Godot"
+font_size = 16
+dark = false
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -131.0
+offset_right = 151.0
+offset_bottom = 317.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 150
+alignment = 1
+
+[node name="Title" type="Control" parent="VBoxContainer"]
 layout_mode = 2
 
-[node name="LogoBG" type="AnimatedSprite2D" parent="CenterContainer/VBoxContainer/Title"]
+[node name="LogoBG" type="AnimatedSprite2D" parent="VBoxContainer/Title"]
 self_modulate = Color(0, 0, 0, 1)
 position = Vector2(141, 19)
 sprite_frames = SubResource("SpriteFrames_i01kn")
@@ -3088,19 +3179,18 @@ autoplay = "default"
 frame = 74
 frame_progress = 0.325458
 
-[node name="Logo" type="AnimatedSprite2D" parent="CenterContainer/VBoxContainer/Title"]
+[node name="Logo" type="AnimatedSprite2D" parent="VBoxContainer/Title"]
 position = Vector2(141, 17)
 sprite_frames = SubResource("SpriteFrames_i01kn")
 autoplay = "default"
 frame = 74
 frame_progress = 0.325458
 
-[node name="Character" type="Control" parent="CenterContainer/VBoxContainer"]
-custom_minimum_size = Vector2(0, 66.47)
+[node name="Character" type="Control" parent="VBoxContainer"]
 layout_mode = 2
 script = ExtResource("133_3dyob")
 
-[node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="CenterContainer/VBoxContainer/Character"]
+[node name="cave_melee" type="AnimatedSprite2D" parent="VBoxContainer/Character"]
 visible = false
 position = Vector2(136, 25)
 scale = Vector2(0.5, 0.5)
@@ -3108,7 +3198,7 @@ sprite_frames = SubResource("SpriteFrames_li306")
 animation = &"walk"
 autoplay = "walk"
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CenterContainer/VBoxContainer/Character"]
+[node name="cave_range" type="AnimatedSprite2D" parent="VBoxContainer/Character"]
 visible = false
 position = Vector2(128, 26)
 scale = Vector2(0.5, 0.5)
@@ -3116,7 +3206,7 @@ sprite_frames = SubResource("SpriteFrames_1trmf")
 animation = &"walk"
 autoplay = "walk"
 
-[node name="AnimatedSprite2D3" type="AnimatedSprite2D" parent="CenterContainer/VBoxContainer/Character"]
+[node name="cave_tank" type="AnimatedSprite2D" parent="VBoxContainer/Character"]
 visible = false
 position = Vector2(146, 3)
 scale = Vector2(0.5, 0.5)
@@ -3124,7 +3214,7 @@ sprite_frames = SubResource("SpriteFrames_t0h18")
 animation = &"walk"
 autoplay = "walk"
 
-[node name="AnimatedSprite2D4" type="AnimatedSprite2D" parent="CenterContainer/VBoxContainer/Character"]
+[node name="knight_melee" type="AnimatedSprite2D" parent="VBoxContainer/Character"]
 visible = false
 position = Vector2(150, 18)
 scale = Vector2(0.5, 0.5)
@@ -3132,7 +3222,7 @@ sprite_frames = SubResource("SpriteFrames_idlmn")
 animation = &"walk"
 autoplay = "walk"
 
-[node name="AnimatedSprite2D5" type="AnimatedSprite2D" parent="CenterContainer/VBoxContainer/Character"]
+[node name="knight_range" type="AnimatedSprite2D" parent="VBoxContainer/Character"]
 visible = false
 position = Vector2(135, 17)
 scale = Vector2(0.5, 0.5)
@@ -3140,14 +3230,14 @@ sprite_frames = SubResource("SpriteFrames_he0ds")
 animation = &"walk"
 autoplay = "walk"
 
-[node name="AnimatedSprite2D6" type="AnimatedSprite2D" parent="CenterContainer/VBoxContainer/Character"]
+[node name="knight_tank" type="AnimatedSprite2D" parent="VBoxContainer/Character"]
 position = Vector2(160, -2)
 scale = Vector2(0.5, 0.5)
 sprite_frames = SubResource("SpriteFrames_dwxy8")
 animation = &"walk"
 autoplay = "walk"
 
-[node name="AnimatedSprite2D7" type="AnimatedSprite2D" parent="CenterContainer/VBoxContainer/Character"]
+[node name="medieval_melee" type="AnimatedSprite2D" parent="VBoxContainer/Character"]
 visible = false
 position = Vector2(151, 6)
 scale = Vector2(0.5, 0.5)
@@ -3155,7 +3245,7 @@ sprite_frames = SubResource("SpriteFrames_i4sn0")
 animation = &"walk"
 autoplay = "walk"
 
-[node name="AnimatedSprite2D8" type="AnimatedSprite2D" parent="CenterContainer/VBoxContainer/Character"]
+[node name="medieval_range" type="AnimatedSprite2D" parent="VBoxContainer/Character"]
 visible = false
 position = Vector2(148, 3)
 scale = Vector2(0.5, 0.5)
@@ -3163,7 +3253,7 @@ sprite_frames = SubResource("SpriteFrames_x7jwa")
 animation = &"walk"
 autoplay = "walk"
 
-[node name="AnimatedSprite2D9" type="AnimatedSprite2D" parent="CenterContainer/VBoxContainer/Character"]
+[node name="medieval_tank" type="AnimatedSprite2D" parent="VBoxContainer/Character"]
 visible = false
 position = Vector2(138, 5)
 scale = Vector2(0.5, 0.5)
@@ -3171,7 +3261,7 @@ sprite_frames = SubResource("SpriteFrames_i1gtx")
 animation = &"walk"
 autoplay = "walk"
 
-[node name="AnimatedSprite2D10" type="AnimatedSprite2D" parent="CenterContainer/VBoxContainer/Character"]
+[node name="military_melee" type="AnimatedSprite2D" parent="VBoxContainer/Character"]
 visible = false
 position = Vector2(143, 6)
 scale = Vector2(0.5, 0.5)
@@ -3179,7 +3269,7 @@ sprite_frames = SubResource("SpriteFrames_gmism")
 animation = &"walk"
 autoplay = "walk"
 
-[node name="AnimatedSprite2D11" type="AnimatedSprite2D" parent="CenterContainer/VBoxContainer/Character"]
+[node name="military_range" type="AnimatedSprite2D" parent="VBoxContainer/Character"]
 visible = false
 position = Vector2(141, 6)
 scale = Vector2(0.5, 0.5)
@@ -3187,7 +3277,7 @@ sprite_frames = SubResource("SpriteFrames_x71li")
 animation = &"walk"
 autoplay = "walk"
 
-[node name="AnimatedSprite2D12" type="AnimatedSprite2D" parent="CenterContainer/VBoxContainer/Character"]
+[node name="military_tank" type="AnimatedSprite2D" parent="VBoxContainer/Character"]
 visible = false
 position = Vector2(166, 16)
 scale = Vector2(-0.5, 0.5)
@@ -3195,7 +3285,7 @@ sprite_frames = SubResource("SpriteFrames_va4w8")
 animation = &"walk"
 autoplay = "walk"
 
-[node name="AnimatedSprite2D13" type="AnimatedSprite2D" parent="CenterContainer/VBoxContainer/Character"]
+[node name="future_melee" type="AnimatedSprite2D" parent="VBoxContainer/Character"]
 visible = false
 position = Vector2(100, -2)
 scale = Vector2(0.5, 0.5)
@@ -3203,7 +3293,7 @@ sprite_frames = SubResource("SpriteFrames_6vksp")
 animation = &"walk"
 autoplay = "walk"
 
-[node name="AnimatedSprite2D14" type="AnimatedSprite2D" parent="CenterContainer/VBoxContainer/Character"]
+[node name="future_range" type="AnimatedSprite2D" parent="VBoxContainer/Character"]
 visible = false
 position = Vector2(129, 6)
 scale = Vector2(0.5, 0.5)
@@ -3211,7 +3301,7 @@ sprite_frames = SubResource("SpriteFrames_odswh")
 animation = &"walk"
 autoplay = "walk"
 
-[node name="AnimatedSprite2D15" type="AnimatedSprite2D" parent="CenterContainer/VBoxContainer/Character"]
+[node name="future_tank" type="AnimatedSprite2D" parent="VBoxContainer/Character"]
 visible = false
 position = Vector2(134, 13)
 scale = Vector2(0.5, 0.5)
@@ -3219,60 +3309,11 @@ sprite_frames = SubResource("SpriteFrames_27lse")
 animation = &"walk"
 autoplay = "walk"
 
-[node name="play" type="Button" parent="CenterContainer/VBoxContainer"]
-custom_minimum_size = Vector2(128, 0)
-layout_mode = 2
-size_flags_horizontal = 4
-mouse_default_cursor_shape = 2
-text = "Play"
-
-[node name="instructions" type="Button" parent="CenterContainer/VBoxContainer"]
-custom_minimum_size = Vector2(128, 0)
-layout_mode = 2
-size_flags_horizontal = 4
-mouse_default_cursor_shape = 2
-text = "Instructions"
-
-[node name="options" type="Button" parent="CenterContainer/VBoxContainer"]
-custom_minimum_size = Vector2(128, 0)
-layout_mode = 2
-size_flags_horizontal = 4
-mouse_default_cursor_shape = 2
-text = "Options"
-
-[node name="extra" type="Button" parent="CenterContainer/VBoxContainer"]
-custom_minimum_size = Vector2(128, 0)
-layout_mode = 2
-size_flags_horizontal = 4
-mouse_default_cursor_shape = 2
-text = "Extra"
-
-[node name="credits" type="Button" parent="CenterContainer/VBoxContainer"]
-custom_minimum_size = Vector2(128, 0)
-layout_mode = 2
-size_flags_horizontal = 4
-mouse_default_cursor_shape = 2
-text = "Credits"
-
-[node name="exit" type="Button" parent="CenterContainer/VBoxContainer"]
-custom_minimum_size = Vector2(128, 0)
-layout_mode = 2
-size_flags_horizontal = 4
-mouse_default_cursor_shape = 2
-text = "Exit"
-
-[node name="Label" type="Label" parent="CenterContainer/VBoxContainer"]
-layout_mode = 2
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/outline_size = 5
-theme_override_font_sizes/font_size = 17
-text = "Original game made by Louissi
-Recreated in Godot"
-horizontal_alignment = 1
-
-[connection signal="pressed" from="CenterContainer/VBoxContainer/play" to="." method="_on_play_pressed"]
-[connection signal="pressed" from="CenterContainer/VBoxContainer/instructions" to="." method="_on_instructions_pressed"]
-[connection signal="pressed" from="CenterContainer/VBoxContainer/options" to="." method="_on_options_pressed"]
-[connection signal="pressed" from="CenterContainer/VBoxContainer/extra" to="." method="_on_extra_pressed"]
-[connection signal="pressed" from="CenterContainer/VBoxContainer/credits" to="." method="_on_credits_pressed"]
-[connection signal="pressed" from="CenterContainer/VBoxContainer/exit" to="." method="_on_exit_pressed"]
+[connection signal="pressed" from="Panel/VBoxContainer/BtnPlay" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="Panel/VBoxContainer/BtnInstructions" to="." method="_on_instructions_pressed"]
+[connection signal="pressed" from="Panel/VBoxContainer/BtnOptions" to="." method="_on_options_pressed"]
+[connection signal="pressed" from="Panel/VBoxContainer/BtnExtra" to="." method="_on_extra_pressed"]
+[connection signal="pressed" from="Panel/VBoxContainer/BtnCredits" to="." method="_on_credits_pressed"]
+[connection signal="pressed" from="Panel/VBoxContainer/BtnExit" to="." method="_on_exit_pressed"]
+[connection signal="pressed" from="Panel/VBoxContainer/BtnOrigCreator" to="." method="_on_creator_pressed"]
+[connection signal="pressed" from="Panel/VBoxContainer/BtnRemakeCreator" to="." method="_on_creator_pressed"]

@@ -1,25 +1,4 @@
-extends Node2D
-
-func _ready() -> void:
-	if not GlobalVariables.config:
-		GlobalVariables.config = ConfigFile.new()
-		var config = GlobalVariables.config
-		config.load("user://options.cfg")
-
-		var value = config.get_value("Audio", "music", 1)
-		var bus_index = AudioServer.get_bus_index("Music")
-		AudioServer.set_bus_volume_db(bus_index, linear_to_db(value))
-
-		value = config.get_value("Audio", "sfx", 1)
-		bus_index = AudioServer.get_bus_index("sfx")
-		AudioServer.set_bus_volume_db(bus_index, linear_to_db(value))
-
-		value = config.get_value("Video", "fullscreen", false)
-		if value:
-			get_window().mode = Window.MODE_FULLSCREEN
-		else:
-			get_window().mode = Window.MODE_WINDOWED
-
+extends Control
 
 func _on_play_pressed():
 	GlobalVariables.current_stage = GlobalVariables.stage.cave
