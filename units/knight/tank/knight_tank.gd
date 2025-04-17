@@ -11,7 +11,7 @@ func _ready():
 	sprite_walk_position = Vector2(40, -70)
 	sprite_idle_position = Vector2(31, -70)
 	sprite_die_position = Vector2(30, -61)
-	sprite_attack_position = Vector2(45, -69)
+	sprite_attack_position = Vector2(50, -69)
 	
 	hit_sfx = get_node("sfx/hit_sfx")
 	money_die_reward = 650

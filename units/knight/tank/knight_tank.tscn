@@ -1129,12 +1129,10 @@ scale = Vector2(0.807229, 0.653614)
 texture = ExtResource("2_yk2xp")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(45, -70)
+position = Vector2(50, -69)
 scale = Vector2(0.5, 0.5)
 sprite_frames = SubResource("SpriteFrames_sds5e")
 animation = &"attack"
-frame = 20
-frame_progress = 0.639566
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -67.5)
