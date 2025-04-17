@@ -127,15 +127,30 @@ func _on_timer_2_timeout():
 
 
 func _on_timer_3_timeout():
-	# print("spawn turret")
-	# get_node("/root/main_game/enemy_base")
+	print("spawn turret")
+	var enemy_base = get_node("/root/main_game/enemy_base")
+	
+	var choice = randi_range(1, 3)
+	# enemy_base.spawn_ai_turret()
+	
+	if choice == 1: # Buy a turret
+		if enemy_base.has_any_empty_tower_spots() == true:
+			enemy_base.spawn_ai_turret(current_age) # Pick a free spot and spawn a turret there
+			$turret_timer.wait_time += 15
+		else:
+			pass
+	elif choice == 2: # Upgrade a turret
+		enemy_base.upgrade_ai_turret(current_age)
+	elif choice == 3:
+		var result = enemy_base.add_turret_spot_ai()
+		if result == true:
+			$turret_timer.wait_time += 15
 	# MAYBE A TODO for Later
 	# pick from options
-	# 1 remove turret
-	# 2 add turret
-	# 3 upgrade turret
-	# 4 add a turret spot
-	$turret_timer.wait_time += 15
+	# 1 add turret -> Will only add a turret if space is available
+	# 2 upgrade turret -> Will only upgrade turrets if it's current Age is greater than the age of the turret. Upgrading a turret will not go above the age of the turret
+	# 3 add a turret spot
+	# $turret_timer.wait_time += 15
 
 
 func reset_phase():

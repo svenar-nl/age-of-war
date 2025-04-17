@@ -290,3 +290,41 @@ func update_sprite_ai():
 		health += 1500
 		max_health = 4700
 		$PanelContainer/current_health.custom_minimum_size.y = 250 * health/max_health
+
+### AI ###
+
+func spawn_ai_turret():
+	# var turret_name = get_node("/root/main_game/sprite_follow_player_mouse").turret_name
+	# get_node("/root/main_game/sprite_follow_player_mouse").queue_free()
+	# get_node("/root/main_game/Camera2D/in_game_menu").hide_turret_cancel_button_and_show_turret_menu()
+	# deactivate_buttons()
+	# print(turret_name)
+	var turret_base = load("res://bases/" + "cave_turret_1" + ".tscn").instantiate()
+	turret_base.name += "_" + str(randi()) # We have to do this to avoid multiple same turrets with colliding names
+	self.add_child(turret_base)
+	turret_base.is_player_owned = false
+	turret_base.position = $Button_tower_base.position + Vector2(16,16)
+	turret_array[0] = 1
+	turret_data[0] = turret_base
+
+
+func has_any_empty_tower_spots():
+	for i in turret_array:
+		if i == 0:
+			return true
+	return false
+
+func add_turret_spot_ai():
+	if turret_array[1] == -1:
+		$tower_bottom.show()
+		turret_array[1] = 0
+		return true
+	elif turret_array[2] == -1:
+		$tower_part.show()
+		turret_array[2] = 0
+		return true
+	elif turret_array[3] == -1:
+		$tower_top.show()
+		turret_array[3] = 0
+		return true
+	return false

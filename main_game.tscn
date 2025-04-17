@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://3qpu205icvjb"]
+[gd_scene load_steps=14 format=3 uid="uid://3qpu205icvjb"]
 
 [ext_resource type="Script" path="res://main_game.gd" id="1_44exb"]
 [ext_resource type="Texture2D" uid="uid://bk20tm6uudxsk" path="res://age of war sprites/bg/background.png" id="2_6kpfg"]
@@ -8,7 +8,6 @@
 [ext_resource type="FontFile" uid="uid://bi67eh3ngbnui" path="res://fonts/Lora/static/Lora-Bold.ttf" id="6_hq4av"]
 [ext_resource type="PackedScene" uid="uid://0fkoqk68ht8c" path="res://scenes/ui/menu_button.tscn" id="6_ysxak"]
 [ext_resource type="PackedScene" path="res://effects/spawn_aura.tscn" id="7_m5ets"]
-[ext_resource type="PackedScene" uid="uid://cbgigp1olen7w" path="res://bases/cave_turret_2.tscn" id="11_05kon"]
 [ext_resource type="PackedScene" uid="uid://d4bgctdvogk2y" path="res://ai_spawner.tscn" id="11_jpaar"]
 [ext_resource type="PackedScene" uid="uid://c36x5w6hobq86" path="res://bases/player_base.tscn" id="15_kvrvk"]
 
@@ -154,10 +153,6 @@ position = Vector2(1874, 565)
 position = Vector2(-10, -43)
 
 [node name="medival_special_timer" type="Timer" parent="."]
-
-[node name="cave_turret_2" parent="." instance=ExtResource("11_05kon")]
-position = Vector2(672, 408)
-is_player_owned = false
 
 [connection signal="mouse_entered" from="Camera2D/right_box" to="Camera2D" method="_on_mouse_camera_move_right_mouse_entered"]
 [connection signal="mouse_exited" from="Camera2D/right_box" to="Camera2D" method="stop_camera_moving"]
