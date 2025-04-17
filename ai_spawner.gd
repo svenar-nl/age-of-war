@@ -142,7 +142,7 @@ func _on_timer_3_timeout():
 	elif choice == 2: # Upgrade a turret
 		enemy_base.upgrade_ai_turret(current_age)
 	elif choice == 3:
-		var result = enemy_base.add_turret_spot_ai()
+		var result = enemy_base.add_ai_turret_spot()
 		if result == true:
 			$turret_timer.wait_time += 15
 	# MAYBE A TODO for Later

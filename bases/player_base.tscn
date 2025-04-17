@@ -20,7 +20,7 @@ collision_layer = 4
 collision_mask = 0
 script = ExtResource("1_25s31")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="base_main_sprite" type="Sprite2D" parent="."]
 position = Vector2(0, -123)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("2_t4o2h")
@@ -134,6 +134,8 @@ position = Vector2(-54.0001, -317.986)
 rotation = -1.57079
 scale = Vector2(7.87378, 1)
 texture = ExtResource("7_mgkk8")
+
+[node name="turret_container" type="Node2D" parent="."]
 
 [connection signal="pressed" from="Button_tower_base" to="." method="_on_button_tower_base_pressed"]
 [connection signal="pressed" from="Button_tower_bottom" to="." method="_on_button_tower_bottom_pressed"]
