@@ -1,6 +1,6 @@
 [gd_scene load_steps=18 format=3 uid="uid://chebdgvppo0wf"]
 
-[ext_resource type="Script" path="res://test.gd" id="1_ucxlo"]
+[ext_resource type="Script" path="res://test/test.gd" id="1_ucxlo"]
 [ext_resource type="PackedScene" uid="uid://dqbghvmes7to2" path="res://units/cave/melee/cave_melee.tscn" id="2_251e6"]
 [ext_resource type="PackedScene" uid="uid://ca15vbklojxnj" path="res://units/knight/melee/knight_melee.tscn" id="3_uqwn1"]
 [ext_resource type="PackedScene" uid="uid://d0xcoqhjj5v87" path="res://units/medival/melee/medival_melee.tscn" id="4_hlq40"]

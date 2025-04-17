@@ -60,11 +60,11 @@ text = "Oh boy there is a lot of people to give credit too.
 Lets start off with the obvious, louissi. Even though there was legal trouble between him and maxgames, to me he will always be the owner of age of war. I wanted this game to be as close to the original, while making some QoL changes.
 
 I would also like to thank my friends and family for always supporting me through rough times and giving me unconditional love.
-I used a lot of tutorials on YouTube to put this together. As way of thanking those creators this game is free and open source. Check it out on Github!
+I used a lot of tutorials on YouTube to put this together. As way of thanking those creators this game is free and open source. Check it out on Github! 
 
 Finally I would like to thank you, the player. Thank you for your time and I hope this was a nice nostalgia trip for you. 
 
-My Website: alexpiotrowski.xyz (if my website is down, I also have a YouTube)."
+- Alex Piotrowski"
 label_settings = ExtResource("4_l1uy2")
 autowrap_mode = 2
 
@@ -75,7 +75,7 @@ layout_mode = 2
 [node name="BtnReturn" parent="Panel/VBoxContainer" instance=ExtResource("4_alu7f")]
 layout_mode = 2
 text = "Click here to return to the menu"
-show_hover_pointer = null
+show_hover_pointer = true
 dark = true
 
 [connection signal="pressed" from="Panel/VBoxContainer/BtnReturn" to="." method="_on_button_pressed"]
