@@ -362,7 +362,6 @@ func get_turret_tier(index: int):
 	if turret_array[index] != 1:
 		return
 	var turret_obj = turret_data[index]
-	print(turret_obj.name.split("_"))
 	return turret_obj.name.split("_")[2]
 
 # Used for placing a new turret
@@ -386,6 +385,20 @@ func add_ai_turret_spot():
 		turret_array[3] = 0
 		return true
 	return false
+	
+func remove_ai_old_turret(input_age):
+	print("remove old turret if any exist")
+	for i in range(0,4):
+		
+		var age = get_turret_age(i)
+		if age == null:
+			continue
+		if age != input_age:
+			turret_data[i].queue_free()
+			turret_data[i] = null
+			turret_array[i] = 0
+			return
+
 
 # returns the index of the next available spot
 func get_next_available_spot():

@@ -1,11 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://d4bgctdvogk2y"]
+[gd_scene load_steps=3 format=3 uid="uid://d4bgctdvogk2y"]
 
 [ext_resource type="Script" path="res://ai_spawner.gd" id="1_bbgo7"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_j04ul"]
 size = Vector2(32, 20)
-
-[sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_xmkqd"]
 
 [node name="ai_spawner" type="Node2D"]
 script = ExtResource("1_bbgo7")
@@ -23,10 +21,7 @@ wait_time = 120.0
 autostart = true
 
 [node name="turret_timer" type="Timer" parent="."]
-wait_time = 3.0
-
-[node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="turret_timer"]
-replication_config = SubResource("SceneReplicationConfig_xmkqd")
+wait_time = 30.0
 
 [node name="phase_timer" type="Timer" parent="."]
 

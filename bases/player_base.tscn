@@ -53,6 +53,7 @@ offset_bottom = 40.0
 [node name="Button_tower_base" type="Button" parent="button_container"]
 z_index = 15
 custom_minimum_size = Vector2(32, 32)
+layout_mode = 0
 offset_left = 44.0
 offset_top = -190.0
 offset_right = 76.0
@@ -64,6 +65,7 @@ disabled = true
 [node name="Button_tower_bottom" type="Button" parent="button_container"]
 z_index = 15
 custom_minimum_size = Vector2(32, 32)
+layout_mode = 0
 offset_left = 44.0
 offset_top = -260.0
 offset_right = 76.0
@@ -75,6 +77,7 @@ disabled = true
 [node name="Button_tower_part" type="Button" parent="button_container"]
 z_index = 15
 custom_minimum_size = Vector2(32, 32)
+layout_mode = 0
 offset_left = 44.0
 offset_top = -350.0
 offset_right = 76.0
@@ -86,6 +89,7 @@ disabled = true
 [node name="Button_tower_top" type="Button" parent="button_container"]
 z_index = 15
 custom_minimum_size = Vector2(32, 32)
+layout_mode = 0
 offset_left = 44.0
 offset_top = -443.0
 offset_right = 76.0
