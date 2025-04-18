@@ -7,9 +7,6 @@ var max_health
 var turret_array : Array
 var turret_data : Array
 
-var current_state = 9999
-enum state {idle, attack, walk, die}
-
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	health = 500
@@ -30,14 +27,10 @@ func _ready():
 	if scale.x == -1:
 		$Label.scale.x = -1
 		$Label.position.x = -20
-	
+	$Label.text = str(health)
 	
 	deactivate_buttons()
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	$Label.text = str(health)
 
 
 func add_turret_spot():
@@ -149,6 +142,7 @@ func _on_button_tower_bottom_pressed():
 func take_damage(damage):
 	health -= damage
 	$PanelContainer/current_health.custom_minimum_size.y = 250 * health/max_health
+	$Label.text = str(health)
 	if health <= 0:
 		if is_player_owned == true:
 			MusicManager.audioStreamPlayer.stop()
@@ -304,8 +298,14 @@ func spawn_ai_turret(age: String):
 	
 
 func upgrade_ai_turret(age):
-	pass
+	get_turret_age(0)
 
+# returns the age of the indexed turret as a string
+func get_turret_age(index: int):
+	if turret_array[index] != 1:
+		return
+	var turret_obj = get_node("turret_container").get_child(index)
+	print(turret_obj.name.split("_")[0])
 
 func has_any_empty_tower_spots():
 	for i in turret_array:
