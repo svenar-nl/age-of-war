@@ -44,7 +44,13 @@ position = Vector2(62, -458)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("5_civhq")
 
-[node name="Button_tower_base" type="Button" parent="."]
+[node name="button_container" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Button_tower_base" type="Button" parent="button_container"]
 z_index = 15
 custom_minimum_size = Vector2(32, 32)
 offset_left = 44.0
@@ -55,7 +61,7 @@ focus_mode = 0
 theme = ExtResource("6_8jc8w")
 disabled = true
 
-[node name="Button_tower_bottom" type="Button" parent="."]
+[node name="Button_tower_bottom" type="Button" parent="button_container"]
 z_index = 15
 custom_minimum_size = Vector2(32, 32)
 offset_left = 44.0
@@ -66,7 +72,7 @@ focus_mode = 0
 theme = ExtResource("6_8jc8w")
 disabled = true
 
-[node name="Button_tower_part" type="Button" parent="."]
+[node name="Button_tower_part" type="Button" parent="button_container"]
 z_index = 15
 custom_minimum_size = Vector2(32, 32)
 offset_left = 44.0
@@ -77,7 +83,7 @@ focus_mode = 0
 theme = ExtResource("6_8jc8w")
 disabled = true
 
-[node name="Button_tower_top" type="Button" parent="."]
+[node name="Button_tower_top" type="Button" parent="button_container"]
 z_index = 15
 custom_minimum_size = Vector2(32, 32)
 offset_left = 44.0
@@ -135,9 +141,7 @@ rotation = -1.57079
 scale = Vector2(7.87378, 1)
 texture = ExtResource("7_mgkk8")
 
-[node name="turret_container" type="Node2D" parent="."]
-
-[connection signal="pressed" from="Button_tower_base" to="." method="_on_button_tower_base_pressed"]
-[connection signal="pressed" from="Button_tower_bottom" to="." method="_on_button_tower_bottom_pressed"]
-[connection signal="pressed" from="Button_tower_part" to="." method="_on_button_tower_part_pressed"]
-[connection signal="pressed" from="Button_tower_top" to="." method="_on_button_tower_top_pressed"]
+[connection signal="pressed" from="button_container/Button_tower_base" to="." method="_on_button_tower_base_pressed"]
+[connection signal="pressed" from="button_container/Button_tower_bottom" to="." method="_on_button_tower_bottom_pressed"]
+[connection signal="pressed" from="button_container/Button_tower_part" to="." method="_on_button_tower_part_pressed"]
+[connection signal="pressed" from="button_container/Button_tower_top" to="." method="_on_button_tower_top_pressed"]

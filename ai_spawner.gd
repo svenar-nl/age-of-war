@@ -127,11 +127,14 @@ func _on_timer_2_timeout():
 
 
 func _on_timer_3_timeout():
-	print("spawn turret")
+	print("do a turret action")
 	var enemy_base = get_node("/root/main_game/enemy_base")
 	
 	var choice = randi_range(1, 3)
 	# enemy_base.spawn_ai_turret()
+	
+	# enemy_base.spawn_ai_turret(current_age)
+	# enemy_base.upgrade_ai_turret(current_age)
 	
 	if choice == 1: # Buy a turret
 		if enemy_base.has_any_empty_tower_spots() == true:
