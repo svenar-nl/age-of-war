@@ -8,6 +8,7 @@ func _ready():
 	is_player_owned = true
 	self.connect("body_entered", _on_body_entered)
 	$AudioStreamPlayer2D.play()
+	$AudioStreamPlayer2D.bus = &'sfx'
 
 
 
