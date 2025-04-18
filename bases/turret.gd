@@ -84,6 +84,8 @@ func spawn_projectile(direction, texture):
 	projectile.is_player_owned = self.is_player_owned
 	projectile.spawn_offspring = spawn_projectile_offspring
 	projectile.get_node("Sprite2D").texture = texture
+	if self.is_player_owned == false:
+		projectile.scale.x = -1
 	projectile.get_node("Sprite2D").rotation = $AnimatedSprite2D.rotation
 	if projectile_rotation == true:
 		projectile.rotation_speed = randf_range(-100.0, 100.0)

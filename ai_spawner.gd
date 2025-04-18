@@ -138,8 +138,8 @@ func _on_timer_3_timeout():
 	
 	if choice == 1: # Buy a turret
 		if enemy_base.has_any_empty_tower_spots() == true:
-			enemy_base.spawn_ai_turret(current_age) # Pick a free spot and spawn a turret there
-			$turret_timer.wait_time += 15
+			enemy_base.spawn_ai_turret(current_age) # Pick the first free spot and spawn a turret there
+			$turret_timer.wait_time += 1
 		else:
 			pass
 	elif choice == 2: # Upgrade a turret
@@ -147,12 +147,12 @@ func _on_timer_3_timeout():
 	elif choice == 3:
 		var result = enemy_base.add_ai_turret_spot()
 		if result == true:
-			$turret_timer.wait_time += 15
-	# MAYBE A TODO for Later
+			$turret_timer.wait_time += 1
 	# pick from options
 	# 1 add turret -> Will only add a turret if space is available
 	# 2 upgrade turret -> Will only upgrade turrets if it's current Age is greater than the age of the turret. Upgrading a turret will not go above the age of the turret
 	# 3 add a turret spot
+	# 4 sell a turret that is of previous age.
 	# $turret_timer.wait_time += 15
 
 

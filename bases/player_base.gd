@@ -247,6 +247,7 @@ func advance_base_sprite():
 		health += 1500
 		max_health = 4700
 		$PanelContainer/current_health.custom_minimum_size.y = 250 * health/max_health
+	$Label.text = str(health)
 
 func update_sprite_ai():
 	if max_health == 500:
@@ -281,8 +282,10 @@ func update_sprite_ai():
 		health += 1500
 		max_health = 4700
 		$PanelContainer/current_health.custom_minimum_size.y = 250 * health/max_health
+	$Label.text = str(health)
 
 ### AI ###
+# Functions used for the enemy base
 
 func spawn_ai_turret(age: String):
 	var index = get_next_available_spot()
@@ -299,15 +302,70 @@ func spawn_ai_turret(age: String):
 	
 
 func upgrade_ai_turret(age):
-	get_turret_age(0)
+	var turret_index = pick_random_turret()
+	if turret_index == null:
+		return
+	
+	var turret_age = get_turret_age(turret_index)
+	if turret_age == null:
+		return
+	if turret_age != age:
+		print("upgrade turret -> bring turret to the new age")
+		turret_data[turret_index].queue_free()
+		turret_data[turret_index] = null
+		turret_array[turret_index] = 0
+		
+		var turret_base = load("res://bases/" + age + "_turret_1" + ".tscn").instantiate()
+		turret_base.name += "_" + str(randi()) # We have to do this to avoid multiple same turrets with colliding names
+		self.add_child(turret_base)
+		turret_base.is_player_owned = false
+		turret_base.position = get_node("button_container").get_child(turret_index).position + Vector2(16, 16)
+		turret_array[turret_index] = 1
+		turret_data[turret_index] = turret_base
+	else:
+		print("upgrade turret tier")
+		var current_tier = int(get_turret_tier(turret_index))
+		if current_tier == 3:
+			return
+		
+		turret_data[turret_index].queue_free()
+		turret_data[turret_index] = null
+		turret_array[turret_index] = 0
+		
+		var tier = str(int(current_tier) + 1)
+		
+		var turret_base = load("res://bases/" + age + "_turret_" + tier + ".tscn").instantiate()
+		turret_base.name += "_" + str(randi()) # We have to do this to avoid multiple same turrets with colliding names
+		self.add_child(turret_base)
+		turret_base.is_player_owned = false
+		turret_base.position = get_node("button_container").get_child(turret_index).position + Vector2(16, 16)
+		turret_array[turret_index] = 1
+		turret_data[turret_index] = turret_base
+
+# Pick a random turret to upgrade
+func pick_random_turret():
+	var i = randi_range(0, 3)
+	if turret_array[i] == 1:
+		return i
+	else:
+		# There is no turret to upgrade here, skip
+		return null 
 
 # returns the age of the indexed turret as a string
 func get_turret_age(index: int):
 	if turret_array[index] != 1:
+		return null
+	var turret_obj = turret_data[index]
+	return turret_obj.name.split("_")[0]
+
+func get_turret_tier(index: int):
+	if turret_array[index] != 1:
 		return
 	var turret_obj = turret_data[index]
-	print(turret_obj.name.split("_")[0])
+	print(turret_obj.name.split("_"))
+	return turret_obj.name.split("_")[2]
 
+# Used for placing a new turret
 func has_any_empty_tower_spots():
 	for i in turret_array:
 		if i == 0:
