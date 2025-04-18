@@ -33,6 +33,9 @@ func _ready():
 	no_rotation = false
 	z_index = 1
 
+	if is_player_owned == false:
+		self.scale.x = -1
+
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -50,7 +53,11 @@ func _process(delta):
 			
 		# self.global_position.angle_to_point(current_target.get_node("CollisionShape2D").global_position - self.global_position)
 		if no_rotation == false:
-			$AnimatedSprite2D.rotation = target_position.angle()
+			if is_player_owned == false:
+				var angle = target_position.reflect(Vector2(0,1)).angle()
+				$AnimatedSprite2D.rotation = angle
+			else: # Turret is owned by player
+				$AnimatedSprite2D.rotation = target_position.angle()
 		
 		if $AnimatedSprite2D.frame == spawn_projectile_frame or $AnimatedSprite2D.frame == spawn_projectile_frame2:
 			spawn_projectile(target_position.normalized(), projectile_texture)
@@ -77,6 +84,8 @@ func spawn_projectile(direction, texture):
 	projectile.is_player_owned = self.is_player_owned
 	projectile.spawn_offspring = spawn_projectile_offspring
 	projectile.get_node("Sprite2D").texture = texture
+	if self.is_player_owned == false:
+		projectile.scale.x = -1
 	projectile.get_node("Sprite2D").rotation = $AnimatedSprite2D.rotation
 	if projectile_rotation == true:
 		projectile.rotation_speed = randf_range(-100.0, 100.0)

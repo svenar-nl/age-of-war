@@ -54,7 +54,7 @@ size_flags_vertical = 3
 [node name="BtnReturn" parent="VBoxContainer" instance=ExtResource("4_4wycl")]
 layout_mode = 2
 text = "Play again?"
-show_hover_pointer = null
+show_hover_pointer = true
 dark = false
 
 [connection signal="pressed" from="VBoxContainer/BtnReturn" to="." method="_on_button_pressed"]

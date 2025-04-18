@@ -11,13 +11,15 @@ func _ready():
 	speed = 200
 	timer = get_node("Timer")
 	timer.paused = true
+	timer.wait_time = 1.5
+	$AudioStreamPlayer2D.bus = &'sfx'
 	$AudioStreamPlayer2D.play()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	position.x +=  speed * delta
 	
-	if position.x > 2000:
+	if position.x > 2400:
 		self.queue_free()
 	elif position.x > 1500:
 		timer.stop()

@@ -1,6 +1,6 @@
 extends Area2D
 
-var damage: int = 750
+var damage: int = 500
 @export var direction : Vector2 = Vector2(0,1)
 var speed: float = 10
 @export var time_to_die : float = 5.0

@@ -7,7 +7,7 @@
 [ext_resource type="Script" path="res://scripts/camera_scroll.gd" id="5_6jeu4"]
 [ext_resource type="FontFile" uid="uid://bi67eh3ngbnui" path="res://fonts/Lora/static/Lora-Bold.ttf" id="6_hq4av"]
 [ext_resource type="PackedScene" uid="uid://0fkoqk68ht8c" path="res://scenes/ui/menu_button.tscn" id="6_ysxak"]
-[ext_resource type="PackedScene" uid="uid://2elbildsvawn" path="res://effects/spawn_aura.tscn" id="7_m5ets"]
+[ext_resource type="PackedScene" path="res://effects/spawn_aura.tscn" id="7_m5ets"]
 [ext_resource type="PackedScene" uid="uid://d4bgctdvogk2y" path="res://ai_spawner.tscn" id="11_jpaar"]
 [ext_resource type="PackedScene" uid="uid://c36x5w6hobq86" path="res://bases/player_base.tscn" id="15_kvrvk"]
 
