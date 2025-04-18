@@ -7,9 +7,8 @@ var damage : int = 600
 func _ready():
 	is_player_owned = true
 	self.connect("body_entered", _on_body_entered)
-	$AudioStreamPlayer2D.play()
 	$AudioStreamPlayer2D.bus = &'sfx'
-
+	$AudioStreamPlayer2D.play()
 
 
 func _on_body_entered(body):

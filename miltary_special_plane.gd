@@ -11,6 +11,7 @@ func _ready():
 	speed = 200
 	timer = get_node("Timer")
 	timer.paused = true
+	$AudioStreamPlayer2D.bus = &'sfx'
 	$AudioStreamPlayer2D.play()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
